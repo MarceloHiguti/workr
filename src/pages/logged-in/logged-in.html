@@ -14,5 +14,30 @@
 
 
 <ion-content padding>
-  {{ email }}
+  <form [formGroup]="form">
+
+    <ion-item>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.name.valid && (form.controls.name.dirty || form.controls.name.touch)" color="danger">
+      <div [hidden]="!form.controls.name.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Type</ion-label>
+      <ion-input type="text" formControlName="type"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.type.valid && (form.controls.type.dirty || form.controls.type.touch)" color="danger">
+      <div [hidden]="!form.controls.type.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
+    </div>
+  </form>
 </ion-content>

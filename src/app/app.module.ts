@@ -15,6 +15,7 @@ import { RegisterPage } from '../pages/register/register';
 import { LoggedInPage } from '../pages/logged-in/logged-in';
 
 import { SQLite } from '@ionic-native/sqlite';
+import { UsersProvider } from '../providers/users/users';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { SQLite } from '@ionic-native/sqlite';
     SplashScreen,
     {provide: LOCALE_ID, useValue: 'pt-BR'},
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SQLite
+    SQLite,
+    UsersProvider
   ]
 })
 export class AppModule {}

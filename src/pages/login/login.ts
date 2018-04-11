@@ -28,6 +28,16 @@ export class LoginPage {
     this.afAuth.auth.signInWithEmailAndPassword(this.user.value, this.password.value)
       .then(data => {
         console.log("got some data", data);
+        var user = this.afAuth.auth.currentUser;
+        user.updateProfile({
+          displayName: "Marcelo",
+          photoURL: ""
+        }).then(function() {
+          console.log("uid:", user.uid);
+          console.log("displayName:", user.displayName);
+        }).catch(function(error) {
+          // An error happened.
+        });
         this.navCtrl.setRoot(LoggedInPage);
       })
       .catch(e => {

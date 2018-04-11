@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
-
-/**
- * Generated class for the LoggedInPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { UsersProvider } from '../../providers/users/users';
 
 @IonicPage()
 @Component({
@@ -17,10 +12,34 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class LoggedInPage {
 
   email: string;
+  form: FormGroup;
+  users: any;
 
-  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private provider: UsersProvider, private toast: ToastController) {
     this.email = afAuth.auth.currentUser.email;
+    this.users = this.navParams.data.users || {};
+    console.log("user: ", this.users);
+    this.createForm();
   }
 
+  createForm () {
+    this.form = this.formBuilder.group({
+      key: [this.users.key],
+      name: [this.users.name, Validators.required],
+      type: [this.users.type, Validators.required]
+    })
+  }
 
+  onSubmit () {
+    if (this.form.valid) {
+      this.provider.save(this.form.value)
+        .then(() => {
+          this.toast.create({ message: 'Usuário salvo com sucesso.', duration: 3000}).present();
+        })
+        .catch((e) => {
+          this.toast.create({ message: 'Erro ao salvar usuário.', duration: 3000}).present();
+          console.error(e);
+        })
+    }
+  }
 }
