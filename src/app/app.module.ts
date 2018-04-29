@@ -13,9 +13,15 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { LoggedInPage } from '../pages/logged-in/logged-in';
+import { CardPage } from '../pages/card/card';
+import { CardDetailPage } from '../pages/card-detail/card-detail';
 
 import { SQLite } from '@ionic-native/sqlite';
 import { UsersProvider } from '../providers/users/users';
+
+import { EmpresaTabPage } from '../pages/empresa-tab/empresa-tab';
+import { EmpresaTabVagasPage } from '../pages/empresa-tab-vagas/empresa-tab-vagas';
+import { CadastrarVagaPage } from '../pages/cadastrar-vaga/cadastrar-vaga';
 
 @NgModule({
   declarations: [
@@ -23,7 +29,12 @@ import { UsersProvider } from '../providers/users/users';
     HomePage,
     LoginPage,
     RegisterPage,
-    LoggedInPage
+    LoggedInPage,
+    CardPage,
+    CardDetailPage,
+    EmpresaTabPage,
+    EmpresaTabVagasPage,
+    CadastrarVagaPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +56,12 @@ import { UsersProvider } from '../providers/users/users';
     HomePage,
     LoginPage,
     RegisterPage,
-    LoggedInPage
+    LoggedInPage,
+    CardPage,
+    CardDetailPage,
+    EmpresaTabPage,
+    EmpresaTabVagasPage,
+    CadastrarVagaPage
   ],
   providers: [
     StatusBar,
