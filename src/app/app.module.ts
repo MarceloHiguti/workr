@@ -22,6 +22,7 @@ import { UsersProvider } from '../providers/users/users';
 import { EmpresaTabPage } from '../pages/empresa-tab/empresa-tab';
 import { EmpresaTabVagasPage } from '../pages/empresa-tab-vagas/empresa-tab-vagas';
 import { CadastrarVagaPage } from '../pages/cadastrar-vaga/cadastrar-vaga';
+import { FuncVagasPage } from '../pages/func-vagas/func-vagas';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CadastrarVagaPage } from '../pages/cadastrar-vaga/cadastrar-vaga';
     CardDetailPage,
     EmpresaTabPage,
     EmpresaTabVagasPage,
-    CadastrarVagaPage
+    CadastrarVagaPage,
+    FuncVagasPage
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ import { CadastrarVagaPage } from '../pages/cadastrar-vaga/cadastrar-vaga';
     CardDetailPage,
     EmpresaTabPage,
     EmpresaTabVagasPage,
-    CadastrarVagaPage
+    CadastrarVagaPage,
+    FuncVagasPage
   ],
   providers: [
     StatusBar,

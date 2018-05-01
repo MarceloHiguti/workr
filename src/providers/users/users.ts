@@ -21,9 +21,9 @@ export class UsersProvider {
     var ref = this.db.database.ref(collection + "/");
     ref.once("value")
       .then(function(snapshot) {
-        var obj = {};
+        var obj = snapshot.val(); 
         console.log(obj);
-        return obj = snapshot.val(); 
+        return obj;
 
         // var node = snapshot.val();
         // var user = snapshot.child(key).val();
