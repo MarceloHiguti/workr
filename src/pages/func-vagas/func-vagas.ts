@@ -58,6 +58,11 @@ export class FuncVagasPage {
     });
   }
 
+  log (a) {
+    console.log("log fired");
+    console.log(a);
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad FuncVagasPage');
   }
