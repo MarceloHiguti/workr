@@ -14,6 +14,15 @@
 
 
 <ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let vaga of vagas | async">
+      <ion-item>
+        <h1>{{ vaga.title }}</h1>
+        <p>{{ vaga.description }}</p>
+      </ion-item>
+    </ion-item>
+  </ion-list>
+
   <div padding>
     <button block ion-button (click)="cadastrarVaga()">+ Vagas</button>
   </div>
