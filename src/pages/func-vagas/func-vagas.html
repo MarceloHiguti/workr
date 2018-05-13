@@ -1,17 +1,19 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Card test
+      Empregos
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="body_page">
 
   <ion-card *ngFor="let job of jobs">
   <!-- <ion-card> -->
-    <img src="assets/imgs/campus_maua.png" style="height:200px;">
-    <div class="card">
+    <ion-card-header>
+      <img src="{{ job.image }}" style="height:150px; padding:20px;">
+    </ion-card-header>
+    <div class="card_desc">
       <ion-card-content >
         <ion-card-title>
           {{ job.title }}
@@ -23,11 +25,11 @@
     </div>
   </ion-card>
 
-  <button ion-button round icon-only (click)="log(jobs[0].title)">
+  <button large ion-button round icon-only (click)="log(jobs[0].title)">
     <ion-icon name="close"></ion-icon>
   </button>
   
-  <button ion-button round icon-only>
+  <button large ion-button round icon-only float-right>
     <ion-icon name="checkmark"></ion-icon>
   </button>
 

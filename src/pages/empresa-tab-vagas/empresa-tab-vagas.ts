@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CadastrarVagaPage } from '../cadastrar-vaga/cadastrar-vaga';
-import { Observable } from '@firebase/util';
 import { UsersProvider } from '../../providers/users/users';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the EmpresaTabVagasPage page.

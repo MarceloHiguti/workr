@@ -16,7 +16,7 @@
 <ion-content padding>
   <form [formGroup]="form">
     <ion-item>
-      <ion-label stacked>Título</ion-label>
+      <ion-label stacked>Vaga</ion-label>
       <ion-input type="text" formControlName="title"></ion-input>
     </ion-item>
     <ion-item *ngIf="!form.controls.title.valid && (form.controls.title.dirty || form.controls.title.touch)" color="danger">

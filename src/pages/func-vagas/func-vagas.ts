@@ -12,6 +12,7 @@ export class FuncVagasPage {
 
   title: String;
   desc: String;
+  images: Array<String> = ["assets/imgs/maua_logo.png", "assets/imgs/google_logo.png", "assets/imgs/campus_maua.png"];
   jobs: Array<Object> = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, public users: UsersProvider) {
@@ -45,10 +46,10 @@ export class FuncVagasPage {
         obj.forEach(element => {
           // console.log(element);
           keys = Object.keys(element);
-          keys.forEach(value => {
+          keys.forEach((value, index) => {
             parent.title = element[value].title;
             parent.desc = element[value].description;
-            parent.jobs.push({title: parent.title, desc: parent.desc});
+            parent.jobs.push({title: parent.title, desc: parent.desc, image: parent.images[index]});
           })
           // console.log(element["-LBEHim-1JcaPfrpU0F4"].title);
         });
