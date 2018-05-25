@@ -5,6 +5,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class UsersProvider {
   private PATH = 'users/';
   private pathVagas = 'vagas/';
+  private pathMatch = 'matches/';
 
   constructor(private db: AngularFireDatabase) {
   }
@@ -76,12 +77,27 @@ export class UsersProvider {
     return new Promise((resolve, reject) => {
       if (user.key) {
         this.db.list(this.pathVagas)
-          .update(user.key, { title: user.title, description: user.description })
+          .update(user.key, { title: user.title, empresa: user.empresa, cargo: user.cargo, salario: user.salario, description: user.description })
           .then(() => resolve())
           .catch((e) => reject(e));
       } else {
         this.db.list(this.pathVagas)
-          .push({ title: user.title, description: user.description })
+          .push({ title: user.title, empresa: user.empresa, cargo: user.cargo, salario: user.salario, description: user.description })
+          .then(() => resolve());
+      }
+    })
+  }
+
+  saveMatch(user: any) {
+    return new Promise((resolve, reject) => {
+      if (user.key) {
+        this.db.list(this.pathMatch)
+          .update(user.key, { vagaId: user.vagaId, funcionarioId: user.funcionarioId, empresaId: user.empresaId, status: user.status })
+          .then(() => resolve())
+          .catch((e) => reject(e));
+      } else {
+        this.db.list(this.pathMatch)
+          .push({ vagaId: user.vagaId, funcionarioId: user.funcionarioId, empresaId: user.empresaId, status: user.status })
           .then(() => resolve());
       }
     })
@@ -89,5 +105,9 @@ export class UsersProvider {
 
   remove(key: string) {
     return this.db.list(this.PATH).remove(key);
+  }
+
+  removeMatches() {
+    return this.db.list(this.pathMatch).remove();
   }
 }

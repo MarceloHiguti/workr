@@ -8,6 +8,7 @@ import { CardPage } from '../card/card';
 import { CardDetailPage } from '../card-detail/card-detail';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { EmpresaTabPage } from '../empresa-tab/empresa-tab';
+import { FuncionarioTabPage } from '../funcionario-tab/funcionario-tab';
 
 @IonicPage()
 @Component({
@@ -30,9 +31,14 @@ export class LoginPage {
     }).present();
   }
 
-  tabs() {
+  empresaTabs() {
     console.log("tem cadastro");
     this.navCtrl.setRoot(EmpresaTabPage);
+  }
+
+  funcionarioTabs() {
+    console.log("tem cadastro");
+    this.navCtrl.setRoot(FuncionarioTabPage);
   }
 
   cadastro() {
@@ -52,7 +58,7 @@ export class LoginPage {
         var ref = this.db.database.ref("users/" + user.uid).once("value")
           .then(function(snapshot) {
             if (snapshot.exists()) {//verificar se possui a key do auth no banco de dados
-              parent.tabs();
+              parent.funcionarioTabs();
             } else {
               parent.cadastro();
             }
@@ -88,7 +94,7 @@ export class LoginPage {
   }
 
   signInEmpresa () {
-    this.afAuth.auth.signInWithEmailAndPassword("teste@teste.com", "123456")
+    this.afAuth.auth.signInWithEmailAndPassword("higuti@teste.com", "123@mudar")
       .then(data => {
         console.log("got some data", data);
         var parent = this; // variavel criada para poder acessar o navCtrl na próxima função
@@ -96,7 +102,7 @@ export class LoginPage {
         var ref = this.db.database.ref("users/" + user.uid).once("value")
           .then(function(snapshot) {
             if (snapshot.exists()) {//verificar se possui a key do auth no banco de dados
-              parent.tabs();
+              parent.empresaTabs();
             } else {
               parent.cadastro();
             }
@@ -124,7 +130,7 @@ export class LoginPage {
         var ref = this.db.database.ref("users/" + user.uid).once("value")
           .then(function(snapshot) {
             if (snapshot.exists()) {//verificar se possui a key do auth no banco de dados
-              parent.tabs();
+              parent.funcionarioTabs();
             } else {
               parent.cadastro();
             }

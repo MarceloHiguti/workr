@@ -1,40 +1,58 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, trigger, state, animate, transition, style, ViewChild, ElementRef } from '@angular/core';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { FormGroup } from '@angular/forms';
 
 @IonicPage()
 @Component({
   selector: 'page-func-vagas',
   templateUrl: 'func-vagas.html',
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({transform: 'translateX(0)'})),
+      transition('void => *', [
+        style({transform: 'translateX(-100%)'}),
+        animate(100)
+      ]),
+      transition('* => void', [
+        animate(100, style({transform: 'translateX(100%)'}))
+      ])
+    ]),
+
+    trigger('myAwesomeAnimation', [
+        state('small', style({
+            transform: 'scale(1)',
+        })),
+        state('large', style({
+            transform: 'scale(1.2)',
+        })),
+        transition('small => large', animate('100ms ease-in')),
+    ])
+  ]
 })
 export class FuncVagasPage {
 
+  userId: string;
   title: String;
+  empresa: String;
+  cargo: String;
+  salario: String;
   desc: String;
-  images: Array<String> = ["assets/imgs/maua_logo.png", "assets/imgs/google_logo.png", "assets/imgs/campus_maua.png"];
+  images: Array<String> = ["assets/imgs/maua_logo.png", "assets/imgs/google_logo.png",
+   "assets/imgs/stark_logo.jpg", "assets/imgs/uol_logo.png"];
   jobs: Array<Object> = [];
+  showCard: Boolean = true;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, public users: UsersProvider) {
-    // this.jobs = [
-    //   {
-    //     title: "titulo 1",
-    //     desc: "desc 1"
-    //   }, 
-    //   {
-    //     title: "titulo 2",
-    //     desc: "desc 2"
-    //   }, 
-    //   {
-    //     title: "titulo 3",
-    //     desc: "desc 3"
-    //   }
-    // ]
-    // this.jobs.push( {
-    //   title: "titulo 1",
-    //   desc: "desc 1"
-    // });
-    // console.log(this.jobs);
+  match = {
+    vagaId: '',
+    funcionarioId: '',
+    empresaId: '',
+    status: '',
+  }
+
+  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController) {
 
     var parent = this;
     var ref = this.db.database.ref("vagas/").once("value")
@@ -48,8 +66,12 @@ export class FuncVagasPage {
           keys = Object.keys(element);
           keys.forEach((value, index) => {
             parent.title = element[value].title;
+            parent.empresa = element[value].empresa;
+            parent.cargo = element[value].cargo;
+            parent.salario = element[value].salario;
             parent.desc = element[value].description;
-            parent.jobs.push({title: parent.title, desc: parent.desc, image: parent.images[index]});
+            parent.jobs.push({vagaId: value, title: parent.title, empresa: parent.empresa, 
+              cargo: parent.cargo, salario: parent.salario, desc: parent.desc, image: parent.images[index]});
           })
           // console.log(element["-LBEHim-1JcaPfrpU0F4"].title);
         });
@@ -59,9 +81,41 @@ export class FuncVagasPage {
     });
   }
 
-  log (a) {
-    console.log("log fired");
-    console.log(a);
+  no_click () {
+    console.log("no_click fired");
+    // var target = event.target || event.srcElement || event.currentTarget;
+    // var idAttr = target.attributes.id;
+    // var value = idAttr.nodeValue;
+    // console.log(value);
+    this.jobs.pop();
+    console.log("jobs",this.jobs[this.jobs.length-1]);
+    console.log("jobs",this.jobs);
+  }
+
+  yes_click () {
+    console.log("yes_click fired");
+    if (this.jobs.length > 0) {
+      this.userId = this.afAuth.auth.currentUser.uid;
+      this.match.vagaId = this.jobs[this.jobs.length-1]["vagaId"];
+      this.match.funcionarioId = this.userId;
+      this.match.empresaId = this.jobs[this.jobs.length-1]["empresa"];
+      this.match.status = "H";
+      // console.log(this.match);
+
+      this.provider.saveMatch(this.match)
+      .then(() => {
+      })
+      .catch((e) => {
+        this.toast.create({ message: 'Ocorreu um erro.', duration: 3000}).present();
+        console.error(e);
+      })
+
+      this.jobs.pop();
+    }
+  }
+  
+  animateMe(i) {
+    // this.state = (this.state === 'small' ? 'large' : 'small');
   }
 
   ionViewDidLoad() {

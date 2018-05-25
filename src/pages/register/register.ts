@@ -38,6 +38,10 @@ export class RegisterPage {
           case "auth/weak-password" :
             this.alert("A senha deve conter no mínimo 6 characters");
             break;
+
+          case "auth/email-already-in-use" :
+            this.alert("Este email já está cadastrado");
+            break;
           
           default :
             this.alert("Email ou senha inválidos");

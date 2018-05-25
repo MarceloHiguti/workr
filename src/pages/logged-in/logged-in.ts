@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { UsersProvider } from '../../providers/users/users';
 import { CardPage } from '../card/card';
+import { EmpresaTabPage } from '../empresa-tab/empresa-tab';
 
 @IonicPage()
 @Component({
@@ -39,7 +40,7 @@ export class LoggedInPage {
       this.provider.save(this.form.value)
         .then(() => {
           this.toast.create({ message: 'Usuário salvo com sucesso.', duration: 3000}).present();
-          this.navCtrl.push(CardPage);
+          this.navCtrl.push(EmpresaTabPage);
         })
         .catch((e) => {
           this.toast.create({ message: 'Erro ao salvar usuário.', duration: 3000}).present();

@@ -1,0 +1,25 @@
+<ion-content padding class="body_page">
+  <div *ngFor="let job of jobs; let i = index" [ngSwitch]="job.status">
+    <ion-card id="card-{{ i }}" class="td_card">
+      <ion-card-header *ngSwitchCase="'H'" 
+        class="yellow_back"> 
+      </ion-card-header>
+      <ion-card-header *ngSwitchCase="'Y'" 
+        class="green_back"> 
+      </ion-card-header>
+      <ion-card-header *ngSwitchCase="'N'" 
+        class="red_back"> 
+      </ion-card-header>
+      <div class="card_desc">
+        <ion-card-content class="card_desc">
+          <ion-card-title>
+            {{ job.title }}
+          </ion-card-title>
+          <p>
+            {{ job.empresa }}
+          </p>
+        </ion-card-content>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

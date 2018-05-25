@@ -23,6 +23,9 @@ import { EmpresaTabPage } from '../pages/empresa-tab/empresa-tab';
 import { EmpresaTabVagasPage } from '../pages/empresa-tab-vagas/empresa-tab-vagas';
 import { CadastrarVagaPage } from '../pages/cadastrar-vaga/cadastrar-vaga';
 import { FuncVagasPage } from '../pages/func-vagas/func-vagas';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FuncLikesPage } from '../pages/func-likes/func-likes';
+import { FuncionarioTabPage } from '../pages/funcionario-tab/funcionario-tab';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,9 @@ import { FuncVagasPage } from '../pages/func-vagas/func-vagas';
     EmpresaTabPage,
     EmpresaTabVagasPage,
     CadastrarVagaPage,
-    FuncVagasPage
+    FuncVagasPage,
+    FuncionarioTabPage,
+    FuncLikesPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,8 @@ import { FuncVagasPage } from '../pages/func-vagas/func-vagas';
       messagingSenderId: "749224329835"
     }),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -64,7 +70,9 @@ import { FuncVagasPage } from '../pages/func-vagas/func-vagas';
     EmpresaTabPage,
     EmpresaTabVagasPage,
     CadastrarVagaPage,
-    FuncVagasPage
+    FuncVagasPage,
+    FuncionarioTabPage,
+    FuncLikesPage
   ],
   providers: [
     StatusBar,

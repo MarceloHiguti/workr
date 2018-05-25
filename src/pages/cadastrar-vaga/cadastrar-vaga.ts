@@ -29,6 +29,9 @@ export class CadastrarVagaPage {
     this.form = this.formBuilder.group({
       // key: [this.userId],
       title: [this.users.title, Validators.required],
+      empresa: [this.users.empresa, Validators.required],
+      cargo: [this.users.cargo, Validators.required],
+      salario: [this.users.salario, Validators.required],
       description: [this.users.description, Validators.required]
     })
   }

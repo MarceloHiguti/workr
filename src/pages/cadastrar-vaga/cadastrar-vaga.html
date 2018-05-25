@@ -1,9 +1,3 @@
-<!--
-  Generated template for the CadastrarVagaPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -16,11 +10,41 @@
 <ion-content padding>
   <form [formGroup]="form">
     <ion-item>
-      <ion-label stacked>Vaga</ion-label>
+      <ion-label stacked>Título da Vaga</ion-label>
       <ion-input type="text" formControlName="title"></ion-input>
     </ion-item>
     <ion-item *ngIf="!form.controls.title.valid && (form.controls.title.dirty || form.controls.title.touch)" color="danger">
       <div [hidden]="!form.controls.title.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Empresa</ion-label>
+      <ion-input type="text" formControlName="empresa"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.empresa.valid && (form.controls.empresa.dirty || form.controls.empresa.touch)" color="danger">
+      <div [hidden]="!form.controls.empresa.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Cargo</ion-label>
+      <ion-input type="text" formControlName="cargo"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.cargo.valid && (form.controls.cargo.dirty || form.controls.cargo.touch)" color="danger">
+      <div [hidden]="!form.controls.cargo.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Salário</ion-label>
+      <ion-input type="text" formControlName="salario"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.salario.valid && (form.controls.salario.dirty || form.controls.salario.touch)" color="danger">
+      <div [hidden]="!form.controls.salario.errors.required">
         O campo é obrigatório
       </div>
     </ion-item>

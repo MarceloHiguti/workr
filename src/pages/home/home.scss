@@ -1,9 +1,26 @@
 page-home {
-    #topButtons {
+    .content_page {
+        position: absolute;
+        top: 30%;
+    }
+
+    .topButtons {
         display: flex;
         flex-direction: row;
+        padding: 10px;
     }
-    #topButtons button {
+    .topButtons button {
         flex: 1;
+    }
+
+    .body_page {
+        background-color: rgb(245, 245, 245);
+    }
+
+    .content_background {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
     }
 }
