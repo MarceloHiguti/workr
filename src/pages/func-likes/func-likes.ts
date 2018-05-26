@@ -39,20 +39,22 @@ export class FuncLikesPage {
         var keys = [];
         obj.push(snapshot.val()); 
         // console.log(obj);
-        obj.forEach(element => {
-          keys = Object.keys(element);
-          keys.forEach((value, index) => {
-            parent.vagaId = element[value].vagaId;
-            parent.status = element[value].status;
-            parent.matches.push({vagaId: parent.vagaId, status: parent.status});
-          })
-        });
+        if (obj[0] != null) {
+          obj.forEach(element => {
+            keys = Object.keys(element);
+            keys.forEach((value, index) => {
+              parent.vagaId = element[value].vagaId;
+              parent.status = element[value].status;
+              parent.matches.push({vagaId: parent.vagaId, status: parent.status});
+            })
+          });
+        }
         // console.log("parent.matches");
         // console.log(parent.matches);
-
+        
         parent.matches.forEach(function(match){
           // console.log(match);
-          var jobsRef = parent.db.database.ref("vagas/").orderByKey().equalTo(match.vagaId).once("value")
+          var jobsRef = parent.db.database.ref("vagas/").orderByKey().equalTo(match["vagaId"]).once("value")
           .then(function(snapshot) {
             var obj = [];
             var keys = [];
@@ -64,8 +66,7 @@ export class FuncLikesPage {
               keys.forEach((value, index) => {
                 parent.title = element[value].title;
                 parent.empresa = element[value].empresa;
-                parent.empresa = element[value].empresa;
-                parent.jobStatus = match.status;
+                parent.jobStatus = match["status"];
                 parent.jobs.push({title: parent.title, empresa: parent.empresa, status: parent.jobStatus});
               })
             });
@@ -76,4 +77,7 @@ export class FuncLikesPage {
     });
   }
 
+  deletarVagas() {
+    this.provider.removeMatches();
+  }
 }

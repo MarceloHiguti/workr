@@ -26,6 +26,7 @@ import { FuncVagasPage } from '../pages/func-vagas/func-vagas';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FuncLikesPage } from '../pages/func-likes/func-likes';
 import { FuncionarioTabPage } from '../pages/funcionario-tab/funcionario-tab';
+import { EmpresaCandidatoPage } from '../pages/empresa-candidato/empresa-candidato';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { FuncionarioTabPage } from '../pages/funcionario-tab/funcionario-tab';
     CadastrarVagaPage,
     FuncVagasPage,
     FuncionarioTabPage,
-    FuncLikesPage
+    FuncLikesPage,
+    EmpresaCandidatoPage
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ import { FuncionarioTabPage } from '../pages/funcionario-tab/funcionario-tab';
     CadastrarVagaPage,
     FuncVagasPage,
     FuncionarioTabPage,
-    FuncLikesPage
+    FuncLikesPage,
+    EmpresaCandidatoPage
   ],
   providers: [
     StatusBar,

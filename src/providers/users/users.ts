@@ -90,16 +90,18 @@ export class UsersProvider {
 
   saveMatch(user: any) {
     return new Promise((resolve, reject) => {
-      if (user.key) {
-        this.db.list(this.pathMatch)
-          .update(user.key, { vagaId: user.vagaId, funcionarioId: user.funcionarioId, empresaId: user.empresaId, status: user.status })
-          .then(() => resolve())
-          .catch((e) => reject(e));
-      } else {
-        this.db.list(this.pathMatch)
-          .push({ vagaId: user.vagaId, funcionarioId: user.funcionarioId, empresaId: user.empresaId, status: user.status })
-          .then(() => resolve());
-      }
+      this.db.list(this.pathMatch)
+        .push({ vagaId: user.vagaId, funcionarioId: user.funcionarioId, empresa: user.empresa, status: user.status })
+        .then(() => resolve());
+    })
+  }
+
+  updateMatch(user: any) {
+    return new Promise((resolve, reject) => {
+      this.db.list(this.pathMatch)
+        .update(user.key, { status: user.status })
+        .then(() => resolve())
+        .catch((e) => reject(e));
     })
   }
 

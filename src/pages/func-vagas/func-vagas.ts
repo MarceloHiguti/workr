@@ -48,7 +48,7 @@ export class FuncVagasPage {
   match = {
     vagaId: '',
     funcionarioId: '',
-    empresaId: '',
+    empresa: '',
     status: '',
   }
 
@@ -98,7 +98,7 @@ export class FuncVagasPage {
       this.userId = this.afAuth.auth.currentUser.uid;
       this.match.vagaId = this.jobs[this.jobs.length-1]["vagaId"];
       this.match.funcionarioId = this.userId;
-      this.match.empresaId = this.jobs[this.jobs.length-1]["empresa"];
+      this.match.empresa = this.jobs[this.jobs.length-1]["empresa"];
       this.match.status = "H";
       // console.log(this.match);
 

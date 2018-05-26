@@ -11,6 +11,7 @@ export class RegisterPage {
 
   @ViewChild('username') user;
   @ViewChild('password') password;
+  username: string;
 
   constructor(private alertCtrl: AlertController, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -23,8 +24,9 @@ export class RegisterPage {
   }
 
   registerUser () {
-    console.log("senha register:", this.password.value)
-    this.afAuth.auth.createUserWithEmailAndPassword(this.user.value, this.password.value)
+    // console.log("senha register:", this.password.value);
+    this.username = this.user.value + "@teste.com";
+    this.afAuth.auth.createUserWithEmailAndPassword(this.username, this.password.value)
       .then(data => {
         console.log("got data", data);
         this.alert("Cadastro realizado com sucesso");

@@ -4,6 +4,7 @@ import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
 import { EmpresaTabVagasPage } from '../empresa-tab-vagas/empresa-tab-vagas';
 import { FuncVagasPage } from '../func-vagas/func-vagas';
+import { EmpresaCandidatoPage } from '../empresa-candidato/empresa-candidato';
 
 @IonicPage()
 @Component({
@@ -12,7 +13,7 @@ import { FuncVagasPage } from '../func-vagas/func-vagas';
 })
 export class EmpresaTabPage {
 
-  tab1 = FuncVagasPage;
+  tab1 = EmpresaCandidatoPage;
   tab2 = EmpresaTabVagasPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {

@@ -1,0 +1,31 @@
+<ion-content padding class="body_page">
+  <div class="mensagem">
+    <h2>Não existem mais vagas disponíveis no momento</h2>
+  </div>
+  <div *ngFor="let candidate of candidates; let i = index">
+  <!-- <ion-card *ngFor="let job of jobs" class="td_card"> -->
+  <!-- <ion-card class="td_card"  *ngIf="showCard" [@flyInOut]> -->
+    <ion-card id="card-{{ i }}" class="td_card">
+      <ion-card-header>
+      </ion-card-header>
+      <div class="card_desc">
+        <ion-card-content class="card_desc">
+          <ion-card-title>
+            {{ candidate.name }}
+          </ion-card-title>
+        </ion-card-content>
+      </div>
+
+    </ion-card>
+  </div>
+
+  <button large ion-button round icon-only (click)="no_click()" class="td_button">
+  <!-- <button id="button-{{ i }}" (click)="log($event)"> -->
+    <ion-icon class="close_icon" name="close"></ion-icon>
+  </button>
+
+  <button large ion-button round icon-only float-right (click)="yes_click()" class="td_button">
+    <ion-icon class="check_icon" name="checkmark"></ion-icon>
+  </button>
+  
+</ion-content>
