@@ -35,19 +35,24 @@ import { FormGroup } from '@angular/forms';
 export class FuncVagasPage {
 
   userId: string;
+  userNome: string;
   title: String;
   empresa: String;
   cargo: String;
   salario: String;
   desc: String;
-  images: Array<String> = ["assets/imgs/maua_logo.png", "assets/imgs/google_logo.png",
-   "assets/imgs/stark_logo.jpg", "assets/imgs/uol_logo.png"];
+  imagem: String;
+  images: Array<String> = ["assets/imgs/google_logo.png", "assets/imgs/stark_logo.jpg", 
+   "assets/imgs/uol_logo.png", "assets/imgs/maua_logo.png"];
   jobs: Array<Object> = [];
   showCard: Boolean = true;
 
   match = {
     vagaId: '',
+    vagaTitle: '',
+    vagaCargo: '',
     funcionarioId: '',
+    funcionarioNome: '',
     empresa: '',
     status: '',
   }
@@ -70,8 +75,27 @@ export class FuncVagasPage {
             parent.cargo = element[value].cargo;
             parent.salario = element[value].salario;
             parent.desc = element[value].description;
+
+            switch (parent.empresa) {
+              case "Google":
+                parent.imagem = parent.images[0];
+                break;
+
+              case "Indústrias Stark":
+                parent.imagem = parent.images[1];
+                break;
+
+              case "Uol":
+                parent.imagem = parent.images[2];
+                break;
+
+              case "Maua":
+                parent.imagem = parent.images[3];
+                break;
+            }
+
             parent.jobs.push({vagaId: value, title: parent.title, empresa: parent.empresa, 
-              cargo: parent.cargo, salario: parent.salario, desc: parent.desc, image: parent.images[index]});
+              cargo: parent.cargo, salario: parent.salario, desc: parent.desc, image: parent.imagem});
           })
           // console.log(element["-LBEHim-1JcaPfrpU0F4"].title);
         });
@@ -96,8 +120,12 @@ export class FuncVagasPage {
     console.log("yes_click fired");
     if (this.jobs.length > 0) {
       this.userId = this.afAuth.auth.currentUser.uid;
+      this.userNome = this.afAuth.auth.currentUser.displayName;
       this.match.vagaId = this.jobs[this.jobs.length-1]["vagaId"];
+      this.match.vagaTitle = this.jobs[this.jobs.length-1]["title"];
+      this.match.vagaCargo = this.jobs[this.jobs.length-1]["cargo"];
       this.match.funcionarioId = this.userId;
+      this.match.funcionarioNome = this.userNome;
       this.match.empresa = this.jobs[this.jobs.length-1]["empresa"];
       this.match.status = "H";
       // console.log(this.match);

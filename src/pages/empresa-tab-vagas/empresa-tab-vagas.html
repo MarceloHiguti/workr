@@ -1,12 +1,9 @@
-<ion-header>
-</ion-header>
-
-
-<ion-content padding>
+<ion-content padding class="body_page">
   <ion-list>
-    <ion-item *ngFor="let vaga of vagas | async">
+    <ion-item *ngFor="let vaga of vagas" class="vagas_item">
       <ion-item>
         <h1>{{ vaga.title }}</h1>
+        <p>{{ vaga.cargo }}</p>
         <p>{{ vaga.description }}</p>
       </ion-item>
     </ion-item>

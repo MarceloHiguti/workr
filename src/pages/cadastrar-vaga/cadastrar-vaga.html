@@ -18,17 +18,7 @@
         O campo é obrigatório
       </div>
     </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Empresa</ion-label>
-      <ion-input type="text" formControlName="empresa"></ion-input>
-    </ion-item>
-    <ion-item *ngIf="!form.controls.empresa.valid && (form.controls.empresa.dirty || form.controls.empresa.touch)" color="danger">
-      <div [hidden]="!form.controls.empresa.errors.required">
-        O campo é obrigatório
-      </div>
-    </ion-item>
-
+    
     <ion-item>
       <ion-label stacked>Cargo</ion-label>
       <ion-input type="text" formControlName="cargo"></ion-input>

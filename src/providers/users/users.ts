@@ -91,7 +91,7 @@ export class UsersProvider {
   saveMatch(user: any) {
     return new Promise((resolve, reject) => {
       this.db.list(this.pathMatch)
-        .push({ vagaId: user.vagaId, funcionarioId: user.funcionarioId, empresa: user.empresa, status: user.status })
+        .push({ vagaId: user.vagaId, vagaTitle: user.vagaTitle, vagaCargo: user.vagaCargo, funcionarioId: user.funcionarioId, funcionarioNome: user.funcionarioNome, empresa: user.empresa, status: user.status })
         .then(() => resolve());
     })
   }

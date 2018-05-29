@@ -4,7 +4,7 @@ page-empresa-candidato {
     }
 
     .body_page {
-        background-color: rgb(245, 245, 245);
+        background-color: #E3F2FD;
     }
 
     .card_desc {
@@ -25,11 +25,26 @@ page-empresa-candidato {
         display: block;
         position: absolute;
         left: 50%;
-        margin-top: 5%;
+        margin-top: 55%;
         margin-bottom: 5%;
         margin-left: -150px;
-        width: 75%;
-        height: 70%;
+        width: 85%;
+        height: 40%;
+        
+        border: 1px solid #999;
+        box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+        border-radius: 6px;
+    }
+    
+    .td_card_vaga {
+        display: block;
+        position: absolute;
+        left: 50%;
+        // margin-top: 5%;
+        margin-bottom: 5%;
+        margin-left: -150px;
+        width: 85%;
+        height: 20%;
         
         border: 1px solid #999;
         box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
@@ -39,7 +54,7 @@ page-empresa-candidato {
     .td_button {
         position: relative;
         background-color: rgb(255, 255, 255);
-        margin-top: 105%;
+        margin-top: 145%;
         // left: 50%;
         // display: block;
         // margin-bottom: 40px;

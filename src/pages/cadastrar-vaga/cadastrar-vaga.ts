@@ -12,14 +12,13 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class CadastrarVagaPage {
 
-  email: string;
-  // userId: string;
+  empresaName: string;
   form: FormGroup;
   users: any;
 
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private provider: UsersProvider, private alertCtrl: AlertController, private toast: ToastController) {
-    // this.userId = afAuth.auth.currentUser.uid;
-    // console.log("userId: ", afAuth.auth.currentUser.uid);
+    var user = this.afAuth.auth.currentUser;
+    this.empresaName = user.displayName;
     this.users = this.navParams.data.users || {};
     console.log("users: ", this.users);
     this.createForm();
@@ -29,7 +28,7 @@ export class CadastrarVagaPage {
     this.form = this.formBuilder.group({
       // key: [this.userId],
       title: [this.users.title, Validators.required],
-      empresa: [this.users.empresa, Validators.required],
+      empresa: this.empresaName,
       cargo: [this.users.cargo, Validators.required],
       salario: [this.users.salario, Validators.required],
       description: [this.users.description, Validators.required]

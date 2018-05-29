@@ -49,8 +49,8 @@ export class FuncLikesPage {
             })
           });
         }
-        // console.log("parent.matches");
-        // console.log(parent.matches);
+        console.log("parent.matches");
+        console.log(parent.matches);
         
         parent.matches.forEach(function(match){
           // console.log(match);
@@ -70,8 +70,8 @@ export class FuncLikesPage {
                 parent.jobs.push({title: parent.title, empresa: parent.empresa, status: parent.jobStatus});
               })
             });
-            // console.log("parent.jobs");
-            // console.log(parent.jobs);
+            console.log("parent.jobs");
+            console.log(parent.jobs);
           });
         });
     });

@@ -12,12 +12,13 @@ import { UsersProvider } from '../../providers/users/users';
 export class EmpresaCandidatoPage {
   matchId: string;
   funcionarioId: string;
+  vagaId: string;
   status: string;
+  funcionarioNome: string;
+  vagaTitle: string;
+  vagaCargo: string;
   empresa: string;
-  name: string;
-  jobStatus: string;
   matches: Array<Object> = [];
-  candidates: Array<Object> = [];
 
   match: Object = {
     key: "",
@@ -40,49 +41,29 @@ export class EmpresaCandidatoPage {
             keys.forEach((value, index) => {
               parent.matchId = value;
               parent.funcionarioId = element[value].funcionarioId;
+              parent.vagaId = element[value].vagaId;
               parent.status = element[value].status;
-              parent.matches.push({matchId: parent.matchId, funcionarioId: parent.funcionarioId, status: parent.status});
+              parent.funcionarioNome = element[value].funcionarioNome;
+              parent.vagaTitle = element[value].vagaTitle;
+              parent.vagaCargo = element[value].vagaCargo;
+              parent.matches.push({matchId: parent.matchId, funcionarioId: parent.funcionarioId, vagaId: parent.vagaId, status: parent.status,
+                funcionarioNome: parent.funcionarioNome, 
+                vagaTitle: parent.vagaTitle, vagaCargo: parent.vagaCargo});  
             })
           });
         }
-        // console.log("parent.matches");
-        // console.log(parent.matches);
-        
-        parent.matches.forEach(function(match){
-          // console.log(match);
-          var jobsRef = parent.db.database.ref("users/").orderByKey().equalTo(match["funcionarioId"]).once("value")
-          .then(function(snapshot) {
-            var obj = [];
-            var keys = [];
-            obj.push(snapshot.val()); 
-            // console.log(obj);
-            obj.forEach(element => {
-              // console.log(element);
-              keys = Object.keys(element);
-              // console.log("keys");
-              // console.log(keys);
-              keys.forEach((value, index) => {
-                // console.log(value);
-                parent.name = element[value].name;
-                parent.jobStatus = match["status"];
-                parent.matchId = match["matchId"];
-                parent.candidates.push({name: parent.name, matchId: parent.matchId, status: parent.jobStatus});
-              })
-            });
-            console.log("parent.candidates");
-            console.log(parent.candidates);
-          });
-        });
+        console.log("parent.matches");
+        console.log(parent.matches);
     });
   }
 
   no_click () {
     console.log("no_click fired");
-    if (this.candidates.length > 0) {
-      this.match["key"] = this.candidates[this.candidates.length-1]["matchId"];
+    if (this.matches.length > 0) {
+      this.match["key"] = this.matches[this.matches.length-1]["matchId"];
       this.match["status"] = "N";
-      console.log("candidates",this.candidates[this.candidates.length-1]);
-      console.log("candidates",this.candidates);
+      console.log("matches",this.matches[this.matches.length-1]);
+      console.log("matches",this.matches);
 
       this.provider.updateMatch(this.match)
       .then(() => {
@@ -93,16 +74,16 @@ export class EmpresaCandidatoPage {
       })
     }
 
-    this.candidates.pop();
+    this.matches.pop();
   }
 
   yes_click () {
     console.log("yes_click fired");
-    if (this.candidates.length > 0) {
-      this.match["key"] = this.candidates[this.candidates.length-1]["matchId"];
+    if (this.matches.length > 0) {
+      this.match["key"] = this.matches[this.matches.length-1]["matchId"];
       this.match["status"] = "Y";
-      console.log("candidates",this.candidates[this.candidates.length-1]);
-      console.log("candidates",this.candidates);
+      console.log("matches",this.matches[this.matches.length-1]);
+      console.log("matches",this.matches);
 
       this.provider.updateMatch(this.match)
       .then(() => {
@@ -112,12 +93,11 @@ export class EmpresaCandidatoPage {
         console.error(e);
       })
 
-      this.candidates.pop();
+      this.matches.pop();
     }
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EmpresaCandidatoPage');
   }
-
 }

@@ -1,21 +1,31 @@
 <ion-content padding class="body_page">
   <div class="mensagem">
-    <h2>Não existem mais vagas disponíveis no momento</h2>
+    <h2>Não existem mais candidatos interessados<br> no momento</h2>
   </div>
-  <div *ngFor="let candidate of candidates; let i = index">
-  <!-- <ion-card *ngFor="let job of jobs" class="td_card"> -->
-  <!-- <ion-card class="td_card"  *ngIf="showCard" [@flyInOut]> -->
-    <ion-card id="card-{{ i }}" class="td_card">
+  <div *ngFor="let match of matches; let i = index">
+    <ion-card id="card-vaga-{{ i }}" class="td_card_vaga">
+      <div class="card_desc">
+        <ion-card-content class="card_desc">
+          <ion-card-title>
+            {{ match.vagaTitle }}
+          </ion-card-title>
+          <p>
+            {{ match.vagaCargo }}
+          </p>
+        </ion-card-content>
+      </div>
+    </ion-card>
+
+    <ion-card id="card-candidate-{{ i }}" class="td_card">
       <ion-card-header>
       </ion-card-header>
       <div class="card_desc">
         <ion-card-content class="card_desc">
           <ion-card-title>
-            {{ candidate.name }}
+            {{ match.funcionarioNome }}
           </ion-card-title>
         </ion-card-content>
       </div>
-
     </ion-card>
   </div>
 
