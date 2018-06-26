@@ -59,8 +59,14 @@ export class LoginPage {
         var user = this.afAuth.auth.currentUser;
         var ref = this.db.database.ref("users/" + user.uid).once("value")
           .then(function(snapshot) {
+            var obj = [];
+            obj.push(snapshot.val());
             if (snapshot.exists()) {//verificar se possui a key do auth no banco de dados
-              parent.funcionarioTabs();
+              if (obj[0]["type"] == 'empresa') {
+                parent.empresaTabs();
+              } else {
+                parent.funcionarioTabs();
+              }
             } else {
               parent.cadastro();
             }

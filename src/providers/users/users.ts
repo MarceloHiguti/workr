@@ -62,12 +62,12 @@ export class UsersProvider {
     return new Promise((resolve, reject) => {
       if (user.key) {
         this.db.list(this.PATH)
-          .update(user.key, { name: user.name, type: user.type })
+          .update(user.key, { name: user.nome, type: user.tipo })
           .then(() => resolve())
           .catch((e) => reject(e));
       } else {
         this.db.list(this.PATH)
-          .push({ name: user.name, type: user.type })
+          .push({ name: user.nome, type: user.tipo })
           .then(() => resolve());
       }
     })

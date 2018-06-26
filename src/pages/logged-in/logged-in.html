@@ -14,24 +14,21 @@
 
 
 <ion-content padding>
-  <form [formGroup]="form">
+  <ion-item>
+    <ion-label stacked>Tipo</ion-label>
+    <ion-select [(ngModel)]="tipo" (ionChange)="pickerChange();" interface="popover">
+      <ion-option value="funcionario">Funcionario</ion-option>
+      <ion-option value="empresa">Empresa</ion-option>
+    </ion-select>
+  </ion-item>
 
+  <form [formGroup]="form">
     <ion-item>
       <ion-label stacked>Nome</ion-label>
-      <ion-input type="text" formControlName="name"></ion-input>
+      <ion-input type="text" formControlName="nome"></ion-input>
     </ion-item>
-    <ion-item *ngIf="!form.controls.name.valid && (form.controls.name.dirty || form.controls.name.touch)" color="danger">
-      <div [hidden]="!form.controls.name.errors.required">
-        O campo é obrigatório
-      </div>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Type</ion-label>
-      <ion-input type="text" formControlName="type"></ion-input>
-    </ion-item>
-    <ion-item *ngIf="!form.controls.type.valid && (form.controls.type.dirty || form.controls.type.touch)" color="danger">
-      <div [hidden]="!form.controls.type.errors.required">
+    <ion-item *ngIf="!form.controls.nome.valid && (form.controls.nome.dirty || form.controls.nome.touch)" color="danger">
+      <div [hidden]="!form.controls.nome.errors.required">
         O campo é obrigatório
       </div>
     </ion-item>
@@ -40,4 +37,5 @@
       <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
     </div>
   </form>
+
 </ion-content>

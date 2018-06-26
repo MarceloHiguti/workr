@@ -28,6 +28,8 @@ export class EmpresaCandidatoPage {
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController) {
     var user = this.afAuth.auth.currentUser;
     this.empresa = user.displayName;
+    console.log("this.empresa");
+    console.log(this.empresa);
     var parent = this;
     var matchesRef = this.db.database.ref("matches/").orderByChild('empresa').equalTo(this.empresa).once("value")
       .then(function(snapshot) {

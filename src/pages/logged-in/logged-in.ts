@@ -5,6 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { UsersProvider } from '../../providers/users/users';
 import { CardPage } from '../card/card';
 import { EmpresaTabPage } from '../empresa-tab/empresa-tab';
+import { FuncionarioTabPage } from '../funcionario-tab/funcionario-tab';
 
 @IonicPage()
 @Component({
@@ -17,6 +18,8 @@ export class LoggedInPage {
   userId: string;
   form: FormGroup;
   users: any;
+  tipo: string;
+  tipoSelected: string;
 
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private provider: UsersProvider, private toast: ToastController) {
     this.email = afAuth.auth.currentUser.email;
@@ -24,23 +27,34 @@ export class LoggedInPage {
     console.log("userId: ", afAuth.auth.currentUser.uid);
     this.users = this.navParams.data.users || {};
     console.log("user: ", this.users);
+    this.tipoSelected = 'funcionario';
     this.createForm();
   }
 
   createForm () {
     this.form = this.formBuilder.group({
       key: [this.userId],
-      name: [this.users.name, Validators.required],
-      type: [this.users.type, Validators.required]
+      nome: [this.users.nome, Validators.required],
+      tipo: this.tipoSelected
     })
   }
 
+  pickerChange () {
+    console.log(this.tipo);
+    this.tipoSelected = this.tipo;
+  }
+
   onSubmit () {
+    // console.log(this.form.value);
     if (this.form.valid) {
       this.provider.save(this.form.value)
         .then(() => {
           this.toast.create({ message: 'Usuário salvo com sucesso.', duration: 3000}).present();
-          this.navCtrl.push(EmpresaTabPage);
+          if (this.tipoSelected == 'empresa') {
+            this.navCtrl.push(EmpresaTabPage);
+          } else {
+            this.navCtrl.push(FuncionarioTabPage);
+          }
         })
         .catch((e) => {
           this.toast.create({ message: 'Erro ao salvar usuário.', duration: 3000}).present();
