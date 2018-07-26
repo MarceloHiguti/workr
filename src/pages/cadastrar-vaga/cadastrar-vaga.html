@@ -50,7 +50,12 @@
     </ion-item>
 
     <div padding>
+      <button ion-button block (click)="choose()">Imagem</button>
+    </div>
+    
+    <div padding>
       <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
     </div>
+
   </form>
 </ion-content>

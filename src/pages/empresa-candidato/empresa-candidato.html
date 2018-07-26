@@ -18,12 +18,24 @@
 
     <ion-card id="card-candidate-{{ i }}" class="td_card">
       <ion-card-header>
+        {{ match.funcionarioNome }}
       </ion-card-header>
       <div class="card_desc">
         <ion-card-content class="card_desc">
           <ion-card-title>
-            {{ match.funcionarioNome }}
           </ion-card-title>
+          <ion-item>
+            <ion-label stacked>Feedback</ion-label>
+            <ion-select [(ngModel)]="feedbackPicker" (ionChange)="pickerChange();" interface="Action Sheet">
+              <ion-option value="exigencia">Não possui as exigências mínimas</ion-option>
+              <ion-option value="experiencia">Falta de experiência profissional</ion-option>
+              <ion-option value="formacao">Formação acadêmica insuficiente</ion-option>
+              <ion-option value="linguas">Precisa aprimorar outras línguas</ion-option>
+            </ion-select>
+          </ion-item>
+          <form [formGroup]="form">
+            <ion-input type="text" formControlName="feedbackText" placeholder="Observações"></ion-input>
+          </form>
         </ion-card-content>
       </div>
     </ion-card>

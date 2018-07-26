@@ -1,0 +1,26 @@
+<ion-header>
+</ion-header>
+
+
+<ion-content padding>
+  <label>Filtro</label>
+  <ion-item>
+      <ion-select [(ngModel)]="filtroPicker" (ionChange)="pickerChange();" interface="popover">
+        <ion-option value="Todos">Todos</ion-option>
+        <ion-option value="TI">Tecnologia</ion-option>
+        <ion-option value="Engenharia">Engenharia</ion-option>
+        <ion-option value="Educação">Educação</ion-option>
+        <ion-option value="Gastronomia">Gastronomia</ion-option>
+        <ion-option value="Vendas">Vendas</ion-option>
+        <ion-option value="Administração">Administração</ion-option>
+        <ion-option value="Saúde">Saúde</ion-option>
+        <ion-option value="Finanças">Finanças</ion-option>
+        <ion-option value="Manutenção">Manutenção</ion-option>
+        <ion-option value="Limpeza">Limpeza</ion-option>
+      </ion-select>
+    </ion-item>
+
+  <div padding>
+      <button block ion-button (click)="logout()">Logout</button>
+    </div>
+</ion-content>

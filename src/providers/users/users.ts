@@ -96,10 +96,10 @@ export class UsersProvider {
     })
   }
 
-  updateMatch(user: any) {
+  updateMatch(match: any) {
     return new Promise((resolve, reject) => {
       this.db.list(this.pathMatch)
-        .update(user.key, { status: user.status })
+        .update(match.key, { status: match.status, feedback: match.feedback, feedbackObs: match.feedbackObs })
         .then(() => resolve())
         .catch((e) => reject(e));
     })

@@ -4,9 +4,13 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { FileChooser } from '@ionic-native/file-chooser';
+import { File } from '@ionic-native/file';
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -27,6 +31,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FuncLikesPage } from '../pages/func-likes/func-likes';
 import { FuncionarioTabPage } from '../pages/funcionario-tab/funcionario-tab';
 import { EmpresaCandidatoPage } from '../pages/empresa-candidato/empresa-candidato';
+import { FuncLikesDetailPage } from '../pages/func-likes-detail/func-likes-detail';
+import { FuncConfigPage } from '../pages/func-config/func-config';
+import { GlobalProvider } from '../providers/global/global';
 
 @NgModule({
   declarations: [
@@ -43,7 +50,9 @@ import { EmpresaCandidatoPage } from '../pages/empresa-candidato/empresa-candida
     FuncVagasPage,
     FuncionarioTabPage,
     FuncLikesPage,
-    EmpresaCandidatoPage
+    EmpresaCandidatoPage,
+    FuncLikesDetailPage,
+    FuncConfigPage
   ],
   imports: [
     BrowserModule,
@@ -58,6 +67,7 @@ import { EmpresaCandidatoPage } from '../pages/empresa-candidato/empresa-candida
     }),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     BrowserAnimationsModule
   ],
   bootstrap: [IonicApp],
@@ -75,15 +85,20 @@ import { EmpresaCandidatoPage } from '../pages/empresa-candidato/empresa-candida
     FuncVagasPage,
     FuncionarioTabPage,
     FuncLikesPage,
-    EmpresaCandidatoPage
+    EmpresaCandidatoPage,
+    FuncLikesDetailPage,
+    FuncConfigPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    File,
+    FileChooser,
     {provide: LOCALE_ID, useValue: 'pt-BR'},
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SQLite,
-    UsersProvider
+    UsersProvider,
+    GlobalProvider
   ]
 })
 export class AppModule {}

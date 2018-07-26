@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UsersProvider } from '../../providers/users/users';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -22,10 +23,22 @@ export class EmpresaCandidatoPage {
 
   match: Object = {
     key: "",
-    status: ""
+    status: "",
+    feedback: "",
+    feedbackObs: ""
   };
 
-  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController) {
+  form: FormGroup;
+  feedbackPicker: string;
+  feedbackPickerSelected: string;
+  feedback: any;
+
+  constructor(private afAuth: AngularFireAuth, private formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController) {
+    
+    this.feedbackPickerSelected = 'nenhum';
+    this.feedback = this.navParams.data.feedback || {};
+    this.createForm();
+    
     var user = this.afAuth.auth.currentUser;
     this.empresa = user.displayName;
     console.log("this.empresa");
@@ -59,11 +72,25 @@ export class EmpresaCandidatoPage {
     });
   }
 
+  createForm () {
+    this.form = this.formBuilder.group({
+      feedbackPicker: this.feedbackPickerSelected,
+      feedbackText: this.feedback.feedbackText
+    })
+  }
+
+  pickerChange () {
+    console.log(this.feedbackPicker);
+    this.feedbackPickerSelected = this.feedbackPicker;
+  }
+
   no_click () {
     console.log("no_click fired");
     if (this.matches.length > 0) {
       this.match["key"] = this.matches[this.matches.length-1]["matchId"];
       this.match["status"] = "N";
+      this.match["feedback"] = this.feedbackPickerSelected;
+      this.match["feedbackObs"] = this.form.value.feedbackText;
       console.log("matches",this.matches[this.matches.length-1]);
       console.log("matches",this.matches);
 

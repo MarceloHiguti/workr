@@ -4,6 +4,7 @@ import { UsersProvider } from '../../providers/users/users';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FormGroup } from '@angular/forms';
+import { GlobalProvider } from "../../providers/global/global";
 
 @IonicPage()
 @Component({
@@ -57,52 +58,8 @@ export class FuncVagasPage {
     status: '',
   }
 
-  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController) {
-
-    var parent = this;
-    var ref = this.db.database.ref("vagas/").once("value")
-      .then(function(snapshot) {
-        var obj = [];
-        var keys = [];
-        obj.push(snapshot.val()); 
-        // console.log(obj);
-        obj.forEach(element => {
-          // console.log(element);
-          keys = Object.keys(element);
-          keys.forEach((value, index) => {
-            parent.title = element[value].title;
-            parent.empresa = element[value].empresa;
-            parent.cargo = element[value].cargo;
-            parent.salario = element[value].salario;
-            parent.desc = element[value].description;
-
-            switch (parent.empresa) {
-              case "Google":
-                parent.imagem = parent.images[0];
-                break;
-
-              case "Indústrias Stark":
-                parent.imagem = parent.images[1];
-                break;
-
-              case "Uol":
-                parent.imagem = parent.images[2];
-                break;
-
-              case "Maua":
-                parent.imagem = parent.images[3];
-                break;
-            }
-
-            parent.jobs.push({vagaId: value, title: parent.title, empresa: parent.empresa, 
-              cargo: parent.cargo, salario: parent.salario, desc: parent.desc, image: parent.imagem});
-          })
-          // console.log(element["-LBEHim-1JcaPfrpU0F4"].title);
-        });
-        // console.log(parent.title);
-        // console.log(parent.desc);
-        console.log(parent.jobs);
-    });
+  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController, public global: GlobalProvider) {
+    
   }
 
   no_click () {
@@ -148,6 +105,103 @@ export class FuncVagasPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FuncVagasPage');
+  }
+
+  ionViewDidEnter() {
+    console.log('ionViewDidEnter FuncVagasPage');
+    console.log(this.global._vagaFiltro);
+
+    var parent = this;
+    parent.jobs = [];
+    if (this.global._vagaFiltro == 'Todos') {
+      var ref = this.db.database.ref("vagas/").once("value")
+        .then(function(snapshot) {
+          var obj = [];
+          var keys = [];
+          obj.push(snapshot.val()); 
+          // console.log(obj);
+          obj.forEach(element => {
+            // console.log(element);
+            keys = Object.keys(element);
+            keys.forEach((value, index) => {
+              parent.title = element[value].title;
+              parent.empresa = element[value].empresa;
+              parent.cargo = element[value].cargo;
+              parent.salario = element[value].salario;
+              parent.desc = element[value].description;
+  
+              switch (parent.empresa) {
+                case "Google":
+                  parent.imagem = parent.images[0];
+                  break;
+  
+                case "Indústrias Stark":
+                  parent.imagem = parent.images[1];
+                  break;
+  
+                case "Uol":
+                  parent.imagem = parent.images[2];
+                  break;
+  
+                case "Maua":
+                  parent.imagem = parent.images[3];
+                  break;
+              }
+  
+              parent.jobs.push({vagaId: value, title: parent.title, empresa: parent.empresa, 
+                cargo: parent.cargo, salario: parent.salario, desc: parent.desc, image: parent.imagem});
+            })
+            // console.log(element["-LBEHim-1JcaPfrpU0F4"].title);
+          });
+          // console.log(parent.title);
+          // console.log(parent.desc);
+          console.log(parent.jobs);
+      });
+    } else {
+      var ref2 = this.db.database.ref("vagas/").orderByChild('tipo').equalTo(this.global._vagaFiltro).once("value")
+        .then(function(snapshot) {
+          var obj = [];
+          var keys = [];
+          obj.push(snapshot.val()); 
+          // console.log(obj);
+          obj.forEach(element => {
+            // console.log(element);
+            keys = Object.keys(element);
+            keys.forEach((value, index) => {
+              parent.title = element[value].title;
+              parent.empresa = element[value].empresa;
+              parent.cargo = element[value].cargo;
+              parent.salario = element[value].salario;
+              parent.desc = element[value].description;
+
+              switch (parent.empresa) {
+                case "Google":
+                  parent.imagem = parent.images[0];
+                  break;
+
+                case "Indústrias Stark":
+                  parent.imagem = parent.images[1];
+                  break;
+
+                case "Uol":
+                  parent.imagem = parent.images[2];
+                  break;
+
+                case "Maua":
+                  parent.imagem = parent.images[3];
+                  break;
+              }
+
+              parent.jobs.push({vagaId: value, title: parent.title, empresa: parent.empresa, 
+                cargo: parent.cargo, salario: parent.salario, desc: parent.desc, image: parent.imagem});
+            })
+            // console.log(element["-LBEHim-1JcaPfrpU0F4"].title);
+          });
+          // console.log(parent.title);
+          // console.log(parent.desc);
+          console.log(parent.jobs);
+      });
+    }
   }
 
 }

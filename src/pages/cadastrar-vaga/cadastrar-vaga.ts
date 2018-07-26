@@ -4,6 +4,10 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { UsersProvider } from '../../providers/users/users';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FileChooser } from '@ionic-native/file-chooser';
+import { File } from '@ionic-native/file';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import firebase from 'firebase';
 
 @IonicPage()
 @Component({
@@ -16,7 +20,7 @@ export class CadastrarVagaPage {
   form: FormGroup;
   users: any;
 
-  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private provider: UsersProvider, private alertCtrl: AlertController, private toast: ToastController) {
+  constructor(private afStorage: AngularFireStorageModule, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private provider: UsersProvider, private alertCtrl: AlertController, private toast: ToastController, private fileChooser: FileChooser, private file: File) {
     var user = this.afAuth.auth.currentUser;
     this.empresaName = user.displayName;
     this.users = this.navParams.data.users || {};
@@ -47,6 +51,39 @@ export class CadastrarVagaPage {
           console.error(e);
         })
     }
+  }
+
+  choose () {
+    this.fileChooser.open()
+      .then((uri) => {
+        alert(uri);
+
+        this.file.resolveLocalFilesystemUrl(uri).then((newUrl) => {
+          alert(JSON.stringify(newUrl));
+          let dirPath = newUrl.nativeURL;
+          let dirPathSegments = dirPath.split('/');
+          dirPathSegments.pop();
+          dirPath = dirPathSegments.join('/');
+
+          this.file.readAsArrayBuffer(dirPath, newUrl.name).then(async (buffer) => {
+            this.upload(buffer, newUrl.name);
+          });
+
+        });
+      });
+  }
+
+  async upload(buffer, name) {
+    let blob = new Blob(buffer, { type: "image/jpeg"});
+    let storage = firebase.storage();
+    
+    storage.ref('images/' + name).put(blob)
+      .then((d) => {
+        alert("Done");
+      })
+      .catch((error) => {
+        alert(JSON.stringify(error));
+      })
   }
   
   alert (message: string) {

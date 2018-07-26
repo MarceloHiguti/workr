@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UsersProvider } from '../../providers/users/users';
+import { FuncLikesDetailPage } from '../func-likes-detail/func-likes-detail';
 
 @IonicPage()
 @Component({
@@ -13,6 +14,7 @@ export class FuncLikesPage {
 
   funcionarioId: string;
   vagaId: string;
+  matchId: string;
   status: string;
   jobStatus: string;
   title: string;
@@ -42,10 +44,11 @@ export class FuncLikesPage {
         if (obj[0] != null) {
           obj.forEach(element => {
             keys = Object.keys(element);
+            // console.log(keys);
             keys.forEach((value, index) => {
               parent.vagaId = element[value].vagaId;
               parent.status = element[value].status;
-              parent.matches.push({vagaId: parent.vagaId, status: parent.status});
+              parent.matches.push({matchId: value, vagaId: parent.vagaId, status: parent.status});
             })
           });
         }
@@ -67,13 +70,21 @@ export class FuncLikesPage {
                 parent.title = element[value].title;
                 parent.empresa = element[value].empresa;
                 parent.jobStatus = match["status"];
-                parent.jobs.push({title: parent.title, empresa: parent.empresa, status: parent.jobStatus});
+                parent.matchId = match["matchId"];
+                parent.jobs.push({title: parent.title, empresa: parent.empresa, status: parent.jobStatus, matchId: parent.matchId});
               })
             });
             console.log("parent.jobs");
             console.log(parent.jobs);
           });
         });
+    });
+  }
+
+  cardDetail(matchId) {
+    console.log(matchId);
+    this.navCtrl.push(FuncLikesDetailPage, {
+      id: matchId
     });
   }
 
