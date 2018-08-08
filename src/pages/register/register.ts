@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Alert, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { RegisterEmpresaPage } from '../register-empresa/register-empresa';
+import { RegisterFuncionarioPage } from '../register-funcionario/register-funcionario';
 
 @IonicPage()
 @Component({
@@ -12,6 +14,8 @@ export class RegisterPage {
   @ViewChild('username') user;
   @ViewChild('password') password;
   username: string;
+  tipo: string;
+  tipoSelected: string;
 
   constructor(private alertCtrl: AlertController, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -23,14 +27,35 @@ export class RegisterPage {
     }).present();
   }
 
+  pickerChange () {
+    console.log(this.tipo);
+    this.tipoSelected = this.tipo;
+  }
+
   registerUser () {
+
+    //Descomentar para testar
+    // if (this.tipoSelected == 'empresa') {
+    //   this.navCtrl.push(RegisterEmpresaPage);
+    // } else {
+    //   this.navCtrl.push(RegisterFuncionarioPage);
+    // }
+
+
     // console.log("senha register:", this.password.value);
-    this.username = this.user.value + "@teste.com";
+    // this.username = this.user.value + "@teste.com";
+
+    //Ainda precisa testar
+    this.username = this.user.value;
     this.afAuth.auth.createUserWithEmailAndPassword(this.username, this.password.value)
       .then(data => {
         console.log("got data", data);
         this.alert("Cadastro realizado com sucesso");
-        this.navCtrl.pop();
+        if (this.tipoSelected == 'empresa') {
+          this.navCtrl.push(RegisterEmpresaPage);
+        } else {
+          this.navCtrl.push(RegisterFuncionarioPage);
+        }
       })
       .catch(e => {
         switch(e.code) {

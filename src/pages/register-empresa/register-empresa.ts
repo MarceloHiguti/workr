@@ -9,10 +9,10 @@ import { FuncionarioTabPage } from '../funcionario-tab/funcionario-tab';
 
 @IonicPage()
 @Component({
-  selector: 'page-logged-in',
-  templateUrl: 'logged-in.html',
+  selector: 'page-register-empresa',
+  templateUrl: 'register-empresa.html',
 })
-export class LoggedInPage {
+export class RegisterEmpresaPage {
 
   email: string;
   userId: string;
@@ -47,7 +47,7 @@ export class LoggedInPage {
   onSubmit () {
     // console.log(this.form.value);
     // if (this.form.valid) {
-    //   this.provider.save(this.form.value)
+    //   this.provider.saveEmpresa(this.form.value)
     //     .then(() => {
     //       this.toast.create({ message: 'Usuário salvo com sucesso.', duration: 3000}).present();
     //       if (this.tipoSelected == 'empresa') {
@@ -60,6 +60,6 @@ export class LoggedInPage {
     //       this.toast.create({ message: 'Erro ao salvar usuário.', duration: 3000}).present();
     //       console.error(e);
     //     })
-    // }
+    }
   }
 }

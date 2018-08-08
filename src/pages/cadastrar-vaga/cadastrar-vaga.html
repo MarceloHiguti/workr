@@ -11,7 +11,7 @@
   <form [formGroup]="form">
     <ion-item>
       <ion-label stacked>Título da Vaga</ion-label>
-      <ion-input type="text" formControlName="title"></ion-input>
+      <ion-input type="text" placeholder="Ex: Programador" formControlName="title"></ion-input>
     </ion-item>
     <ion-item *ngIf="!form.controls.title.valid && (form.controls.title.dirty || form.controls.title.touch)" color="danger">
       <div [hidden]="!form.controls.title.errors.required">
@@ -21,10 +21,20 @@
     
     <ion-item>
       <ion-label stacked>Cargo</ion-label>
-      <ion-input type="text" formControlName="cargo"></ion-input>
+      <ion-input type="text" placeholder="Ex: Sênior" formControlName="cargo"></ion-input>
     </ion-item>
     <ion-item *ngIf="!form.controls.cargo.valid && (form.controls.cargo.dirty || form.controls.cargo.touch)" color="danger">
       <div [hidden]="!form.controls.cargo.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Área Profissional</ion-label>
+      <ion-input type="text" placeholder="Ex: Tecnologia" formControlName="area"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.area.valid && (form.controls.area.dirty || form.controls.area.touch)" color="danger">
+      <div [hidden]="!form.controls.area.errors.required">
         O campo é obrigatório
       </div>
     </ion-item>
@@ -50,7 +60,7 @@
     </ion-item>
 
     <div padding>
-      <button ion-button block (click)="choose()">Imagem</button>
+      <input type="file" (change)="atualizaArquivo($event)"/>
     </div>
     
     <div padding>

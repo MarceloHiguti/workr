@@ -58,16 +58,31 @@ export class UsersProvider {
   //     })
   // } 
 
-  save(user: any) {
+  saveFuncionario(user: any) {
     return new Promise((resolve, reject) => {
       if (user.key) {
         this.db.list(this.PATH)
-          .update(user.key, { name: user.nome, type: user.tipo })
+          .update(user.key, { name: user.nome, idade: user.idade, celular: user.celular, email: user.email, formacao: user.formacao, idioma: user.idioma })
           .then(() => resolve())
           .catch((e) => reject(e));
       } else {
         this.db.list(this.PATH)
-          .push({ name: user.nome, type: user.tipo })
+          .push({ name: user.nome, idade: user.idade, celular: user.celular, email: user.email, formacao: user.formacao, idioma: user.idioma })
+          .then(() => resolve());
+      }
+    })
+  }
+
+  saveEmpresa(user: any) {
+    return new Promise((resolve, reject) => {
+      if (user.key) {
+        this.db.list(this.PATH)
+          .update(user.key, { name: user.nome, idade: user.idade, celular: user.celular, email: user.email, formacao: user.formacao, idioma: user.idioma })
+          .then(() => resolve())
+          .catch((e) => reject(e));
+      } else {
+        this.db.list(this.PATH)
+          .push({ name: user.nome, idade: user.idade, celular: user.celular, email: user.email, formacao: user.formacao, idioma: user.idioma })
           .then(() => resolve());
       }
     })
@@ -77,12 +92,12 @@ export class UsersProvider {
     return new Promise((resolve, reject) => {
       if (user.key) {
         this.db.list(this.pathVagas)
-          .update(user.key, { title: user.title, empresa: user.empresa, cargo: user.cargo, salario: user.salario, description: user.description })
+          .update(user.key, { title: user.title, empresa: user.empresa, cargo: user.cargo, area: user.area, salario: user.salario, description: user.description, imagem: user.imagem })
           .then(() => resolve())
           .catch((e) => reject(e));
       } else {
         this.db.list(this.pathVagas)
-          .push({ title: user.title, empresa: user.empresa, cargo: user.cargo, salario: user.salario, description: user.description })
+          .push({ title: user.title, empresa: user.empresa, cargo: user.cargo, area: user.area, salario: user.salario, description: user.description, imagem: user.imagem })
           .then(() => resolve());
       }
     })

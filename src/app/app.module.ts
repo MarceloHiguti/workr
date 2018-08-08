@@ -33,6 +33,8 @@ import { FuncionarioTabPage } from '../pages/funcionario-tab/funcionario-tab';
 import { EmpresaCandidatoPage } from '../pages/empresa-candidato/empresa-candidato';
 import { FuncLikesDetailPage } from '../pages/func-likes-detail/func-likes-detail';
 import { FuncConfigPage } from '../pages/func-config/func-config';
+import { RegisterEmpresaPage } from '../pages/register-empresa/register-empresa';
+import { RegisterFuncionarioPage } from '../pages/register-funcionario/register-funcionario';
 import { GlobalProvider } from '../providers/global/global';
 
 @NgModule({
@@ -52,7 +54,9 @@ import { GlobalProvider } from '../providers/global/global';
     FuncLikesPage,
     EmpresaCandidatoPage,
     FuncLikesDetailPage,
-    FuncConfigPage
+    FuncConfigPage,
+    RegisterEmpresaPage,
+    RegisterFuncionarioPage
   ],
   imports: [
     BrowserModule,
@@ -87,7 +91,9 @@ import { GlobalProvider } from '../providers/global/global';
     FuncLikesPage,
     EmpresaCandidatoPage,
     FuncLikesDetailPage,
-    FuncConfigPage
+    FuncConfigPage,
+    RegisterEmpresaPage,
+    RegisterFuncionarioPage
   ],
   providers: [
     StatusBar,

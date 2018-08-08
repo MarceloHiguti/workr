@@ -5,6 +5,7 @@ import { UsersProvider } from '../../providers/users/users';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import firebase from 'firebase';
 
 @IonicPage()
 @Component({
@@ -17,9 +18,11 @@ export class EmpresaTabVagasPage {
   description: string;
   empresa: string;
   vagas: Array<Object> = [];
+  arquivo;
+  referencia;
 
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController) {
-    
+    this.referencia = firebase.storage().ref();
   }
 
   cadastrarVaga() {
@@ -55,6 +58,30 @@ export class EmpresaTabVagasPage {
         }
         // console.log("parent.vagas");
         // console.log(parent.vagas);
+    });
+  }
+
+  atualizaArquivo(event){
+    this.arquivo = event.srcElement.files[0];
+  }
+
+  enviarArquivo(dir, arquivo){
+    let caminho = this.referencia.child('curriculum/'+this.arquivo.name);
+    let tarefa = caminho.put(this.arquivo);
+    tarefa.on('state_changed', (snapshot)=>{
+      // Acompanha os estados do upload (progresso, pausado,...)
+      }, error => {
+        // Tratar possíveis erros
+      }, () => {
+        // Função de retorno quando o upload estiver completo  
+      console.log(tarefa.snapshot.downloadURL);
+    });
+  }
+
+  baixarArquivo(nome: string){
+    let caminho = this.referencia.child('curriculum/'+nome);
+    caminho.getDownloadURL().then(url => {
+        console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
     });
   }
 

@@ -12,4 +12,7 @@
   <div padding>
     <button block ion-button (click)="cadastrarVaga()">+ Vagas</button>
   </div>
+
+  <input type="file" (change)="atualizaArquivo($event)"/>
+  <button ion-button (click)="enviarArquivo()">Enviar</button>
 </ion-content>
