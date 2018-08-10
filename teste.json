@@ -1,0 +1,128 @@
+{
+  "matches" : {
+    "-LIIz2w3Ehmc4-Pmxw5W" : {
+      "empresa" : "Designer Serviços",
+      "funcionarioId" : "mFyxZYITK3Ry9T2kIrEIKMREjeL2",
+      "funcionarioNome" : "Marcelo",
+      "status" : "H",
+      "vagaCargo" : "Efetivo - CLT",
+      "vagaId" : "zBVje2AZwVJ4M5qyp8Na",
+      "vagaTitle" : "Engenharia de Produção"
+    },
+    "-LIIz31G_QVEKPgFqV8G" : {
+      "empresa" : "Dengo Brasil",
+      "funcionarioId" : "mFyxZYITK3Ry9T2kIrEIKMREjeL2",
+      "funcionarioNome" : "Marcelo",
+      "status" : "H",
+      "vagaCargo" : "Auxiliar de Limpeza",
+      "vagaId" : "yzWmF8xVpuj9A22xHNPx",
+      "vagaTitle" : "Auxiliar de Limpeza"
+    },
+    "-LIIz36awnlEfqxVPA5W" : {
+      "empresa" : "My Phonne",
+      "funcionarioId" : "mFyxZYITK3Ry9T2kIrEIKMREjeL2",
+      "funcionarioNome" : "Marcelo",
+      "status" : "H",
+      "vagaCargo" : "Vendedor",
+      "vagaId" : "yVnWE8YZ6aEKMxQfhG9G",
+      "vagaTitle" : "Vendedor"
+    },
+    "-LIJ8Lsf3k6McXleUNhI" : {
+      "empresa" : "Maua",
+      "feedback" : "nenhum",
+      "funcionarioId" : "mFyxZYITK3Ry9T2kIrEIKMREjeL2",
+      "funcionarioNome" : "Marcelo",
+      "status" : "Y",
+      "vagaCargo" : "Professor",
+      "vagaId" : "-LDYY7he9NWW0lZ7appd",
+      "vagaTitle" : "Engenheiro"
+    },
+    "-LIJ8M4dJ2PKI175mFYP" : {
+      "empresa" : "Indústrias Stark",
+      "funcionarioId" : "mFyxZYITK3Ry9T2kIrEIKMREjeL2",
+      "funcionarioNome" : "Marcelo",
+      "status" : "H",
+      "vagaCargo" : "Sênior",
+      "vagaId" : "-LBerSfbku-oGaaNvj6R",
+      "vagaTitle" : "Engenheiro Eletrônico"
+    },
+    "-LIJ8gRhXw4R2hjWD3PJ" : {
+      "empresa" : "Maua",
+      "feedback" : "nenhum",
+      "funcionarioId" : "swAwTN0mc1fe7DdrMyHgryzlVB02",
+      "funcionarioNome" : "Pedro",
+      "status" : "N",
+      "vagaCargo" : "Professor",
+      "vagaId" : "-LDYY_SbgZy4WWEEN4j7",
+      "vagaTitle" : "Design"
+    },
+    "-LIJ8gXvgckrAecSLQoQ" : {
+      "empresa" : "Maua",
+      "feedback" : "nenhum",
+      "funcionarioId" : "swAwTN0mc1fe7DdrMyHgryzlVB02",
+      "funcionarioNome" : "Pedro",
+      "status" : "N",
+      "vagaCargo" : "Professor",
+      "vagaId" : "-LDYY7he9NWW0lZ7appd",
+      "vagaTitle" : "Engenheiro"
+    }
+  },
+  "users" : {
+    "5P3JkfLyqASTNa8Ecu1LXVgPKm53" : {
+      "name" : "Google",
+      "type" : "empresa"
+    },
+    "9fbJEaetVdRXNxeEIIwVWNF8nMl2" : {
+      "name" : "Instituto Maua de Tecnologia",
+      "type" : "empresa"
+    },
+    "KcMKtLITxPcRt3CUritR4fdpJVX2" : {
+      "name" : "João Carlos",
+      "type" : "funcionario"
+    },
+    "RkdAtPsweSPHCiAD06sRK7dtRmL2" : {
+      "name" : "Higuti",
+      "type" : "empresa"
+    },
+    "ciDU8iuG2zR6t2Gk06gjEmqTKdm2" : {
+      "name" : "Nike",
+      "type" : "funcionario"
+    },
+    "mFyxZYITK3Ry9T2kIrEIKMREjeL2" : {
+      "name" : "Marcelo",
+      "type" : "funcionario"
+    },
+    "swAwTN0mc1fe7DdrMyHgryzlVB02" : {
+      "name" : "Pedro",
+      "type" : "funcionario"
+    }
+  },
+  "vagas" : {
+    "si7fthxui0dwpa8i5jns88" : {
+      "cargo" : "teste",
+      "description" : "asfdasf",
+      "empresa" : "Google",
+      "salario" : "3333",
+      "title" : "test",
+      "imagem" : "cronograma_01.PNG"
+    },
+    "kr6hdtfhzdxobj6m5eez" : {
+      "cargo" : "Sênior",
+      "description" : "Projetar novos circuitos eletrônicos para a armadura do senhor Stark",
+      "empresa" : "Indústrias Stark",
+      "salario" : "25.000,00",
+      "area" : "Engenharia",
+      "title" : "Engenheiro Eletrônico",
+      "imagem" : "stark_logo.jpg"
+    },
+    "ny0jqq9svemj71kj30w01n": {
+      "cargo" : "Estagiário",
+      "description" : "Aprender como funcionam as principais ferramentas da Google para aplicar melhorias ",
+      "empresa" : "Google",
+      "salario" : "3.000,00",
+      "area" : "Tecnologia",
+      "title" : "Aprendiz na Google",
+      "imagem" : "google_logo.png"
+    }
+  }
+}
