@@ -98,19 +98,21 @@
     }
   },
   "vagas" : {
-    "-LBSdxyDspVLTkEEUHjs" : {
+    "ny0jqq9svemj71kj30w01n" : {
       "cargo" : "Estagiário",
       "description" : "Aprender como funcionam as principais ferramentas da Google para aplicar melhorias ",
       "empresa" : "Google",
       "salario" : "3.000,00",
+      "imagem" : "google_logo.png",
       "area" : "Tecnologia",
       "title" : "Aprendiz na Google"
     },
-    "-LBerSfbku-oGaaNvj6R" : {
+    "kr6hdtfhzdxobj6m5eez" : {
       "cargo" : "Sênior",
       "description" : "Projetar novos circuitos eletrônicos para a armadura do senhor Stark",
       "empresa" : "Indústrias Stark",
       "salario" : "25.000,00",
+      "imagem" : "stark_logo.jpg",
       "area" : "Engenharia",
       "title" : "Engenheiro Eletrônico"
     },
@@ -119,6 +121,7 @@
       "description" : "Desenvolver e prestar manutenção no site da empresa",
       "empresa" : "Uol",
       "salario" : "5.000,00",
+      "imagem" : "",
       "area" : "Tecnologia",
       "title" : "Desenvolvedor Web"
     },
@@ -127,6 +130,7 @@
       "description" : "Ministrar aulas nos cursos de engenharia da computalção, elétrica, eletrônica, controle e automação",
       "empresa" : "Maua",
       "salario" : "A definir",
+      "imagem" : "",
       "area" : "Educação",
       "title" : "Engenheiro"
     },
@@ -135,6 +139,7 @@
       "description" : "Ministrar aulas nos cursos de Design e Engenharia",
       "empresa" : "Maua",
       "salario" : "A definir",
+      "imagem" : "",
       "area" : "Educação",
       "title" : "Design"
     },
@@ -143,20 +148,15 @@
       "description" : "Ministrar aulas nos cursos de administração e engenharia",
       "empresa" : "Maua",
       "salario" : "A definir",
+      "imagem" : "",
       "title" : "Administração"
-    },
-    "-LJLbNKK45ZuLRks9DNI" : {
-      "cargo" : "teste",
-      "description" : "teste",
-      "empresa" : "Google",
-      "salario" : "1111",
-      "title" : "teste"
     },
     "3Dypu84KBJmhfMfkqhVj" : {
       "cargo" : "Pintor Predial",
       "description" : "Executar serviços de pintura de paredes, esquadrias, macas, leitos, mesas de apoio, placas de sinalização, visando à conservação do imóvel e mobiliários do Hospital, conforme procedimentos definidos e de acordo com orientações recebidas.",
       "empresa" : "ADS Pinturas",
       "salario" : "R$ 1.800,00",
+      "imagem" : "",
       "area" : "Manutenção",
       "title" : "Pintor"
     },
@@ -165,6 +165,7 @@
       "description" : "Analisar e responder as solicitações de inspeções e reclamações dos clientes, efetuar a interface entre o time de campo e os desenvolvedores dos sistemas internos, efetuar elaboração de relatórios consolidados diários.",
       "empresa" : "FFL Engenharia e Construção",
       "salario" : "A definir",
+      "imagem" : "",
       "area" : "Engenharia",
       "title" : "Estágio Engenharia Eletrica / Eletronica"
     },
@@ -173,6 +174,7 @@
       "description" : "Acompanhar as atividades desenvolvidas na cozinha, passo a passo, orientando e corrigindo os colaboradores durante a execução das atividades;Experiência no preparo de pães doces e salgados",
       "empresa" : "Eliane Lanches e Café",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Gastronomia",
       "title" : "Padeiro"
     },
@@ -181,6 +183,7 @@
       "description" : "Empresa Nacional , voltada a Construção Civil , prestadora de Serviços de Manutenção e Prevenção contra Incêndios atuando em Âmbito Nacional .",
       "empresa" : "Heneza Instalações e Manutenção Eletrica Eireli",
       "salario" : "R$ 1.500,00",
+      "imagem" : "",
       "area" : "Manutenção",
       "title" : "Eletricista"
     },
@@ -189,6 +192,7 @@
       "description" : "Atendimento ao clientes; Consultoria para a intermediação de imóveis; Apresentação e visita aos imóveis;Intermediação da negociação.",
       "empresa" : "Viabrasil imovel",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Vendas",
       "title" : "Corretor"
     },
@@ -197,6 +201,7 @@
       "description" : "Instrumentação de procedimentos cirúrgicos, realiza atividades de higiene bucal, prepara modelos em gesso e participa de programas de saúde bucal;Habilidades contábil/ financeira/comercial;Rotina administrativa",
       "empresa" : "Odontoclinic",
       "salario" : "R$ 3.000,00",
+      "imagem" : "",
       "area" : "Saúde",
       "title" : "Odontologista"
     },
@@ -205,6 +210,7 @@
       "description" : "Conciliação bancária; Conciliação de contas ativas e passivas;Planilhas e acompanhamentos excel",
       "empresa" : "Elithe Promo",
       "salario" : "R$ 2.400,00",
+      "imagem" : "",
       "area" : "Finanças",
       "title" : "Assistente"
     },
@@ -213,6 +219,7 @@
       "description" : "Responsável por prestar atendimento ao cliente, identificando suas necessidades e propondo soluções;Solucionar problemas levantados pelos clientes ou detectados pelas pesquisas de satisfação;Atender solicitações do Corpo Diretivo, condôminos, clientes externos e internos.",
       "empresa" : "Grupo FMG",
       "salario" : "R$ 5.500,00",
+      "imagem" : "",
       "area" : "Administração",
       "title" : "Subgerente de Atendimento à Condomínios"
     },
@@ -221,6 +228,7 @@
       "description" : "Experiência em toda rotina de uma casa de família saber cozinhar comida trivial , lavar , passar.",
       "empresa" : "GVW - Brasil Logistica e agenciamento de cargas",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Limpeza",
       "title" : "Empregada"
     },
@@ -229,6 +237,7 @@
       "description" : "Fará conferência do armário de psicotrópico;Conferência e guarda de mercadoria;Checagem de temperatura da geladeira de medicamentos;Supervisão do balcão de medicamento;Atendimento aos pacientes.",
       "empresa" : "Drogão Mais",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Saúde",
       "title" : "Farmacêutico"
     },
@@ -237,6 +246,7 @@
       "description" : "Profissional prestará assistência na área administrativa de uma empresa, auxiliando o administrador em suas atividades rotineiras e no controle de gestão financeira, administração, organização de arquivos, gerência de informações, revisão de documentos entre outras atividades.",
       "empresa" : "Fusion Plast",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Administração",
       "title" : "Assistente Administrativo"
     },
@@ -245,6 +255,7 @@
       "description" : "Atuar em vendas por telemarketing, através de metas pré definidas. Produtos bancários ou telefônicos.",
       "empresa" : "VIKSTAR CONTACT CENTER",
       "salario" : "R$ 1.000,00",
+      "imagem" : "",
       "area" : "Vendas",
       "title" : "Atendente de Telemarketing"
     },
@@ -253,6 +264,7 @@
       "description" : "Executar rotinas administrativas e financeira, controle de tarifas bancárias, comando de instruções bancárias, lançamentos contábeis, conciliação bancária, realizar controles diários dos extratos bancários, conferindo pagamentos e recebimentos. Elaborar o fluxo de caixa por meio das provisões de recebimentos e pagamentos)",
       "empresa" : "Moura Fonseca Acessoria em Recursos Humanos",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Finanças",
       "title" : "Analista Financeiro"
     },
@@ -261,6 +273,7 @@
       "description" : "Planejar, organizar, gerenciar, desenvolver, acompanhar, controlar e executar os projetos de construções e reformas. Acompanhar o cronograma físico e financeiro da obra. Elaborar orçamentos e realizar levantamento quantitativo de equipamentos, materiais e serviços. Chefiar as equipes de trabalho, supervisionar os prazos, custos, padrões de qualidade e segurança.",
       "empresa" : "Construmag Projetos e Construções",
       "salario" : "R$ 9.000,00",
+      "imagem" : "",
       "area" : "Engenharia",
       "title" : "Engenheiro Civil"
     },
@@ -269,6 +282,7 @@
       "description" : "Atuar em vendas por telemarketing, através de metas pré definidas. Produto crédito consignado para aposentados e pensionistas do inss.",
       "empresa" : "Credimoney",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Vendas",
       "title" : "Atendente de Telemarketing"
     },
@@ -277,6 +291,7 @@
       "description" : "Preparar bebidas a base de café e chá;Manipulação de alimentos;Prestar atendimento aos clientes;",
       "empresa" : "Starbucks",
       "salario" : "R$ 1.200,00",
+      "imagem" : "",
       "area" : "Gastronomia",
       "title" : "Barista"
     },
@@ -285,6 +300,7 @@
       "description" : "Responsável pelo processo de criação de interface mobile, desde a pesquisa, identidade visual, wireframes e layout. Conhecimentos em UI/UX, design responsivo, prototipação, interface mobile/web e boa direção de arte.",
       "empresa" : "Kanamobi",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Tecnologia",
       "title" : "Especialista"
     },
@@ -293,6 +309,7 @@
       "description" : "Técnico de enfermagem, para se trabalhar no Hospital. Conhecimentos de técnicas de enfermagem e como lidar com pacientes.",
       "empresa" : "Time Consultoria",
       "salario" : "R$ 1.400,00",
+      "imagem" : "",
       "area" : "Saúde",
       "title" : "Técnico de Enfermagem"
     },
@@ -301,6 +318,7 @@
       "description" : "Análise e desenvolvimento de aplicações em Delphi, Visual basic 6, Desenvolvimento de relatórios em Reportbuilder. Linguagem SQL, Stored Procedure, Banco de Dados Oracle e DBF. ",
       "empresa" : "AKL COMERCIAL ELETRICA",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Tecnologia",
       "title" : "Analista"
     },
@@ -309,6 +327,7 @@
       "description" : "Responsável por vendas internas na loja. Apresentar o produto, cativar o cliente, passar a venda no caixa e manter a loja organizada, desempenhando todas as atividades necessárias para o bom andamento da loja e manter o padrão.",
       "empresa" : "Menina Moça",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Vendas",
       "title" : "Vendedor"
     },
@@ -317,6 +336,7 @@
       "description" : "Acompanha os pedidos de vendas, presta apoio no desenvolvimento de propostas comerciais e elabora relatórios sobre tendências de mercado, demanda e concorrentes.",
       "empresa" : "Infocenter",
       "salario" : "R$ 1.200,00",
+      "imagem" : "",
       "area" : "Administração",
       "title" : "Auxiliar de Produção"
     },
@@ -325,6 +345,7 @@
       "description" : "Empresa de Engenharia e Arquitetura busca Engenheiros recém formados, para acompanhamentos de obra e outras atividades relacionadas a função.",
       "empresa" : "Global Engenharia",
       "salario" : "R$ 3.000,00",
+      "imagem" : "",
       "area" : "Engenharia",
       "title" : "Engenheiro Civil"
     },
@@ -333,6 +354,7 @@
       "description" : "Solicitar as matérias primas para realizar o pré-preparo;Monitorar o descongelamento dos produtos;Proceder o corte da matéria prima, de acordo com o cardápio e conforme a preparação , obedecendo os per-captas e padrões estabelecidos.",
       "empresa" : "Boi E CIA",
       "salario" : "R$ 1.500,00",
+      "imagem" : "",
       "area" : "Gastronomia",
       "title" : "Açougueiro"
     },
@@ -341,6 +363,7 @@
       "description" : "Grupo Multinacional na área da Saúde, com diversos Hospitais em São Paulo, contrata para atuar como Auxiliar de Enfermagem . O Profissional realizará todas atividades assistenciais do pronto socorro obstétrico.",
       "empresa" : "Luandre Servicos Temporarios",
       "salario" : "R$ 1.300,00",
+      "imagem" : "",
       "area" : "Saúde",
       "title" : "Auxiliar de Enfermagem"
     },
@@ -349,6 +372,7 @@
       "description" : "Prática com alinhamento, balanceamento, freio, suspensão, correia dentada, embreagem, injeção eletrônica,troca de pneus.",
       "empresa" : "Rhada - RHS",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Manutenção",
       "title" : "Mecânico"
     },
@@ -357,21 +381,16 @@
       "description" : "Gerenciar equipe de operação/manutenção do shopping;Gerenciar a execução de manutenções preventivas e corretivas;Avaliar e aprovar projetos;Analise e acompanhamento do budget e fechamento das prestações de contas;Elaboração do plano de ação para orçamentos.",
       "empresa" : "Overmalls Acessoria Empresarial",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Administração",
       "title" : "Gerente de Operações Sr"
-    },
-    "si7fthxui0dwpa8i5jns88" : {
-      "cargo" : "teste",
-      "description" : "asfdasf",
-      "empresa" : "Google",
-      "salario" : "3333",
-      "title" : "test"
     },
     "u28UraJqQ3wGAsFz2mbP" : {
       "cargo" : "Nutricionista Clínico/Hospitalar",
       "description" : "Empresa norte-americana do setor de saúde e bem-estar contrata Nutricionista Clínico/Hospitalar com experiência nas funções Lactário / Produção e Líder. Irá atuar em hospital com acompanhamento de dieta, acompanhamento de terceiros; auditoria em dietas de diversos areas de pacientes.",
       "empresa" : "Luandre Servicos Temporarios",
       "salario" : "R$ 3.600,00",
+      "imagem" : "",
       "area" : "Saúde",
       "title" : "Nutricionista"
     },
@@ -380,6 +399,7 @@
       "description" : "Atuar com foco principal na criação de novas funções para um aplicativo Android publicado na Google Play Store. Durante o desenvolvimento poderão surgir tarefas para correção de problemas no aplicativo em produção. O profissional deverá ser fluente em Java para Android, ter sólidos conhecimentos no consumo de APIs REST, bom entendimento de arquitetura e boa comunicação com os demais recursos da equipe.",
       "empresa" : "Contrata Assessoria Empresarial RS Treinamentos",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Tecnologia",
       "title" : "Desenvolvedor Mobile"
     },
@@ -388,6 +408,7 @@
       "description" : "Ajudar na fabricação de bolos, doces, biscoitos e outras guloseimas. Preparar e misturar os ingredientes em doses adequadas, conforme a receita, utilizando aparelhos manuais e/ou elétricos, para atender a pedidos e/ou colocar à venda os produtos confeccionados",
       "empresa" : "Condessa Bistro",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Gastronomia",
       "title" : "Auxiliar Confeiteiro"
     },
@@ -396,6 +417,7 @@
       "description" : "Acompanhar as atividades desenvolvidas na cozinha, passo a passo, orientando e corrigindo os colaboradores durante a execução das atividades;Executar e/ou orientar tarefas de pré-preparo e preparo em todas as áreas, inclusive açougue;Executar atividades de cocção das preparações estabelecidas nos serviços, inclusive da cozinha dietética;",
       "empresa" : "Manuela Cozinha",
       "salario" : "R$ 2.000,00",
+      "imagem" : "",
       "area" : "Gastronomia",
       "title" : "Cozinheiro"
     },
@@ -404,6 +426,7 @@
       "description" : "Realizar vendas de acessórios para celular explicando os benefícios dos produtos aos clientes de forma clara e cordial. Objetivo é aumentar as vendas de acessórios para celular.",
       "empresa" : "My Phonne",
       "salario" : "R$ 1.300,00",
+      "imagem" : "",
       "area" : "Vendas",
       "title" : "Vendedor"
     },
@@ -412,6 +435,7 @@
       "description" : "Responsável por toda limpeza em estabelecimento comercial, escritório e fábrica",
       "empresa" : "Dengo Brasil",
       "salario" : "A combinar",
+      "imagem" : "",
       "area" : "Limpeza",
       "title" : "Auxiliar de Limpeza"
     },
@@ -420,6 +444,7 @@
       "description" : "Trabalha no setor de desenvolvimento de produtos, de acordo com normas determinadas pela empresa; atua no desenvolvimento de trabalhos relativos a pesquisa e padronização de materiais e componentes, bem como, respectiva viabilidade quanto ao seu uso no projeto",
       "empresa" : "Designer Serviços",
       "salario" : "A definir",
+      "imagem" : "",
       "area" : "Engenharia",
       "title" : "Engenharia de Produção"
     }

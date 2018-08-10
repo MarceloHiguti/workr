@@ -4,8 +4,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { UsersProvider } from '../../providers/users/users';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { FileChooser } from '@ionic-native/file-chooser';
-import { File } from '@ionic-native/file';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import firebase from 'firebase';
 
@@ -20,10 +18,12 @@ export class CadastrarVagaPage {
   form: FormGroup;
   users: any;
   id: string;
-  arquivo;
+  arquivo = {
+    name: ''
+  };
   referencia;
 
-  constructor(private afStorage: AngularFireStorageModule, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private provider: UsersProvider, private alertCtrl: AlertController, private toast: ToastController, private fileChooser: FileChooser, private file: File) {
+  constructor(private afStorage: AngularFireStorageModule, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private provider: UsersProvider, private alertCtrl: AlertController, private toast: ToastController) {
     this.referencia = firebase.storage().ref();
     var user = this.afAuth.auth.currentUser;
     this.empresaName = user.displayName;

@@ -132,21 +132,23 @@ export class FuncVagasPage {
               parent.salario = element[value].salario;
               parent.desc = element[value].description;
 
-              let caminho = parent.referencia.child('imagens/' + value + '/' + element[value].imagem );
+              if (element[value].imagem != '') {
+                let caminho = parent.referencia.child('imagens/' + value + '/' + element[value].imagem);
                 caminho.getDownloadURL().then(url => {
-                    // this.imagemPath = url;
-                    // console.log("url");
-                    // console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
-                    parent.jobs.forEach(function(vaga){
-                      console.log(vaga["vagaId"]);
-                      if (vaga["vagaId"] == value) {
-                        vaga["image"] = url;
-                      }
-                    });
+                  // this.imagemPath = url;
+                  // console.log("url");
+                  console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
+                  parent.jobs.forEach(function (vaga) {
+                    console.log(vaga["vagaId"]);
+                    if (vaga["vagaId"] == value) {
+                      vaga["image"] = url;
+                    }
+                  });
                 });
+              }
 
               parent.jobs.push({vagaId: value, title: parent.title, empresa: parent.empresa, 
-                cargo: parent.cargo, salario: parent.salario, desc: parent.desc});
+                cargo: parent.cargo, salario: parent.salario, desc: parent.desc, image: parent.imagem});
             })
             // console.log(element["-LBEHim-1JcaPfrpU0F4"].title);
           });
@@ -171,18 +173,20 @@ export class FuncVagasPage {
             parent.salario = element[value].salario;
             parent.desc = element[value].description;
 
-            let caminho = parent.referencia.child('imagens/' + value + '/' + element[value].imagem );
-              caminho.getDownloadURL().then(url => {
-                  // this.imagemPath = url;
-                  // console.log("url");
-                  // console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
-                  parent.jobs.forEach(function(vaga){
-                    console.log(vaga["vagaId"]);
-                    if (vaga["vagaId"] == value) {
-                      vaga["image"] = url;
-                    }
-                  });
-              });
+            if (element[value].imagem != '') {
+              let caminho = parent.referencia.child('imagens/' + value + '/' + element[value].imagem );
+                caminho.getDownloadURL().then(url => {
+                    // this.imagemPath = url;
+                    // console.log("url");
+                    // console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
+                    parent.jobs.forEach(function(vaga){
+                      console.log(vaga["vagaId"]);
+                      if (vaga["vagaId"] == value) {
+                        vaga["image"] = url;
+                      }
+                    });
+                });
+            }
 
             parent.jobs.push({vagaId: value, title: parent.title, empresa: parent.empresa, 
               cargo: parent.cargo, salario: parent.salario, desc: parent.desc});

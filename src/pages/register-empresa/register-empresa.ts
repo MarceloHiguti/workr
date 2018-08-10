@@ -60,6 +60,6 @@ export class RegisterEmpresaPage {
     //       this.toast.create({ message: 'Erro ao salvar usuário.', duration: 3000}).present();
     //       console.error(e);
     //     })
-    }
+    // }
   }
 }

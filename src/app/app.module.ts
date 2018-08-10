@@ -4,9 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { FileChooser } from '@ionic-native/file-chooser';
-import { File } from '@ionic-native/file';
-
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -98,8 +95,6 @@ import { GlobalProvider } from '../providers/global/global';
   providers: [
     StatusBar,
     SplashScreen,
-    File,
-    FileChooser,
     {provide: LOCALE_ID, useValue: 'pt-BR'},
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SQLite,
