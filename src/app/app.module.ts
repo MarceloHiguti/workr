@@ -33,6 +33,10 @@ import { FuncConfigPage } from '../pages/func-config/func-config';
 import { RegisterEmpresaPage } from '../pages/register-empresa/register-empresa';
 import { RegisterFuncionarioPage } from '../pages/register-funcionario/register-funcionario';
 import { GlobalProvider } from '../providers/global/global';
+import { EmpresaConfigPage } from '../pages/empresa-config/empresa-config';
+import { VagaCandidatoDetailPage } from '../pages/vaga-candidato-detail/vaga-candidato-detail';
+import { VagaCandidatosPage } from '../pages/vaga-candidatos/vaga-candidatos';
+import { CandidatoAceitoDetailPage } from '../pages/candidato-aceito-detail/candidato-aceito-detail';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,11 @@ import { GlobalProvider } from '../providers/global/global';
     FuncLikesDetailPage,
     FuncConfigPage,
     RegisterEmpresaPage,
-    RegisterFuncionarioPage
+    RegisterFuncionarioPage,
+    EmpresaConfigPage,
+    VagaCandidatoDetailPage,
+    VagaCandidatosPage,
+    CandidatoAceitoDetailPage
   ],
   imports: [
     BrowserModule,
@@ -90,7 +98,11 @@ import { GlobalProvider } from '../providers/global/global';
     FuncLikesDetailPage,
     FuncConfigPage,
     RegisterEmpresaPage,
-    RegisterFuncionarioPage
+    RegisterFuncionarioPage,
+    EmpresaConfigPage,
+    VagaCandidatoDetailPage,
+    VagaCandidatosPage,
+    CandidatoAceitoDetailPage
   ],
   providers: [
     StatusBar,

@@ -54,8 +54,8 @@ export class FuncVagasPage {
     vagaId: '',
     vagaTitle: '',
     vagaCargo: '',
-    funcionarioId: '',
-    funcionarioNome: '',
+    candidatoId: '',
+    candidatoNome: '',
     empresa: '',
     status: '',
   }
@@ -83,8 +83,8 @@ export class FuncVagasPage {
       this.match.vagaId = this.jobs[this.jobs.length-1]["vagaId"];
       this.match.vagaTitle = this.jobs[this.jobs.length-1]["title"];
       this.match.vagaCargo = this.jobs[this.jobs.length-1]["cargo"];
-      this.match.funcionarioId = this.userId;
-      this.match.funcionarioNome = this.userNome;
+      this.match.candidatoId = this.userId;
+      this.match.candidatoNome = this.userNome;
       this.match.empresa = this.jobs[this.jobs.length-1]["empresa"];
       this.match.status = "H";
       // console.log(this.match);
@@ -189,7 +189,7 @@ export class FuncVagasPage {
             }
 
             parent.jobs.push({vagaId: value, title: parent.title, empresa: parent.empresa, 
-              cargo: parent.cargo, salario: parent.salario, desc: parent.desc});
+              cargo: parent.cargo, salario: parent.salario, desc: parent.desc, image: parent.imagem});
           })
           // console.log(element["-LBEHim-1JcaPfrpU0F4"].title);
         });

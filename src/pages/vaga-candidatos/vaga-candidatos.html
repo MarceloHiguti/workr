@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Candidatos aceitos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let candidato of candidatos" class="candidatos_item" (click)="candidatoAceitoDetail(candidato.id)">
+      <ion-item>
+        <h1>{{ candidato.nome }}</h1>
+        <!-- <p>{{ vaga.cargo }}</p>
+        <p>{{ vaga.description }}</p> -->
+      </ion-item>
+    </ion-item>
+  </ion-list>
+</ion-content>

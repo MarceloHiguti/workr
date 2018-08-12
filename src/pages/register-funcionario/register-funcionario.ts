@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersProvider } from '../../providers/users/users';
 import { FuncionarioTabPage } from '../funcionario-tab/funcionario-tab';
 import { AngularFireDatabase } from 'angularfire2/database';
+import firebase from 'firebase';
 
 
 @IonicPage()
@@ -25,32 +26,32 @@ export class RegisterFuncionarioPage {
     formacao: '',
     idioma: ''
   }
+  arquivo;
+  referencia;
 
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, private app: App, public navParams: NavParams, public db: AngularFireDatabase, private formBuilder: FormBuilder, private provider: UsersProvider, private toast: ToastController) {
-    this.email = afAuth.auth.currentUser.email;
+    this.referencia = firebase.storage().ref();
+    this.funcionario.email = afAuth.auth.currentUser.email;
     this.userId = afAuth.auth.currentUser.uid;
     console.log("userId: ", afAuth.auth.currentUser.uid);
     this.users = this.navParams.data.users || {};
     console.log("user: ", this.users);
     this.createForm();
     var parent = this;
-    var matchesRef = this.db.database.ref("matches/" + this.userId).once("value")
+    var usersRef = this.db.database.ref("users/" + this.userId).once("value")
       .then(function(snapshot) {
         var obj = [];
         var keys = [];
         obj.push(snapshot.val()); 
-        // console.log(obj);
+        console.log(obj);
         if (obj[0] != null) {
           obj.forEach(element => {
-            keys = Object.keys(element);
-            keys.forEach((value, index) => {
-              parent.funcionario.nome = element[value].name;
-              parent.funcionario.idade = element[value].idade;
-              parent.funcionario.celular = element[value].celular;
-              parent.funcionario.email = element[value].email;
-              parent.funcionario.formacao = element[value].formacao;
-              parent.funcionario.idioma = element[value].idioma;
-            })
+            parent.funcionario.nome = element.name;
+            parent.funcionario.idade = element.idade;
+            parent.funcionario.celular = element.celular;
+            parent.funcionario.email = element.email;
+            parent.funcionario.formacao = element.formacao;
+            parent.funcionario.idioma = element.idioma;
           });
         }
     });
@@ -69,9 +70,11 @@ export class RegisterFuncionarioPage {
   }
   onSubmit () {
     // console.log(this.form.value);
+    var parent = this;
     if (this.form.valid) {
       this.provider.saveFuncionario(this.form.value)
         .then(() => {
+          parent.enviarArquivo(parent.funcionario.email, parent.arquivo);
           this.toast.create({ message: 'Usuário salvo com sucesso.', duration: 3000}).present();
           this.app.getRootNav().setRoot(FuncionarioTabPage);
         })
@@ -84,6 +87,34 @@ export class RegisterFuncionarioPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterFuncionarioPage');
+  }
+
+  atualizaArquivo(event){
+    this.arquivo = event.srcElement.files[0];
+    var fileName = document.getElementById('file-name');
+    fileName.textContent = event.srcElement.files[0].name;
+    console.log("event.srcElement.files[0]");
+    console.log(event.srcElement.files[0]);
+  }
+
+  enviarArquivo(dir, arquivo){
+    let caminho = this.referencia.child('curriculos/' + dir + '/' + this.arquivo.name);
+    let tarefa = caminho.put(this.arquivo);
+    tarefa.on('state_changed', (snapshot)=>{
+      // Acompanha os estados do upload (progresso, pausado,...)
+      }, error => {
+        // Tratar possíveis erros
+      }, () => {
+        // Função de retorno quando o upload estiver completo  
+      console.log(tarefa.snapshot.downloadURL);
+    });
+  }
+
+  baixarArquivo(nome: string){
+    let caminho = this.referencia.child('curriculos/'+nome);
+    caminho.getDownloadURL().then(url => {
+        console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
+    });
   }
 
 }

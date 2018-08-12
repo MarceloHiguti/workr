@@ -16,9 +16,9 @@
       </div>
     </ion-card>
 
-    <ion-card id="card-candidate-{{ i }}" class="td_card">
+    <ion-card id="card-candidate-{{ i }}" class="td_card" (click)="candidatoDetail(match.candidatoId)">
       <ion-card-header>
-        {{ match.funcionarioNome }}
+        {{ match.candidatoNome }}
       </ion-card-header>
       <div class="card_desc">
         <ion-card-content class="card_desc">

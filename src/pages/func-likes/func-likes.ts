@@ -12,7 +12,7 @@ import { FuncLikesDetailPage } from '../func-likes-detail/func-likes-detail';
 })
 export class FuncLikesPage {
 
-  funcionarioId: string;
+  candidatoId: string;
   vagaId: string;
   matchId: string;
   status: string;
@@ -31,11 +31,11 @@ export class FuncLikesPage {
   
   ionViewDidEnter() {
     console.log('ionViewDidEnter FuncLikesPage');
-    this.funcionarioId = this.afAuth.auth.currentUser.uid;
+    this.candidatoId = this.afAuth.auth.currentUser.uid;
     var parent = this;
     parent.matches = [];
     parent.jobs = [];
-    var matchesRef = this.db.database.ref("matches/").orderByChild('funcionarioId').equalTo(this.funcionarioId).once("value")
+    var matchesRef = this.db.database.ref("matches/").orderByChild('candidatoId').equalTo(this.candidatoId).once("value")
       .then(function(snapshot) {
         var obj = [];
         var keys = [];

@@ -69,6 +69,14 @@
       </div>
     </ion-item>
 
+    <div class='input-wrapper'>
+      <label for='input-file'>
+        Selecione um currículo
+      </label>
+      <input id='input-file' type='file' value='' (change)="atualizaArquivo($event)" />
+      <span id='file-name'></span>
+    </div>
+
     <div padding>
       <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
     </div>

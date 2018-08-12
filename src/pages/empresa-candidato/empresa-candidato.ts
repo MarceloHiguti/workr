@@ -4,6 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UsersProvider } from '../../providers/users/users';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { VagaCandidatoDetailPage } from '../vaga-candidato-detail/vaga-candidato-detail';
 
 @IonicPage()
 @Component({
@@ -12,10 +13,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EmpresaCandidatoPage {
   matchId: string;
-  funcionarioId: string;
+  candidatoId: string;
   vagaId: string;
   status: string;
-  funcionarioNome: string;
+  candidatoNome: string;
   vagaTitle: string;
   vagaCargo: string;
   empresa: string;
@@ -55,14 +56,14 @@ export class EmpresaCandidatoPage {
             keys = Object.keys(element);
             keys.forEach((value, index) => {
               parent.matchId = value;
-              parent.funcionarioId = element[value].funcionarioId;
+              parent.candidatoId = element[value].candidatoId;
               parent.vagaId = element[value].vagaId;
               parent.status = element[value].status;
-              parent.funcionarioNome = element[value].funcionarioNome;
+              parent.candidatoNome = element[value].candidatoNome;
               parent.vagaTitle = element[value].vagaTitle;
               parent.vagaCargo = element[value].vagaCargo;
-              parent.matches.push({matchId: parent.matchId, funcionarioId: parent.funcionarioId, vagaId: parent.vagaId, status: parent.status,
-                funcionarioNome: parent.funcionarioNome, 
+              parent.matches.push({matchId: parent.matchId, candidatoId: parent.candidatoId, vagaId: parent.vagaId, status: parent.status,
+                candidatoNome: parent.candidatoNome, 
                 vagaTitle: parent.vagaTitle, vagaCargo: parent.vagaCargo});  
             })
           });
@@ -128,5 +129,12 @@ export class EmpresaCandidatoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EmpresaCandidatoPage');
+  }
+
+  candidatoDetail(candidatoId) {
+    this.navCtrl.push(VagaCandidatoDetailPage,
+    {
+      candidatoId: candidatoId
+    });
   }
 }

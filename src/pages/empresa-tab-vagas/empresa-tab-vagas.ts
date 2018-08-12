@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
+import { VagaCandidatosPage } from '../vaga-candidatos/vaga-candidatos';
 
 @IonicPage()
 @Component({
@@ -17,12 +18,11 @@ export class EmpresaTabVagasPage {
   cargo: string;
   description: string;
   empresa: string;
+  vagaId: string;
   vagas: Array<Object> = [];
-  arquivo;
-  referencia;
 
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController) {
-    this.referencia = firebase.storage().ref();
+
   }
 
   cadastrarVaga() {
@@ -49,10 +49,11 @@ export class EmpresaTabVagasPage {
           obj.forEach(element => {
             keys = Object.keys(element);
             keys.forEach((value, index) => {
+              parent.vagaId = value;
               parent.title = element[value].title;
               parent.cargo = element[value].cargo;
               parent.description = element[value].description;
-              parent.vagas.push({title: parent.title, cargo: parent.cargo, description: parent.description});
+              parent.vagas.push({id: parent.vagaId ,title: parent.title, cargo: parent.cargo, description: parent.description});
             })
           });
         }
@@ -61,28 +62,10 @@ export class EmpresaTabVagasPage {
     });
   }
 
-  atualizaArquivo(event){
-    this.arquivo = event.srcElement.files[0];
-  }
-
-  enviarArquivo(dir, arquivo){
-    let caminho = this.referencia.child('curriculum/'+this.arquivo.name);
-    let tarefa = caminho.put(this.arquivo);
-    tarefa.on('state_changed', (snapshot)=>{
-      // Acompanha os estados do upload (progresso, pausado,...)
-      }, error => {
-        // Tratar possíveis erros
-      }, () => {
-        // Função de retorno quando o upload estiver completo  
-      console.log(tarefa.snapshot.downloadURL);
+  vagaCandidatos(vagaId) {
+    this.navCtrl.push(VagaCandidatosPage,
+    {
+      vagaId: vagaId
     });
   }
-
-  baixarArquivo(nome: string){
-    let caminho = this.referencia.child('curriculum/'+nome);
-    caminho.getDownloadURL().then(url => {
-        console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
-    });
-  }
-
 }

@@ -102,9 +102,10 @@ export class LoginPage {
   }
 
   signInCandidatoMarcelo() {
-    this.afAuth.auth.signInWithEmailAndPassword("marcelo@teste.com", "123@mudar")
+    this.afAuth.auth.signInWithEmailAndPassword("marcelohiguti96@gmail.com", "123@mudar")
       .then(data => {
         // console.log("got some data", data);
+        // console.log("user.uid", user.uid);
         var parent = this; // variavel criada para poder acessar o navCtrl na próxima função
         var user = this.afAuth.auth.currentUser;
         var ref = this.db.database.ref("users/" + user.uid).once("value")

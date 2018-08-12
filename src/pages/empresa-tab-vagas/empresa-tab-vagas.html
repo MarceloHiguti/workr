@@ -1,6 +1,6 @@
 <ion-content padding class="body_page">
   <ion-list>
-    <ion-item *ngFor="let vaga of vagas" class="vagas_item">
+    <ion-item *ngFor="let vaga of vagas" class="vagas_item" (click)="vagaCandidatos(vaga.id)">
       <ion-item>
         <h1>{{ vaga.title }}</h1>
         <p>{{ vaga.cargo }}</p>
@@ -12,7 +12,4 @@
   <div padding>
     <button block ion-button (click)="cadastrarVaga()">+ Vagas</button>
   </div>
-
-  <input type="file" (change)="atualizaArquivo($event)"/>
-  <button ion-button (click)="enviarArquivo()">Enviar</button>
 </ion-content>
