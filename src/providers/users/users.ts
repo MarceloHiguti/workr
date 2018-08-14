@@ -103,10 +103,22 @@ export class UsersProvider {
     })
   }
 
-  saveMatch(user: any) {
+  saveMatch(match: any) {
     return new Promise((resolve, reject) => {
       this.db.list(this.pathMatch)
-        .push({ vagaId: user.vagaId, vagaTitle: user.vagaTitle, vagaCargo: user.vagaCargo, candidatoId: user.candidatoId, candidatoNome: user.candidatoNome, empresa: user.empresa, status: user.status })
+        .push({
+          vaga: {
+              vagaId: match.vaga.vagaId, 
+              vagaTitle: match.vaga.vagaTitle, 
+              vagaCargo: match.vaga.vagaCargo
+          },
+          candidato: {
+              candidatoId: match.candidato.candidatoId, 
+              candidatoNome: match.candidato.candidatoNome
+          },
+          empresa: match.empresa, 
+          status: match.status 
+      })
         .then(() => resolve());
     })
   }
@@ -114,7 +126,7 @@ export class UsersProvider {
   updateMatch(match: any) {
     return new Promise((resolve, reject) => {
       this.db.list(this.pathMatch)
-        .update(match.key, { status: match.status, feedback: match.feedback, feedbackObs: match.feedbackObs })
+        .update(match.key, { status: match.status, feedback: { motivo: match.feedback.motivo, observacao: match.feedback.observacao}})
         .then(() => resolve())
         .catch((e) => reject(e));
     })

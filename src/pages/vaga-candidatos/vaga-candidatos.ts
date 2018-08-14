@@ -22,6 +22,7 @@ export class VagaCandidatosPage {
     formacao: '',
     idioma: ''
   }
+  status: string;
   arquivo;
   referencia;
   candidatos: Array<Object> = [];
@@ -31,7 +32,7 @@ export class VagaCandidatosPage {
     // console.log("vagaId: ", this.vagaId);
     this.referencia = firebase.storage().ref();
     var parent = this;
-    var matchesRef = this.db.database.ref("matches/").orderByChild('vagaId').equalTo(this.vagaId).once("value")
+    var matchesRef = this.db.database.ref("matches/").orderByChild('vaga/vagaId').equalTo(this.vagaId).once("value")
       .then(function(snapshot) {
         var obj = [];
         var keys = [];
@@ -42,9 +43,12 @@ export class VagaCandidatosPage {
             keys = Object.keys(element);
             // console.log(keys);
             keys.forEach((value, index) => {
-              parent.candidato.id = element[value].candidatoId;
-              parent.candidato.nome = element[value].candidatoNome;
-              parent.candidatos.push({id: parent.candidato.id, nome: parent.candidato.nome});
+              parent.candidato.id = element[value].candidato.candidatoId;
+              parent.candidato.nome = element[value].candidato.candidatoNome;
+              parent.status = element[value].status;
+              if (parent.status == 'Y'){
+                parent.candidatos.push({id: parent.candidato.id, nome: parent.candidato.nome});
+              }
             })
           });
         }

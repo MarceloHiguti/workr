@@ -35,7 +35,7 @@ export class FuncLikesPage {
     var parent = this;
     parent.matches = [];
     parent.jobs = [];
-    var matchesRef = this.db.database.ref("matches/").orderByChild('candidatoId').equalTo(this.candidatoId).once("value")
+    var matchesRef = this.db.database.ref("matches/").orderByChild('candidato/candidatoId').equalTo(this.candidatoId).once("value")
       .then(function(snapshot) {
         var obj = [];
         var keys = [];
@@ -44,9 +44,8 @@ export class FuncLikesPage {
         if (obj[0] != null) {
           obj.forEach(element => {
             keys = Object.keys(element);
-            // console.log(keys);
             keys.forEach((value, index) => {
-              parent.vagaId = element[value].vagaId;
+              parent.vagaId = element[value].vaga.vagaId;
               parent.status = element[value].status;
               parent.matches.push({matchId: value, vagaId: parent.vagaId, status: parent.status});
             })

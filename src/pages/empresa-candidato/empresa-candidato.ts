@@ -13,20 +13,28 @@ import { VagaCandidatoDetailPage } from '../vaga-candidato-detail/vaga-candidato
 })
 export class EmpresaCandidatoPage {
   matchId: string;
-  candidatoId: string;
-  vagaId: string;
   status: string;
-  candidatoNome: string;
-  vagaTitle: string;
-  vagaCargo: string;
   empresa: string;
   matches: Array<Object> = [];
 
-  match: Object = {
+  vaga = {
+    vagaId: "",
+    vagaCargo: "",
+    vagaTitle: ""
+  };
+
+  candidato = {
+    candidatoId: "",
+    candidatoNome: ""
+  };
+
+  match = {
     key: "",
     status: "",
-    feedback: "",
-    feedbackObs: ""
+    feedback: {
+      motivo:  "",
+      observacao: ""
+    }
   };
 
   form: FormGroup;
@@ -56,15 +64,15 @@ export class EmpresaCandidatoPage {
             keys = Object.keys(element);
             keys.forEach((value, index) => {
               parent.matchId = value;
-              parent.candidatoId = element[value].candidatoId;
-              parent.vagaId = element[value].vagaId;
+              parent.candidato.candidatoId = element[value].candidato.candidatoId;
+              parent.vaga.vagaId = element[value].vaga.vagaId;
               parent.status = element[value].status;
-              parent.candidatoNome = element[value].candidatoNome;
-              parent.vagaTitle = element[value].vagaTitle;
-              parent.vagaCargo = element[value].vagaCargo;
-              parent.matches.push({matchId: parent.matchId, candidatoId: parent.candidatoId, vagaId: parent.vagaId, status: parent.status,
-                candidatoNome: parent.candidatoNome, 
-                vagaTitle: parent.vagaTitle, vagaCargo: parent.vagaCargo});  
+              parent.candidato.candidatoNome = element[value].candidato.candidatoNome;
+              parent.vaga.vagaTitle = element[value].vaga.vagaTitle;
+              parent.vaga.vagaCargo = element[value].vaga.vagaCargo;
+              parent.matches.push({matchId: parent.matchId, candidatoId: parent.candidato.candidatoId, vagaId: parent.vaga.vagaId, status: parent.status,
+                candidatoNome: parent.candidato.candidatoNome, 
+                vagaTitle: parent.vaga.vagaTitle, vagaCargo: parent.vaga.vagaCargo});  
             })
           });
         }
@@ -90,8 +98,8 @@ export class EmpresaCandidatoPage {
     if (this.matches.length > 0) {
       this.match["key"] = this.matches[this.matches.length-1]["matchId"];
       this.match["status"] = "N";
-      this.match["feedback"] = this.feedbackPickerSelected;
-      this.match["feedbackObs"] = this.form.value.feedbackText;
+      this.match.feedback.motivo = this.feedbackPickerSelected;
+      this.match.feedback.observacao = this.form.value.feedbackText;
       console.log("matches",this.matches[this.matches.length-1]);
       console.log("matches",this.matches);
 
@@ -112,6 +120,8 @@ export class EmpresaCandidatoPage {
     if (this.matches.length > 0) {
       this.match["key"] = this.matches[this.matches.length-1]["matchId"];
       this.match["status"] = "Y";
+      this.match.feedback.motivo = this.feedbackPickerSelected;
+      this.match.feedback.observacao = this.form.value.feedbackText;
       console.log("matches",this.matches[this.matches.length-1]);
       console.log("matches",this.matches);
 

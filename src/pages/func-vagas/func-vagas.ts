@@ -51,13 +51,17 @@ export class FuncVagasPage {
   imagemPath;
 
   match = {
-    vagaId: '',
-    vagaTitle: '',
-    vagaCargo: '',
-    candidatoId: '',
-    candidatoNome: '',
+    vaga: {
+      vagaId: '',
+      vagaTitle: '',
+      vagaCargo: ''
+    },
+    candidato: {
+      candidatoId: '',
+      candidatoNome: ''
+    },
     empresa: '',
-    status: '',
+    status: ''
   }
 
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController, public global: GlobalProvider) {
@@ -80,11 +84,11 @@ export class FuncVagasPage {
     if (this.jobs.length > 0) {
       this.userId = this.afAuth.auth.currentUser.uid;
       this.userNome = this.afAuth.auth.currentUser.displayName;
-      this.match.vagaId = this.jobs[this.jobs.length-1]["vagaId"];
-      this.match.vagaTitle = this.jobs[this.jobs.length-1]["title"];
-      this.match.vagaCargo = this.jobs[this.jobs.length-1]["cargo"];
-      this.match.candidatoId = this.userId;
-      this.match.candidatoNome = this.userNome;
+      this.match.vaga.vagaId = this.jobs[this.jobs.length-1]["vagaId"];
+      this.match.vaga.vagaTitle = this.jobs[this.jobs.length-1]["title"];
+      this.match.vaga.vagaCargo = this.jobs[this.jobs.length-1]["cargo"];
+      this.match.candidato.candidatoId = this.userId;
+      this.match.candidato.candidatoNome = this.userNome;
       this.match.empresa = this.jobs[this.jobs.length-1]["empresa"];
       this.match.status = "H";
       // console.log(this.match);

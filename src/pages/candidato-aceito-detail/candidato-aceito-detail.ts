@@ -35,6 +35,7 @@ export class CandidatoAceitoDetailPage {
         var obj = [];
         var keys = [];
         obj.push(snapshot.val()); 
+        console.log("obj");
         console.log(obj);
         if (obj[0] != null) {
           obj.forEach(element => {
