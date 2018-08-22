@@ -19,6 +19,7 @@ import { CardDetailPage } from '../pages/card-detail/card-detail';
 
 import { SQLite } from '@ionic-native/sqlite';
 import { UsersProvider } from '../providers/users/users';
+import moment from 'moment';
 
 import { EmpresaTabPage } from '../pages/empresa-tab/empresa-tab';
 import { EmpresaTabVagasPage } from '../pages/empresa-tab-vagas/empresa-tab-vagas';
@@ -37,6 +38,7 @@ import { EmpresaConfigPage } from '../pages/empresa-config/empresa-config';
 import { VagaCandidatoDetailPage } from '../pages/vaga-candidato-detail/vaga-candidato-detail';
 import { VagaCandidatosPage } from '../pages/vaga-candidatos/vaga-candidatos';
 import { CandidatoAceitoDetailPage } from '../pages/candidato-aceito-detail/candidato-aceito-detail';
+import { ChatEmpresaCandidatoPage } from '../pages/chat-empresa-candidato/chat-empresa-candidato';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import { CandidatoAceitoDetailPage } from '../pages/candidato-aceito-detail/cand
     EmpresaConfigPage,
     VagaCandidatoDetailPage,
     VagaCandidatosPage,
-    CandidatoAceitoDetailPage
+    CandidatoAceitoDetailPage,
+    ChatEmpresaCandidatoPage
   ],
   imports: [
     BrowserModule,
@@ -102,7 +105,8 @@ import { CandidatoAceitoDetailPage } from '../pages/candidato-aceito-detail/cand
     EmpresaConfigPage,
     VagaCandidatoDetailPage,
     VagaCandidatosPage,
-    CandidatoAceitoDetailPage
+    CandidatoAceitoDetailPage,
+    ChatEmpresaCandidatoPage
   ],
   providers: [
     StatusBar,

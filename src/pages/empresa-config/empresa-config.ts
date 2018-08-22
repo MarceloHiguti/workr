@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { RegisterFuncionarioPage } from '../register-funcionario/register-funcionario';
+import { ChatEmpresaCandidatoPage } from '../chat-empresa-candidato/chat-empresa-candidato';
 
 @IonicPage()
 @Component({
@@ -19,5 +20,9 @@ export class EmpresaConfigPage {
 
   logout() {
     this.app.getRootNav().setRoot(LoginPage);
+  }
+
+  chatMatch() {
+    this.navCtrl.push(ChatEmpresaCandidatoPage);
   }
 }

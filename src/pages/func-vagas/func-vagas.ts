@@ -43,7 +43,7 @@ export class FuncVagasPage {
   cargo: String;
   salario: String;
   desc: String;
-  imagem =  "assets/imgs/logo_workr.png";
+  imagem =  "assets/imgs/vaga_default.png";
   jobs: Array<Object> = [];
   showCard: Boolean = true;
   arquivo;

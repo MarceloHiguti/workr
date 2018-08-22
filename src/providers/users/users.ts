@@ -6,6 +6,7 @@ export class UsersProvider {
   private PATH = 'users/';
   private pathVagas = 'vagas/';
   private pathMatch = 'matches/';
+  private pathChats = 'chats/';
 
   constructor(private db: AngularFireDatabase) {
   }
@@ -118,6 +119,17 @@ export class UsersProvider {
           },
           empresa: match.empresa, 
           status: match.status 
+      })
+        .then(() => resolve());
+    })
+  }
+
+  saveMessage(mensagem: any) {
+    return new Promise((resolve, reject) => {
+      this.db.list(this.pathChats + "/" + mensagem.id)
+        .update(mensagem.date, {
+          username: mensagem.username, 
+          message: mensagem.message
       })
         .then(() => resolve());
     })

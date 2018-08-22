@@ -4,6 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { UsersProvider } from '../../providers/users/users';
 import { AngularFireDatabase } from 'angularfire2/database';
 import firebase from 'firebase';
+import { ChatEmpresaCandidatoPage } from '../chat-empresa-candidato/chat-empresa-candidato';
 
 @IonicPage()
 @Component({
@@ -80,5 +81,9 @@ export class CandidatoAceitoDetailPage {
     caminho.getDownloadURL().then(url => {
         console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
     });
+  }
+
+  chatMatch() {
+    this.navCtrl.push(ChatEmpresaCandidatoPage);
   }
 }
