@@ -12,60 +12,60 @@
   </ion-header>
   
   <ion-content class="body_page">
-  <div class="container clearfix">
-  
-    <div class="chat">
-      <div class="chat-history">
-        <ul>
-          <div *ngFor="let message of messages" [ngSwitch]="message.username">
-  
-            <div *ngSwitchCase="username" >
-              <li class="clearfix">
-                <div class="message-data align-right">
-                  <!-- <span class="message-data-time">10:10 AM, Today</span> &nbsp; &nbsp;
-                  <span class="message-data-name">{{ message.username }}</span>
-                  <i class="fa fa-circle me"></i> -->
-      
-                </div>
-                <div class="message other-message float-right">
-                    {{ message.message }}
-                </div>
-              </li>
-            </div>
-  
-            <div *ngSwitchDefault>
-              <li>
-                  <div class="message-data">
-                      <!-- <span class="message-data-name">
-                      <i class="fa fa-circle online"></i>{{ message.username }}</span>
-                      <span class="message-data-time">Tomorrow</span> -->
-                  </div>
-                  <div class="message my-message">
-                     {{ message.message }}
-                  </div>
-              </li>
-            </div>
-  
-          </div>
-        </ul>
-  
-      </div>
-      <!-- end chat-history -->
-  
-      <div class="chat-message clearfix">
-        <ion-textarea [(ngModel)]="chatTextArea"  id="chatInput" rows="3" placeholder="Digite aqui..."></ion-textarea>
+    <div class="container clearfix">
+    
+      <div class="chat">
+        <div class="chat-history">
+          <ul>
+            <div *ngFor="let message of messages" [ngSwitch]="message.username">
+    
+              <div *ngSwitchCase="username" >
+                <!-- <li class="clearfix"> -->
+                  <div class="message-data align-right">
+                    <!-- <span class="message-data-time">10:10 AM, Today</span> &nbsp; &nbsp;
+                    <span class="message-data-name">{{ message.username }}</span>
+                    <i class="fa fa-circle me"></i> -->
         
-        <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
-        <i class="fa fa-file-image-o"></i>
-  
-        <!-- <button>Send</button> -->
-        <button (click)="sendMessage()">Send</button>
-  
+                  </div>
+                  <div class="message other-message float-right">
+                      {{ message.message }}
+                  </div>
+                <!-- </li> -->
+              </div>
+    
+              <div *ngSwitchDefault>
+                <!-- <li> -->
+                    <div class="message-data">
+                        <!-- <span class="message-data-name">
+                        <i class="fa fa-circle online"></i>{{ message.username }}</span>
+                        <span class="message-data-time">Tomorrow</span> -->
+                    </div>
+                    <div class="message my-message">
+                      {{ message.message }}
+                    </div>
+                <!-- </li> -->
+              </div>
+    
+            </div>
+          </ul>
+    
+        </div>
+        <!-- end chat-history -->
+    
+        <div class="chat-message clearfix">
+          <ion-textarea [(ngModel)]="chatTextArea"  id="chatInput" rows="3" placeholder="Digite aqui..."></ion-textarea>
+          
+          <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+          <i class="fa fa-file-image-o"></i>
+    
+          <!-- <button>Send</button> -->
+          <button (click)="sendMessage()">Send</button>
+    
+        </div>
+        <!-- end chat-message -->
+    
       </div>
-      <!-- end chat-message -->
-  
+      <!-- end chat -->
+    
     </div>
-    <!-- end chat -->
-  
-  </div>
   </ion-content>

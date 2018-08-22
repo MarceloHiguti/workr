@@ -10,6 +10,10 @@ page-chat-empresa-candidato {
       box-sizing: border-box;
     }
 
+    .body_page {
+      background: #F2F5F8;
+    }
+
     body {
       background: #C5DDEB;
       font: 14px/20px "Lato", Arial, sans-serif;
@@ -19,8 +23,9 @@ page-chat-empresa-candidato {
 
     .container {
       margin: 0 auto;
-    //   width: 750px;
-      background: #444753;
+      // width: 750px;
+      width: "100%";
+      // background: #444753;
       border-radius: 5px;
     }
 
@@ -68,7 +73,7 @@ page-chat-empresa-candidato {
     .chat {
       width: 100%;
       float: left;
-      background: #F2F5F8;
+      // background: #F2F5F8;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
       color: #434651;
@@ -101,7 +106,7 @@ page-chat-empresa-candidato {
         padding: 30px 30px 20px;
         border-bottom: 2px solid white;
         overflow-y: scroll;
-        height: 575px;
+        height: 400px;
         .message-data {
           margin-bottom: 15px;
         }
