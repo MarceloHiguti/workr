@@ -20,12 +20,15 @@ export class ChatEmpresaCandidatoPage {
   username;
   textValue;
   chatTextArea;
+  matchId: string;
 
   // @ViewChild('chatTextArea') msgInput: ElementRef;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, private afAuth:AngularFireAuth, private provider: UsersProvider, private toast: ToastController, public element:ElementRef) {
     this.username = this.afAuth.auth.currentUser.displayName;
-    this.db.list('chats/111').valueChanges().subscribe( data => {
+    this.matchId = navParams.get('matchId');
+    console.log(this.matchId);
+    this.db.list('chats/' + this.matchId + '/').valueChanges().subscribe( data => {
       this.messages = data;
       console.log(data);
     });
@@ -39,7 +42,7 @@ export class ChatEmpresaCandidatoPage {
     let data = moment().format('YYYY-MM-DD HH:mm:ss');
     this.mensagem = {
       date: data,
-      id: "111",
+      id: this.matchId,
       username: this.username,
       message: this.chatTextArea
     };

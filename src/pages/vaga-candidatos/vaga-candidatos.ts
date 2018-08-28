@@ -23,6 +23,7 @@ export class VagaCandidatosPage {
     idioma: ''
   }
   status: string;
+  matchId: string;
   arquivo;
   referencia;
   candidatos: Array<Object> = [];
@@ -47,6 +48,7 @@ export class VagaCandidatosPage {
               parent.candidato.nome = element[value].candidato.candidatoNome;
               parent.status = element[value].status;
               if (parent.status == 'Y'){
+                parent.matchId = value;
                 parent.candidatos.push({id: parent.candidato.id, nome: parent.candidato.nome});
               }
             })
@@ -61,7 +63,8 @@ export class VagaCandidatosPage {
 
   candidatoAceitoDetail(candidatoId) {
     this.navCtrl.push(CandidatoAceitoDetailPage, {
-      candidatoId: candidatoId
+      candidatoId: candidatoId,
+      matchId: this.matchId
     });
   }
 

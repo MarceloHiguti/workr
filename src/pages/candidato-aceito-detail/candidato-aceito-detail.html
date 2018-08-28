@@ -1,7 +1,13 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Candidato Aceito</ion-title>
+    <ion-title>
+      Detalhes do candidato
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="chatMatch()">
+        <ion-icon name="chatbubbles"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -23,8 +29,4 @@
 
   <ion-label stacked>Idiomas</ion-label>
   <ion-label>{{ candidato.idioma }}</ion-label>
-
-  <div padding>
-    <button block ion-button (click)="chatMatch()">Chat</button>
-  </div>
 </ion-content>

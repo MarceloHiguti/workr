@@ -23,11 +23,13 @@ export class CandidatoAceitoDetailPage {
     formacao: '',
     idioma: ''
   }
+  matchId: string;
   arquivo;
   referencia;
 
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, private app: App, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController) {
     this.candidatoId = navParams.get('candidatoId');
+    this.matchId = navParams.get('matchId');
     console.log("candidatoId: ", this.candidatoId);
     this.referencia = firebase.storage().ref();
     var parent = this;
@@ -84,6 +86,8 @@ export class CandidatoAceitoDetailPage {
   }
 
   chatMatch() {
-    this.navCtrl.push(ChatEmpresaCandidatoPage);
+    this.navCtrl.push(ChatEmpresaCandidatoPage, {
+      matchId: this.matchId
+    });
   }
 }

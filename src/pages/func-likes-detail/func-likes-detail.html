@@ -1,13 +1,39 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title>func-likes-detail</ion-title>
+    <ion-title>
+      Detalhes da vaga
+    </ion-title>
+    <ion-buttons end *ngIf="status == 'Y'">
+      <button ion-button icon-only (click)="chatMatch()">
+        <ion-icon name="chatbubbles"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+  <img src="{{ vaga.imagem }}" style="height:150px; padding:10px;">
+
+  <ion-label stacked>Empresa</ion-label>
+  <ion-label>{{ vaga.empresa }}</ion-label>
+
+  <ion-label stacked>Título</ion-label>
+  <ion-label>{{ vaga.title }}</ion-label>
+
+  <ion-label stacked>Descrição</ion-label>
+  <p>{{ vaga.description }}</p>
+
+  <ion-label stacked>Área</ion-label>
+  <ion-label>{{ vaga.area }}</ion-label>
+
+  <ion-label stacked>Cargo</ion-label>
+  <ion-label>{{ vaga.cargo }}</ion-label>
+
+  <ion-label stacked>Salário</ion-label>
+  <ion-label>{{ vaga.salario }}</ion-label>
+
+  <ion-label stacked>Feedback</ion-label>
   <p>
     {{ feedback }}
   </p>

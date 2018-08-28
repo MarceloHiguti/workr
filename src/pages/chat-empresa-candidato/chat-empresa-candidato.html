@@ -1,13 +1,8 @@
-<ion-header>
+  <ion-header>
     <ion-navbar>
       <ion-title>
         Mensagens
       </ion-title>
-      <ion-buttons end>
-        <button ion-button icon-only (click)="exitChat()">
-          <ion-icon name="exit"></ion-icon>
-        </button>
-      </ion-buttons>
     </ion-navbar>
   </ion-header>
   
@@ -20,7 +15,7 @@
             <div *ngFor="let message of messages" [ngSwitch]="message.username">
     
               <div *ngSwitchCase="username" >
-                <!-- <li class="clearfix"> -->
+                <li class="clearfix">
                   <div class="message-data align-right">
                     <!-- <span class="message-data-time">10:10 AM, Today</span> &nbsp; &nbsp;
                     <span class="message-data-name">{{ message.username }}</span>
@@ -30,11 +25,11 @@
                   <div class="message other-message float-right">
                       {{ message.message }}
                   </div>
-                <!-- </li> -->
+                </li>
               </div>
     
               <div *ngSwitchDefault>
-                <!-- <li> -->
+                <li>
                     <div class="message-data">
                         <!-- <span class="message-data-name">
                         <i class="fa fa-circle online"></i>{{ message.username }}</span>
@@ -43,7 +38,7 @@
                     <div class="message my-message">
                       {{ message.message }}
                     </div>
-                <!-- </li> -->
+                </li>
               </div>
     
             </div>
