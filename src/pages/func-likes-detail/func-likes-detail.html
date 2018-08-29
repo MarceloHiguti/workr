@@ -15,25 +15,37 @@
 <ion-content padding>
   <img src="{{ vaga.imagem }}" style="height:150px; padding:10px;">
 
-  <ion-label stacked>Empresa</ion-label>
-  <ion-label>{{ vaga.empresa }}</ion-label>
+  <div class="title">Empresa</div>
+  <p>{{ vaga.empresa }}</p>
 
-  <ion-label stacked>Título</ion-label>
-  <ion-label>{{ vaga.title }}</ion-label>
+  <div class="border"></div>
 
-  <ion-label stacked>Descrição</ion-label>
+  <div class="title">Título</div>
+  <p>{{ vaga.title }}</p>
+
+  <div class="border"></div>
+
+  <div class="title">Descrição</div>
   <p>{{ vaga.description }}</p>
 
-  <ion-label stacked>Área</ion-label>
-  <ion-label>{{ vaga.area }}</ion-label>
+  <div class="border"></div>
 
-  <ion-label stacked>Cargo</ion-label>
-  <ion-label>{{ vaga.cargo }}</ion-label>
+  <div class="title">Área</div>
+  <p>{{ vaga.area }}</p>
 
-  <ion-label stacked>Salário</ion-label>
-  <ion-label>{{ vaga.salario }}</ion-label>
+  <div class="border"></div>
 
-  <ion-label stacked>Feedback</ion-label>
+  <div class="title">Cargo</div>
+  <p>{{ vaga.cargo }}</p>
+
+  <div class="border"></div>
+
+  <div class="title">Salário</div>
+  <p>{{ vaga.salario }}</p>
+
+  <div class="border"></div>
+  
+  <div class="title">Feedback</div>
   <p>
     {{ feedback }}
   </p>
