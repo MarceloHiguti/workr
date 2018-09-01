@@ -41,6 +41,7 @@ import { CandidatoAceitoDetailPage } from '../pages/candidato-aceito-detail/cand
 import { ChatEmpresaCandidatoPage } from '../pages/chat-empresa-candidato/chat-empresa-candidato';
 import { FuncVagasFiltrosPage } from '../pages/func-vagas-filtros/func-vagas-filtros';
 import { EmpresaFiltrosPage } from '../pages/empresa-filtros/empresa-filtros';
+import { VagaDetailPage } from '../pages/vaga-detail/vaga-detail';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { EmpresaFiltrosPage } from '../pages/empresa-filtros/empresa-filtros';
     CandidatoAceitoDetailPage,
     ChatEmpresaCandidatoPage,
     FuncVagasFiltrosPage,
-    EmpresaFiltrosPage
+    EmpresaFiltrosPage,
+    VagaDetailPage
   ],
   imports: [
     BrowserModule,
@@ -112,7 +114,8 @@ import { EmpresaFiltrosPage } from '../pages/empresa-filtros/empresa-filtros';
     CandidatoAceitoDetailPage,
     ChatEmpresaCandidatoPage,
     FuncVagasFiltrosPage,
-    EmpresaFiltrosPage
+    EmpresaFiltrosPage,
+    VagaDetailPage
   ],
   providers: [
     StatusBar,

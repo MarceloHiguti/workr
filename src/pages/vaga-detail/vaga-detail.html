@@ -3,11 +3,6 @@
     <ion-title>
       Detalhes da vaga
     </ion-title>
-    <ion-buttons end *ngIf="status == 'Y'">
-      <button ion-button icon-only (click)="chatMatch()">
-        <ion-icon name="chatbubbles"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -42,16 +37,4 @@
 
   <div class="title">Salário</div>
   <p>{{ vaga.salario }}</p>
-
-  <div class="border"></div>
-  
-  <div *ngIf="feedback != 'nenhum'">
-    <div class="title">Feedback</div>
-    <p>
-      {{ feedback }}
-    </p>
-    <p>
-      {{ feedbackObs }}
-    </p>
-  </div>
 </ion-content>

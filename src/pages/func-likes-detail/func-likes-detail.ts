@@ -11,7 +11,7 @@ import firebase from 'firebase';
 })
 export class FuncLikesDetailPage {
 
-  feedback: string;
+  feedback: string = 'nenhum';
   feedbackObs: string;
   matchId: string;
   status: string;
@@ -25,9 +25,9 @@ export class FuncLikesDetailPage {
     cargo: '',
     salario: ''
   };
-  arquivo;
+  // arquivo;
   referencia;
-  imagemPath;
+  // imagemPath;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase) {
     this.referencia = firebase.storage().ref();

@@ -6,6 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { FormGroup } from '@angular/forms';
 import { GlobalProvider } from "../../providers/global/global";
 import firebase from 'firebase';
+import { VagaDetailPage } from '../vaga-detail/vaga-detail';
 
 @IonicPage()
 @Component({
@@ -107,6 +108,12 @@ export class FuncVagasPage {
   
   animateMe(i) {
     // this.state = (this.state === 'small' ? 'large' : 'small');
+  }
+
+  vagaDetail(vagaId) {
+    this.navCtrl.push(VagaDetailPage, {
+      id: vagaId
+    })
   }
 
   ionViewDidLoad() {
