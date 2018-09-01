@@ -4,6 +4,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { UsersProvider } from '../../providers/users/users';
 import { AngularFireDatabase } from 'angularfire2/database';
 import firebase from 'firebase';
+import { GlobalProvider } from "../../providers/global/global";
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -23,9 +25,16 @@ export class VagaCandidatoDetailPage {
   arquivo;
   referencia;
 
-  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, private app: App, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController) {
+  form: FormGroup;
+  feedbackPicker: string;
+  feedbackPickerSelected: string;
+  feedback: any;
+
+  constructor(private afAuth: AngularFireAuth, private formBuilder: FormBuilder, public navCtrl: NavController, public global: GlobalProvider, private app: App, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController) {
     this.candidatoId = navParams.get('candidatoId');
+    this.feedback = this.navParams.data.feedback || {};
     console.log("candidatoId: ", this.candidatoId);
+    this.createForm();
     this.referencia = firebase.storage().ref();
     var parent = this;
     var usersRef = this.db.database.ref("users/" + this.candidatoId).once("value")
@@ -47,6 +56,12 @@ export class VagaCandidatoDetailPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VagaCandidatoDetailPage');
+  }
+
+  ionViewDidLeave() {
+    console.log('ionViewDidLeave VagaCandidatoDetailPage');
+    this.global._feedbackMotivo = this.feedbackPickerSelected;
+    this.global._feedbackObservacao = this.form.value.feedbackText;
   }
 
   atualizaArquivo(event){
@@ -75,5 +90,17 @@ export class VagaCandidatoDetailPage {
     caminho.getDownloadURL().then(url => {
         console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
     });
+  }
+
+  pickerChange () {
+    console.log(this.feedbackPicker);
+    this.feedbackPickerSelected = this.feedbackPicker;
+  }
+
+  createForm () {
+    this.form = this.formBuilder.group({
+      feedbackPicker: this.feedbackPickerSelected,
+      feedbackText: this.feedback.feedbackText
+    })
   }
 }

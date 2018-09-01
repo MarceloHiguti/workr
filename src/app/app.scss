@@ -16,9 +16,20 @@
 // automatically applied to the <body> element in the app.
 
 .content{
-    background: #F5F5F5
+    background: #F5F5F5;
 }
 
 p {
     font-size: 16px;
+}
+
+.toolbar-background {
+    background: #56595A;
+}
+
+.toolbar-title {
+    color: white;
+}
+.toolbar-back-button {
+    color: white;
 }

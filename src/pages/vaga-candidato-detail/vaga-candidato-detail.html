@@ -7,15 +7,36 @@
 
 
 <ion-content padding>
-  <ion-label stacked>Nome Completo</ion-label>
-  <ion-label>{{ candidato.nome }}</ion-label>
+  <div class="title">Nome Completo</div>
+  <p>{{ candidato.nome }}</p>
 
-  <ion-label stacked>Idade</ion-label>
-  <ion-label>{{ candidato.idade }}</ion-label>
+  <div class="border"></div>
 
-  <ion-label stacked>Formação Acadêmica</ion-label>
-  <ion-label>{{ candidato.formacao }}</ion-label>
+  <div class="title">Idade</div>
+  <p>{{ candidato.idade }}</p>
 
-  <ion-label stacked>Idiomas</ion-label>
-  <ion-label>{{ candidato.idioma }}</ion-label>
+  <div class="border"></div>
+
+  <div class="title">Formação Acadêmica</div>
+  <p>{{ candidato.formacao }}</p>
+
+  <div class="border"></div>
+
+  <div class="title">Idiomas</div>
+  <p>{{ candidato.idioma }}</p>
+
+  <div class="border"></div>
+
+  <ion-item>
+    <div class="title">Feedback</div>
+    <ion-select [(ngModel)]="feedbackPicker" (ionChange)="pickerChange();" interface="Action Sheet">
+      <ion-option value="exigencia">Não possui as exigências mínimas</ion-option>
+      <ion-option value="experiencia">Falta de experiência profissional</ion-option>
+      <ion-option value="formacao">Formação acadêmica insuficiente</ion-option>
+      <ion-option value="linguas">Precisa aprimorar outras línguas</ion-option>
+    </ion-select>
+  </ion-item>
+  <form [formGroup]="form">
+    <ion-input type="text" formControlName="feedbackText" placeholder="Observações"></ion-input>
+  </form>
 </ion-content>

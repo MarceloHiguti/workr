@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
-import { GlobalProvider } from "../../providers/global/global";
-import { LoginPage } from '../login/login';
 import { RegisterFuncionarioPage } from '../register-funcionario/register-funcionario';
+import { HomePage } from '../home/home';
+import { FuncVagasFiltrosPage } from '../func-vagas-filtros/func-vagas-filtros';
 
 @IonicPage()
 @Component({
@@ -13,21 +13,19 @@ export class FuncConfigPage {
 
   filtroPicker: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider, private app: App) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private app: App) {
   }
 
   editInfo() {
     this.navCtrl.push(RegisterFuncionarioPage);
   }
 
-  logout() {
-    this.global._vagaFiltro = 'Todos';
-    this.app.getRootNav().setRoot(LoginPage);
+  filtros() {
+    this.navCtrl.push(FuncVagasFiltrosPage);
   }
 
-  pickerChange () {
-    console.log(this.filtroPicker);
-    this.global._vagaFiltro = this.filtroPicker;
+  logout() {
+    this.app.getRootNav().setRoot(HomePage);
   }
 
   ionViewDidLoad() {

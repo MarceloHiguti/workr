@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
-import { LoginPage } from '../login/login';
-import { RegisterFuncionarioPage } from '../register-funcionario/register-funcionario';
-import { ChatEmpresaCandidatoPage } from '../chat-empresa-candidato/chat-empresa-candidato';
+import { HomePage } from '../home/home';
+import { EmpresaFiltrosPage } from '../empresa-filtros/empresa-filtros';
 
 @IonicPage()
 @Component({
@@ -19,10 +18,10 @@ export class EmpresaConfigPage {
   }
 
   logout() {
-    this.app.getRootNav().setRoot(LoginPage);
+    this.app.getRootNav().setRoot(HomePage);
   }
 
-  chatMatch() {
-    this.navCtrl.push(ChatEmpresaCandidatoPage);
+  filtro() {
+    this.navCtrl.push(EmpresaFiltrosPage);
   }
 }

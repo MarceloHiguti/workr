@@ -3,8 +3,8 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UsersProvider } from '../../providers/users/users';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VagaCandidatoDetailPage } from '../vaga-candidato-detail/vaga-candidato-detail';
+import { GlobalProvider } from "../../providers/global/global";
 
 @IonicPage()
 @Component({
@@ -37,17 +37,7 @@ export class EmpresaCandidatoPage {
     }
   };
 
-  form: FormGroup;
-  feedbackPicker: string;
-  feedbackPickerSelected: string;
-  feedback: any;
-
-  constructor(private afAuth: AngularFireAuth, private formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController) {
-    
-    this.feedbackPickerSelected = 'nenhum';
-    this.feedback = this.navParams.data.feedback || {};
-    this.createForm();
-    
+  constructor(private afAuth: AngularFireAuth, public global: GlobalProvider, public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController) { 
     var user = this.afAuth.auth.currentUser;
     this.empresa = user.displayName;
     console.log("this.empresa");
@@ -81,34 +71,26 @@ export class EmpresaCandidatoPage {
     });
   }
 
-  createForm () {
-    this.form = this.formBuilder.group({
-      feedbackPicker: this.feedbackPickerSelected,
-      feedbackText: this.feedback.feedbackText
-    })
-  }
-
-  pickerChange () {
-    console.log(this.feedbackPicker);
-    this.feedbackPickerSelected = this.feedbackPicker;
-  }
-
   no_click () {
     console.log("no_click fired");
     if (this.matches.length > 0) {
       this.match["key"] = this.matches[this.matches.length-1]["matchId"];
       this.match["status"] = "N";
-      this.match.feedback.motivo = this.feedbackPickerSelected;
-      this.match.feedback.observacao = this.form.value.feedbackText;
+      this.match.feedback.motivo = this.global._feedbackMotivo;
+      this.match.feedback.observacao = this.global._feedbackObservacao;
       console.log("matches",this.matches[this.matches.length-1]);
       console.log("matches",this.matches);
 
       this.provider.updateMatch(this.match)
       .then(() => {
+        this.global._feedbackMotivo = 'nenhum';
+        this.global._feedbackObservacao = '';
       })
       .catch((e) => {
         this.toast.create({ message: 'Ocorreu um erro.', duration: 3000}).present();
         console.error(e);
+        this.global._feedbackMotivo = 'nenhum';
+        this.global._feedbackObservacao = '';
       })
     }
 
@@ -120,17 +102,21 @@ export class EmpresaCandidatoPage {
     if (this.matches.length > 0) {
       this.match["key"] = this.matches[this.matches.length-1]["matchId"];
       this.match["status"] = "Y";
-      this.match.feedback.motivo = this.feedbackPickerSelected;
-      this.match.feedback.observacao = this.form.value.feedbackText;
+      this.match.feedback.motivo = this.global._feedbackMotivo;
+      this.match.feedback.observacao = this.global._feedbackObservacao;
       console.log("matches",this.matches[this.matches.length-1]);
       console.log("matches",this.matches);
 
       this.provider.updateMatch(this.match)
       .then(() => {
+        this.global._feedbackMotivo = 'nenhum';
+        this.global._feedbackObservacao = '';
       })
       .catch((e) => {
         this.toast.create({ message: 'Ocorreu um erro.', duration: 3000}).present();
         console.error(e);
+        this.global._feedbackMotivo = 'nenhum';
+        this.global._feedbackObservacao = '';
       })
 
       this.matches.pop();
