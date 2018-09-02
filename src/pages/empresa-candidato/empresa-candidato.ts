@@ -15,6 +15,7 @@ export class EmpresaCandidatoPage {
   matchId: string;
   status: string;
   empresa: string;
+  allMatches: Array<Object> = [];
   matches: Array<Object> = [];
 
   vaga = {
@@ -25,7 +26,9 @@ export class EmpresaCandidatoPage {
 
   candidato = {
     candidatoId: "",
-    candidatoNome: ""
+    nome: "",
+    nivelAcademico: "",
+    nivelIngles: ""
   };
 
   match = {
@@ -57,17 +60,21 @@ export class EmpresaCandidatoPage {
               parent.candidato.candidatoId = element[value].candidato.candidatoId;
               parent.vaga.vagaId = element[value].vaga.vagaId;
               parent.status = element[value].status;
-              parent.candidato.candidatoNome = element[value].candidato.candidatoNome;
+              parent.candidato.nome = element[value].candidato.nome;
+              parent.candidato.nivelAcademico = element[value].candidato.nivelAcademico;
+              parent.candidato.nivelIngles = element[value].candidato.nivelIngles;
               parent.vaga.vagaTitle = element[value].vaga.vagaTitle;
               parent.vaga.vagaCargo = element[value].vaga.vagaCargo;
-              parent.matches.push({matchId: parent.matchId, candidatoId: parent.candidato.candidatoId, vagaId: parent.vaga.vagaId, status: parent.status,
-                candidatoNome: parent.candidato.candidatoNome, 
-                vagaTitle: parent.vaga.vagaTitle, vagaCargo: parent.vaga.vagaCargo});  
+
+              parent.allMatches.push({matchId: parent.matchId, candidatoId: parent.candidato.candidatoId, vagaId: parent.vaga.vagaId, status: parent.status,
+                candidatoNome: parent.candidato.nome, candidatoNivel: parent.candidato.nivelAcademico, candidadtoIngles: parent.candidato.nivelIngles, 
+                vagaTitle: parent.vaga.vagaTitle, vagaCargo: parent.vaga.vagaCargo});
             })
           });
         }
+        parent.matches = parent.allMatches.slice();
         console.log("parent.matches");
-        console.log(parent.matches);
+        console.log(parent.allMatches);
     });
   }
 
@@ -123,8 +130,19 @@ export class EmpresaCandidatoPage {
     }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EmpresaCandidatoPage');
+  ionViewDidEnter() {
+    console.log('ionViewDidEnter EmpresaCandidatoPage');
+    // console.log(this.global._candidatoNivel);
+    // console.log(this.global._candidatoIngles);
+    var parent = this;
+    this.matches = [];
+    this.allMatches.forEach(function(element) {
+      if(parseInt(element["candidatoNivel"]) >= parseInt(parent.global._candidatoNivel)) {
+        if(parseInt(element["candidadtoIngles"]) >= parseInt(parent.global._candidatoIngles)) {
+          parent.matches.push(element);
+        }
+      }
+    });
   }
 
   candidatoDetail(candidatoId) {

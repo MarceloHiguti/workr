@@ -8,5 +8,17 @@
 
 
 <ion-content padding>
+  <h3>Nível Acadêmico</h3>
+  <ion-item>
+    <ion-select [(ngModel)]="nivelPicker" (ionChange)="nivelPickerChange();" interface="popover">
+      <ion-option *ngFor="let nivel of nivelAcademicoArray" value="{{ nivel.value }}" [selected]="nivelAcademicoSelected == nivel.value">{{ nivel.name }}</ion-option>
+    </ion-select>
+  </ion-item>
 
+  <h3>Nível de Inglês</h3>
+  <ion-item>
+      <ion-select [(ngModel)]="inglesPicker" (ionChange)="inglesPickerChange();" interface="popover">
+        <ion-option *ngFor="let ingles of nivelInglesArray" value="{{ ingles.value }}" [selected]="nivelInglesSelected == ingles.value">{{ ingles.name }}</ion-option>
+      </ion-select>
+  </ion-item>
 </ion-content>

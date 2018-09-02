@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { RegisterPage } from '../register/register';
 import { LoggedInPage } from '../logged-in/logged-in';
+import { RegisterFuncionarioPage } from '../register-funcionario/register-funcionario';
 
 @Component({
   selector: 'page-home',
@@ -23,6 +24,6 @@ export class HomePage {
   
   register () {
     this.navCtrl.push(RegisterPage);
-    // this.navCtrl.push(LoggedInPage);
+    // this.navCtrl.push(RegisterFuncionarioPage);
   }
 }

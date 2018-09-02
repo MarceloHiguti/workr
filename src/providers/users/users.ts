@@ -63,12 +63,12 @@ export class UsersProvider {
     return new Promise((resolve, reject) => {
       if (user.key) {
         this.db.list(this.PATH)
-          .update(user.key, { name: user.nome, idade: user.idade, celular: user.celular, email: user.email, formacao: user.formacao, idioma: user.idioma })
+          .update(user.key, { name: user.nome, idade: user.idade, celular: user.celular, email: user.email, titulo: user.titulo, idioma: user.idioma, nivelAcademico: user.nivelAcademico, nivelIngles: user.nivelIngles })
           .then(() => resolve())
           .catch((e) => reject(e));
       } else {
         this.db.list(this.PATH)
-          .push({ name: user.nome, idade: user.idade, celular: user.celular, email: user.email, formacao: user.formacao, idioma: user.idioma })
+          .push({ name: user.nome, idade: user.idade, celular: user.celular, email: user.email, titulo: user.titulo, idioma: user.idioma, nivelAcademico: user.nivelAcademico, nivelIngles: user.nivelIngles })
           .then(() => resolve());
       }
     })
@@ -115,7 +115,9 @@ export class UsersProvider {
           },
           candidato: {
               candidatoId: match.candidato.candidatoId, 
-              candidatoNome: match.candidato.candidatoNome
+              nome: match.candidato.nome,
+              nivelAcademico: match.candidato.nivelAcademico,
+              nivelIngles: match.candidato.nivelIngles
           },
           empresa: match.empresa, 
           status: match.status 

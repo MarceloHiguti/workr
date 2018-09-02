@@ -9,17 +9,7 @@
   <h2>Filtro</h2>
   <ion-item>
     <ion-select [(ngModel)]="filtroPicker" (ionChange)="pickerChange();" interface="popover">
-      <ion-option value="Todos">Todos</ion-option>
-      <ion-option value="Tecnologia">Tecnologia</ion-option>
-      <ion-option value="Engenharia">Engenharia</ion-option>
-      <ion-option value="Educação">Educação</ion-option>
-      <ion-option value="Gastronomia">Gastronomia</ion-option>
-      <ion-option value="Vendas">Vendas</ion-option>
-      <ion-option value="Administração">Administração</ion-option>
-      <ion-option value="Saúde">Saúde</ion-option>
-      <ion-option value="Finanças">Finanças</ion-option>
-      <ion-option value="Manutenção">Manutenção</ion-option>
-      <ion-option value="Limpeza">Limpeza</ion-option>
+        <ion-option *ngFor="let filtro of filtrosArray" value="{{ filtro }}" [selected]="filtroSelected == filtro">{{ filtro }}</ion-option>
     </ion-select>
   </ion-item>
 </ion-content>

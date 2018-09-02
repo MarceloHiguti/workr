@@ -50,11 +50,11 @@
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Formação Acadêmica</ion-label>
-      <ion-input type="text" formControlName="formacao" value="{{ funcionario.formacao }}"></ion-input>
+      <ion-label stacked>Título Profissional</ion-label>
+      <ion-input type="text" placeholder="Ex: Engenheiro da computação" formControlName="titulo" value="{{ funcionario.titulo }}"></ion-input>
     </ion-item>
-    <ion-item *ngIf="!form.controls.formacao.valid && (form.controls.formacao.dirty || form.controls.formacao.touch)" color="danger">
-      <div [hidden]="!form.controls.formacao.errors.required">
+    <ion-item *ngIf="!form.controls.titulo.valid && (form.controls.titulo.dirty || form.controls.titulo.touch)" color="danger">
+      <div [hidden]="!form.controls.titulo.errors.required">
         O campo é obrigatório
       </div>
     </ion-item>
@@ -63,10 +63,19 @@
       <ion-label stacked>Idiomas</ion-label>
       <ion-input type="text" formControlName="idioma" value="{{ funcionario.idioma }}"></ion-input>
     </ion-item>
-    <ion-item *ngIf="!form.controls.idioma.valid && (form.controls.idioma.dirty || form.controls.idioma.touch)" color="danger">
-      <div [hidden]="!form.controls.idioma.errors.required">
-        O campo é obrigatório
-      </div>
+
+    <ion-item>
+      <ion-label stacked>Nível Acadêmico</ion-label>
+      <ion-select formControlName="nivelAcademico" interface="popover">
+        <ion-option *ngFor="let nivel of nivelAcademicoArray" value="{{ nivel.value }}" [selected]="nivelAcademicoSelected == nivel.value">{{ nivel.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Nível de Inglês</ion-label>
+      <ion-select formControlName="nivelIngles" interface="popover">
+        <ion-option *ngFor="let ingles of nivelInglesArray" value="{{ ingles.value }}" [selected]="nivelInglesSelected == ingles.value">{{ ingles.name }}</ion-option>
+      </ion-select>
     </ion-item>
 
     <div class='input-wrapper'>
@@ -76,7 +85,7 @@
       <input id='input-file' type='file' value='' (change)="atualizaArquivo($event)" />
       <span id='file-name'></span>
     </div>
-
+  
     <div padding>
       <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
     </div>

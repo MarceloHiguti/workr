@@ -23,17 +23,68 @@ export class RegisterFuncionarioPage {
     idade: '',
     celular: '',
     email: '',
-    formacao: '',
-    idioma: ''
+    titulo: '',
+    idioma: '',
+    nivelAcademico: '',
+    nivelIngles: ''
   }
   arquivo;
   referencia;
+
+  nivelAcademicoArray: Array<Object> = [
+    {
+      value: "0",
+      name: "Ensino médio incompleto"
+    },{
+      value: "1",
+      name: "Ensino médio completo"
+    },{
+      value: "2",
+      name: "Técnico"
+    },{
+      value: "3",
+      name: "Ensino superior incompleto"
+    },{
+      value: "4",
+      name: "Ensino superior completo"
+    },{
+      value: "5",
+      name: "Mestrado"
+    },{
+      value: "6",
+      name: "Doutorado"
+    }
+  ];
+  nivelInglesArray: Array<Object> = [
+    {
+      value: "0",
+      name: "nenhum"
+    },{
+      value: "1",
+      name: "Básico"
+    },{
+      value: "2",
+      name: "Intermediário"
+    },{
+      value: "3",
+      name: "Avançado"
+    },{
+      value: "4",
+      name: "Fluente"
+    }
+  ];
+  nivelAcademicoSelected;
+  nivelInglesSelected;
 
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, private app: App, public navParams: NavParams, public db: AngularFireDatabase, private formBuilder: FormBuilder, private provider: UsersProvider, private toast: ToastController) {
     this.referencia = firebase.storage().ref();
     this.funcionario.email = afAuth.auth.currentUser.email;
     this.userId = afAuth.auth.currentUser.uid;
     console.log("userId: ", afAuth.auth.currentUser.uid);
+
+    // this.funcionario.email = 'testeEmail';
+    // this.userId = "1111";
+
     this.users = this.navParams.data.users || {};
     console.log("user: ", this.users);
     this.createForm();
@@ -50,31 +101,47 @@ export class RegisterFuncionarioPage {
             parent.funcionario.idade = element.idade;
             parent.funcionario.celular = element.celular;
             parent.funcionario.email = element.email;
-            parent.funcionario.formacao = element.formacao;
+            parent.funcionario.titulo = element.titulo;
             parent.funcionario.idioma = element.idioma;
+            parent.funcionario.nivelAcademico = element.nivelAcademico;
+            parent.nivelAcademicoSelected = element.nivelAcademico;
+            parent.funcionario.nivelIngles = element.nivelIngles;
+
+            parent.createForm();
+            console.log("parent.form");
+            console.log(parent.form);
           });
         }
     });
   }
 
-  createForm () {
+  createForm() {
     this.form = this.formBuilder.group({
       key: [this.userId],
       nome: [this.users.nome, Validators.required],
       idade: [this.users.idade, Validators.required],
       celular: [this.users.celular, Validators.required],
       email: [this.users.email, Validators.required],
-      formacao: [this.users.formacao, Validators.required],
-      idioma: [this.users.idioma, Validators.required],
+      titulo: [this.users.titulo, Validators.required],
+      idioma: [this.users.idioma],
+      nivelAcademico: [this.users.nivelAcademico],
+      nivelIngles: [this.users.nivelIngles],
     })
   }
+
+  changePicker() {
+    this.funcionario.nivelAcademico = '5';
+  }
+
   onSubmit () {
     // console.log(this.form.value);
     var parent = this;
     if (this.form.valid) {
       this.provider.saveFuncionario(this.form.value)
         .then(() => {
-          parent.enviarArquivo(parent.funcionario.email, parent.arquivo);
+          if (parent.arquivo != undefined) {
+            parent.enviarArquivo(parent.funcionario.email, parent.arquivo);
+          }
           this.toast.create({ message: 'Usuário salvo com sucesso.', duration: 3000}).present();
           this.app.getRootNav().setRoot(FuncionarioTabPage);
         })

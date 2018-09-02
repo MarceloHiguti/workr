@@ -133,7 +133,7 @@ export class LoginPage {
   }
 
   signInCandidatoPedro() {
-    this.afAuth.auth.signInWithEmailAndPassword("pedro@teste.com", "123@mudar")
+    this.afAuth.auth.signInWithEmailAndPassword("peemelo7@gmail.com", "123@maua")
       .then(data => {
         // console.log("got some data", data);
         var parent = this; // variavel criada para poder acessar o navCtrl na próxima função

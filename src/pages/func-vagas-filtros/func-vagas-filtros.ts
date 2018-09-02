@@ -9,6 +9,9 @@ import { GlobalProvider } from '../../providers/global/global';
 })
 export class FuncVagasFiltrosPage {
 
+  filtrosArray: string[] = ["Todos", "Tecnologia", "Engenharia", "Educação", "Gastronomia", "Vendas",
+  "Administração", "Saúde", "Finanças", "Manutenção", "Limpeza"];
+  filtroSelected;
   filtroPicker: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider) {
@@ -16,7 +19,7 @@ export class FuncVagasFiltrosPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FuncVagasFiltrosPage');
-    this.global._vagaFiltro = 'Todos';
+    this.global._vagaFiltro = '';
   }
 
   pickerChange () {

@@ -44,7 +44,9 @@ export class FuncVagasPage {
   cargo: String;
   salario: String;
   desc: String;
+  area: String;
   imagem =  "assets/imgs/vaga_default.png";
+  allJobs: Array<Object> = [];
   jobs: Array<Object> = [];
   showCard: Boolean = true;
   arquivo;
@@ -59,14 +61,85 @@ export class FuncVagasPage {
     },
     candidato: {
       candidatoId: '',
-      candidatoNome: ''
+      nome: '',
+      nivelAcademico: '',
+      nivelIngles: '',
     },
     empresa: '',
     status: ''
   }
 
+  funcionario = {
+    nome: '',
+    nivelAcademico: '',
+    nivelIngles: ''
+  }
+
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController, public global: GlobalProvider) {
     this.referencia = firebase.storage().ref();
+    console.log("funcVagasPage constructor fired");
+    this.userId = afAuth.auth.currentUser.uid;
+    var parent = this;
+    parent.allJobs = [];
+    var usersRef = this.db.database.ref("users/" + this.userId).once("value")
+      .then(function(snapshot) {
+        var obj = [];
+        var keys = [];
+        obj.push(snapshot.val()); 
+        console.log(obj);
+        if (obj[0] != null) {
+          obj.forEach(element => {
+            parent.funcionario.nome = element.name;
+            parent.funcionario.nivelAcademico = element.nivelAcademico;
+            parent.funcionario.nivelIngles = element.nivelIngles;
+          });
+        }
+        var ref = parent.db.database.ref("vagas/").once("value")
+        .then(function(snapshot) {
+          var obj = [];
+          var keys = [];
+          obj.push(snapshot.val()); 
+          // console.log(obj);
+          obj.forEach(element => {
+            // console.log(element);
+            keys = Object.keys(element);
+            keys.forEach((value, index) => {
+              parent.title = element[value].title;
+              parent.empresa = element[value].empresa;
+              parent.cargo = element[value].cargo;
+              parent.salario = element[value].salario;
+              parent.desc = element[value].description;
+              parent.area = element[value].area;
+
+              if (element[value].imagem != '') {
+                let caminho = parent.referencia.child('imagens/' + value + '/' + element[value].imagem);
+                caminho.getDownloadURL().then(url => {
+                  // this.imagemPath = url;
+                  // console.log("url");
+                  console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
+                  parent.allJobs.forEach(function (vaga) {
+                    console.log(vaga["vagaId"]);
+                    if (vaga["vagaId"] == value) {
+                      vaga["image"] = url;
+                    }
+                  });
+                });
+              }
+
+              parent.allJobs.push({vagaId: value, title: parent.title, empresa: parent.empresa, 
+                candidatoNome: parent.funcionario.nome, candidatoNivelAcademico: parent.funcionario.nivelAcademico, candidatoNivelIngles: parent.funcionario.nivelIngles,
+                cargo: parent.cargo, salario: parent.salario, desc: parent.desc, area: parent.area, image: parent.imagem});
+            })
+            // console.log(element["-LBEHim-1JcaPfrpU0F4"].title);
+          });
+          // console.log(parent.title);
+          // console.log(parent.desc);
+          console.log(parent.allJobs);
+          parent.jobs = parent.allJobs.slice();
+      });
+    });
+
+    
   }
 
   no_click () {
@@ -84,12 +157,13 @@ export class FuncVagasPage {
     console.log("yes_click fired");
     if (this.jobs.length > 0) {
       this.userId = this.afAuth.auth.currentUser.uid;
-      this.userNome = this.afAuth.auth.currentUser.displayName;
       this.match.vaga.vagaId = this.jobs[this.jobs.length-1]["vagaId"];
       this.match.vaga.vagaTitle = this.jobs[this.jobs.length-1]["title"];
       this.match.vaga.vagaCargo = this.jobs[this.jobs.length-1]["cargo"];
       this.match.candidato.candidatoId = this.userId;
-      this.match.candidato.candidatoNome = this.userNome;
+      this.match.candidato.nome = this.jobs[this.jobs.length-1]["candidatoNome"];
+      this.match.candidato.nivelAcademico = this.jobs[this.jobs.length-1]["candidatoNivelAcademico"];
+      this.match.candidato.nivelIngles = this.jobs[this.jobs.length-1]["candidatoNivelIngles"];
       this.match.empresa = this.jobs[this.jobs.length-1]["empresa"];
       this.match.status = "H";
       // console.log(this.match);
@@ -123,92 +197,21 @@ export class FuncVagasPage {
   ionViewDidEnter() {
     console.log('ionViewDidEnter FuncVagasPage');
     console.log(this.global._vagaFiltro);
-
     var parent = this;
-    parent.jobs = [];
-    if (this.global._vagaFiltro == 'Todos') {
-      var ref = this.db.database.ref("vagas/").once("value")
-        .then(function(snapshot) {
-          var obj = [];
-          var keys = [];
-          obj.push(snapshot.val()); 
-          // console.log(obj);
-          obj.forEach(element => {
-            // console.log(element);
-            keys = Object.keys(element);
-            keys.forEach((value, index) => {
-              parent.title = element[value].title;
-              parent.empresa = element[value].empresa;
-              parent.cargo = element[value].cargo;
-              parent.salario = element[value].salario;
-              parent.desc = element[value].description;
-
-              if (element[value].imagem != '') {
-                let caminho = parent.referencia.child('imagens/' + value + '/' + element[value].imagem);
-                caminho.getDownloadURL().then(url => {
-                  // this.imagemPath = url;
-                  // console.log("url");
-                  console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
-                  parent.jobs.forEach(function (vaga) {
-                    console.log(vaga["vagaId"]);
-                    if (vaga["vagaId"] == value) {
-                      vaga["image"] = url;
-                    }
-                  });
-                });
-              }
-
-              parent.jobs.push({vagaId: value, title: parent.title, empresa: parent.empresa, 
-                cargo: parent.cargo, salario: parent.salario, desc: parent.desc, image: parent.imagem});
-            })
-            // console.log(element["-LBEHim-1JcaPfrpU0F4"].title);
-          });
-          // console.log(parent.title);
-          // console.log(parent.desc);
-          console.log(parent.jobs);
-      });
-    } else {
-      var ref2 = this.db.database.ref("vagas/").orderByChild('area').equalTo(this.global._vagaFiltro).once("value")
-      .then(function(snapshot) {
-        var obj = [];
-        var keys = [];
-        obj.push(snapshot.val()); 
-        // console.log(obj);
-        obj.forEach(element => {
-          // console.log(element);
-          keys = Object.keys(element);
-          keys.forEach((value, index) => {
-            parent.title = element[value].title;
-            parent.empresa = element[value].empresa;
-            parent.cargo = element[value].cargo;
-            parent.salario = element[value].salario;
-            parent.desc = element[value].description;
-
-            if (element[value].imagem != '') {
-              let caminho = parent.referencia.child('imagens/' + value + '/' + element[value].imagem );
-                caminho.getDownloadURL().then(url => {
-                    // this.imagemPath = url;
-                    // console.log("url");
-                    // console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
-                    parent.jobs.forEach(function(vaga){
-                      console.log(vaga["vagaId"]);
-                      if (vaga["vagaId"] == value) {
-                        vaga["image"] = url;
-                      }
-                    });
-                });
-            }
-
-            parent.jobs.push({vagaId: value, title: parent.title, empresa: parent.empresa, 
-              cargo: parent.cargo, salario: parent.salario, desc: parent.desc, image: parent.imagem});
-          })
-          // console.log(element["-LBEHim-1JcaPfrpU0F4"].title);
-        });
-        // console.log(parent.title);
-        // console.log(parent.desc);
-        console.log(parent.jobs);
-      });
+    if (this.global._vagaFiltro != '') {
+      this.jobs = [];
+      if (this.global._vagaFiltro == 'Todos') {
+        this.jobs = this.allJobs.slice();
+      } else {
+        this.allJobs.forEach(function(element){
+          if (element["area"] == parent.global._vagaFiltro) {
+            parent.jobs.push(element);
+          }
+        })
+      }
     }
+    console.log("this.jobs length", this.jobs.length);
+    console.log("this.allJobs length", this.allJobs.length);
   }
 
 }
