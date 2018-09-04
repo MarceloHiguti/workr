@@ -1,0 +1,14 @@
+ir até a pasta:
+C:\Users\Marcelo\Documents\workr\platforms\android\app\build\outputs\apk\release
+
+copiar o arquivo:
+app-release-unsigned.apk
+para a raíz do projeto
+
+rodar:
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore app-release-unsigned.apk alias_name
+
+zipalign -v 4 app-release-unsigned.apk Workr.apk
+
+copiar o arquivo Workr.apk no celular e instalar
