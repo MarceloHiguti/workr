@@ -45,7 +45,7 @@ export class VagaCandidatosPage {
             // console.log(keys);
             keys.forEach((value, index) => {
               parent.candidato.id = element[value].candidato.candidatoId;
-              parent.candidato.nome = element[value].candidato.candidatoNome;
+              parent.candidato.nome = element[value].candidato.nome;
               parent.status = element[value].status;
               if (parent.status == 'Y'){
                 parent.matchId = value;

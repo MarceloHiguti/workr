@@ -66,9 +66,12 @@ export class EmpresaCandidatoPage {
               parent.vaga.vagaTitle = element[value].vaga.vagaTitle;
               parent.vaga.vagaCargo = element[value].vaga.vagaCargo;
 
-              parent.allMatches.push({matchId: parent.matchId, candidatoId: parent.candidato.candidatoId, vagaId: parent.vaga.vagaId, status: parent.status,
-                candidatoNome: parent.candidato.nome, candidatoNivel: parent.candidato.nivelAcademico, candidadtoIngles: parent.candidato.nivelIngles, 
-                vagaTitle: parent.vaga.vagaTitle, vagaCargo: parent.vaga.vagaCargo});
+
+              if (parent.status != 'Y' && parent.status != 'N') {
+                parent.allMatches.push({matchId: parent.matchId, candidatoId: parent.candidato.candidatoId, vagaId: parent.vaga.vagaId, status: parent.status,
+                  candidatoNome: parent.candidato.nome, candidatoNivel: parent.candidato.nivelAcademico, candidadtoIngles: parent.candidato.nivelIngles, 
+                  vagaTitle: parent.vaga.vagaTitle, vagaCargo: parent.vaga.vagaCargo});
+              }
             })
           });
         }
@@ -137,9 +140,11 @@ export class EmpresaCandidatoPage {
     var parent = this;
     this.matches = [];
     this.allMatches.forEach(function(element) {
-      if(parseInt(element["candidatoNivel"]) >= parseInt(parent.global._candidatoNivel)) {
-        if(parseInt(element["candidadtoIngles"]) >= parseInt(parent.global._candidatoIngles)) {
-          parent.matches.push(element);
+      if (element["status"] != 'Y' && element["status"] != 'N') {
+        if(parseInt(element["candidatoNivel"]) >= parseInt(parent.global._candidatoNivel)) {
+          if(parseInt(element["candidadtoIngles"]) >= parseInt(parent.global._candidatoIngles)) {
+            parent.matches.push(element);
+          }
         }
       }
     });
