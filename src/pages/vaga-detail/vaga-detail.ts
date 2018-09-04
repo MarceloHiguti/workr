@@ -10,9 +10,10 @@ import firebase from 'firebase';
 })
 export class VagaDetailPage {
 
+  // imagem = "assets/imgs/vaga_default.png";
   vagaId: string;
   vaga = {
-    imagem: '',
+    imagem: "assets/imgs/vaga_default.png",
     empresa: '',
     title: '',
     description: '',

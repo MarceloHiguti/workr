@@ -46,10 +46,11 @@ export class VagaCandidatosPage {
             keys.forEach((value, index) => {
               parent.candidato.id = element[value].candidato.candidatoId;
               parent.candidato.nome = element[value].candidato.nome;
+              parent.candidato.formacao = element[value].candidato.formacao;
               parent.status = element[value].status;
               if (parent.status == 'Y'){
                 parent.matchId = value;
-                parent.candidatos.push({id: parent.candidato.id, nome: parent.candidato.nome});
+                parent.candidatos.push({ id: parent.candidato.id, nome: parent.candidato.nome, formacao: parent.candidato.formacao});
               }
             })
           });

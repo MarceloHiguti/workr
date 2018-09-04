@@ -10,9 +10,12 @@
   <ion-list>
     <ion-item *ngFor="let candidato of candidatos" class="candidatos_item" (click)="candidatoAceitoDetail(candidato.id)">
       <ion-item>
-        <h1>{{ candidato.nome }}</h1>
+        <div class="div-list-title">
+          <h1 class="list-title">{{ candidato.nome }}</h1>
+        </div>
+        <p>{{ candidato.formacao }}</p>
         <!-- <p>{{ vaga.cargo }}</p>
-        <p>{{ vaga.description }}</p> -->
+              <p>{{ vaga.description }}</p> -->
       </ion-item>
     </ion-item>
   </ion-list>

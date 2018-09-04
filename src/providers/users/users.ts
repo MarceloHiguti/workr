@@ -116,6 +116,7 @@ export class UsersProvider {
           candidato: {
               candidatoId: match.candidato.candidatoId, 
               nome: match.candidato.nome,
+              formacao: match.candidato.formacao,
               nivelAcademico: match.candidato.nivelAcademico,
               nivelIngles: match.candidato.nivelIngles
           },

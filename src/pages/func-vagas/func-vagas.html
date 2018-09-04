@@ -14,17 +14,24 @@
       </ion-card-header>
       <div class="card_desc">
         <ion-card-content class="card_desc">
-          <ion-card-title>
+          <ion-card-title style="font-weight: bold;">
             {{ job.title }}
           </ion-card-title>
           <p>
+            <ion-icon name="pricetag" class="empresa-icon"></ion-icon>
             {{ job.empresa }}
           </p>
           <p>
+            <ion-icon name="briefcase" class="cargo-icon"></ion-icon>
             {{ job.cargo }}
           </p>
           <p>
-            R$ {{ job.salario }}
+            <ion-icon name="logo-usd" class="dolar-icon" item-start></ion-icon>
+            {{ job.salario }}
+          </p>
+          <p>
+            <ion-icon name="pin" class="pin-icon"></ion-icon>
+            {{ job.bairro }}
           </p>
         </ion-card-content>
       </div>
