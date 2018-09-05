@@ -1,3 +1,5 @@
+ionic cordova build android --prod --release
+
 ir até a pasta:
 C:\Users\Marcelo\Documents\workr\platforms\android\app\build\outputs\apk\release
 
