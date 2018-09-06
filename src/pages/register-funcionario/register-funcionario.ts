@@ -19,6 +19,7 @@ export class RegisterFuncionarioPage {
   form: FormGroup;
   users: any;
   funcionario = {
+    tipo: 'funcionario',
     nome: '',
     idade: '',
     celular: '',

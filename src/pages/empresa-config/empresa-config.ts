@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { EmpresaFiltrosPage } from '../empresa-filtros/empresa-filtros';
+import { RegisterEmpresaPage } from '../register-empresa/register-empresa';
 
 @IonicPage()
 @Component({
@@ -23,5 +24,9 @@ export class EmpresaConfigPage {
 
   filtro() {
     this.navCtrl.push(EmpresaFiltrosPage);
+  }
+
+  editInfo() {
+    this.navCtrl.push(RegisterEmpresaPage);
   }
 }
