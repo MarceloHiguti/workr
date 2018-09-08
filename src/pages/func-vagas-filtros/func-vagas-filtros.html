@@ -6,7 +6,7 @@
 
 
 <ion-content padding>
-  <h2>Filtro</h2>
+  <h2>Filtro de área profissional</h2>
   <ion-item>
     <ion-select [(ngModel)]="filtroPicker" (ionChange)="pickerChange();" interface="popover">
         <ion-option *ngFor="let filtro of filtrosArray" value="{{ filtro }}" [selected]="filtroSelected == filtro">{{ filtro }}</ion-option>

@@ -11,29 +11,7 @@ import { VagaDetailPage } from '../vaga-detail/vaga-detail';
 @IonicPage()
 @Component({
   selector: 'page-func-vagas',
-  templateUrl: 'func-vagas.html',
-  animations: [
-    trigger('flyInOut', [
-      state('in', style({transform: 'translateX(0)'})),
-      transition('void => *', [
-        style({transform: 'translateX(-100%)'}),
-        animate(100)
-      ]),
-      transition('* => void', [
-        animate(100, style({transform: 'translateX(100%)'}))
-      ])
-    ]),
-
-    trigger('myAwesomeAnimation', [
-        state('small', style({
-            transform: 'scale(1)',
-        })),
-        state('large', style({
-            transform: 'scale(1.2)',
-        })),
-        transition('small => large', animate('100ms ease-in')),
-    ])
-  ]
+  templateUrl: 'func-vagas.html'
 })
 export class FuncVagasPage {
 
@@ -62,6 +40,7 @@ export class FuncVagasPage {
     candidato: {
       candidatoId: '',
       nome: '',
+      idade: '',
       formacao: '',
       nivelAcademico: '',
       nivelIngles: '',
@@ -72,6 +51,7 @@ export class FuncVagasPage {
 
   funcionario = {
     nome: '',
+    idade: '',
     formacao: '',
     nivelAcademico: '',
     nivelIngles: ''
@@ -92,6 +72,7 @@ export class FuncVagasPage {
         if (obj[0] != null) {
           obj.forEach(element => {
             parent.funcionario.nome = element.name;
+            parent.funcionario.idade = element.idade;
             parent.funcionario.formacao = element.formacao;
             parent.funcionario.nivelAcademico = element.nivelAcademico;
             parent.funcionario.nivelIngles = element.nivelIngles;
@@ -130,7 +111,7 @@ export class FuncVagasPage {
               }
 
               parent.allJobs.push({vagaId: value, title: parent.title, empresa: parent.empresa, 
-                candidatoNome: parent.funcionario.nome, candidatoFormacao: parent.funcionario.formacao, candidatoNivelAcademico: parent.funcionario.nivelAcademico, candidatoNivelIngles: parent.funcionario.nivelIngles,
+                candidatoNome: parent.funcionario.nome, candidatoIdade: parent.funcionario.idade, candidatoFormacao: parent.funcionario.formacao, candidatoNivelAcademico: parent.funcionario.nivelAcademico, candidatoNivelIngles: parent.funcionario.nivelIngles,
                 cargo: parent.cargo, salario: parent.salario, desc: parent.desc, area: parent.area, image: parent.imagem});
             })
             // console.log(element["-LBEHim-1JcaPfrpU0F4"].title);
@@ -165,6 +146,8 @@ export class FuncVagasPage {
       this.match.vaga.vagaCargo = this.jobs[this.jobs.length-1]["cargo"];
       this.match.candidato.candidatoId = this.userId;
       this.match.candidato.nome = this.jobs[this.jobs.length-1]["candidatoNome"];
+      this.match.candidato.idade = this.jobs[this.jobs.length-1]["candidatoIdade"];
+      this.match.candidato.formacao = this.jobs[this.jobs.length-1]["candidatoFormacao"];
       this.match.candidato.formacao = this.jobs[this.jobs.length - 1]["candidatoFormacao"];
       this.match.candidato.nivelAcademico = this.jobs[this.jobs.length-1]["candidatoNivelAcademico"];
       this.match.candidato.nivelIngles = this.jobs[this.jobs.length-1]["candidatoNivelIngles"];

@@ -61,14 +61,16 @@ export class UsersProvider {
 
   saveFuncionario(user: any) {
     return new Promise((resolve, reject) => {
+      console.log("user");
+      console.log(user);
       if (user.key) {
         this.db.list(this.PATH)
-          .update(user.key, {  type: user.tipo, name: user.nome, idade: user.idade, celular: user.celular, email: user.email, titulo: user.titulo, idioma: user.idioma, nivelAcademico: user.nivelAcademico, nivelIngles: user.nivelIngles })
+          .update(user.key, {  type: user.tipo, name: user.nome, idade: user.idade, celular: user.celular, email: user.email, formacao: user.formacao, idioma: user.idioma, nivelAcademico: user.nivelAcademico, nivelIngles: user.nivelIngles, curriculo: user.curriculo })
           .then(() => resolve())
           .catch((e) => reject(e));
       } else {
         this.db.list(this.PATH)
-          .push({ name: user.nome, idade: user.idade, celular: user.celular, email: user.email, titulo: user.titulo, idioma: user.idioma, nivelAcademico: user.nivelAcademico, nivelIngles: user.nivelIngles })
+          .push({ name: user.nome, idade: user.idade, celular: user.celular, email: user.email, formacao: user.formacao, idioma: user.idioma, nivelAcademico: user.nivelAcademico, nivelIngles: user.nivelIngles, curriculo: user.curriculo })
           .then(() => resolve());
       }
     })
@@ -78,12 +80,12 @@ export class UsersProvider {
     return new Promise((resolve, reject) => {
       if (user.key) {
         this.db.list(this.PATH)
-          .update(user.key, { type: user.tipo, name: user.nome })
+          .update(user.key, { type: user.tipo, name: user.nome, email: user.email, endereco: user.endereco, desc: user.desc, imagem: user.imagem })
           .then(() => resolve())
           .catch((e) => reject(e));
       } else {
         this.db.list(this.PATH)
-          .push({ type: user.tipo, name: user.nome })
+          .push({ type: user.tipo, name: user.nome, email: user.email, endereco: user.endereco, desc: user.desc, imagem: user.imagem })
           .then(() => resolve());
       }
     })
@@ -116,6 +118,7 @@ export class UsersProvider {
           candidato: {
               candidatoId: match.candidato.candidatoId, 
               nome: match.candidato.nome,
+              idade: match.candidato.idade,
               formacao: match.candidato.formacao,
               nivelAcademico: match.candidato.nivelAcademico,
               nivelIngles: match.candidato.nivelIngles

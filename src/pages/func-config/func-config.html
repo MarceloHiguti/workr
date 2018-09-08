@@ -1,8 +1,21 @@
-<ion-header>
-</ion-header>
-
 
 <ion-content padding>
+  <ion-card class="td_card">
+    <div class="card_desc">
+      <ion-card-content class="card_desc">
+        <ion-card-title style="font-weight: bold;">
+          {{ candidato.formacao }}
+        </ion-card-title>
+        <p>
+          {{ candidato.nome }}
+        </p>
+        <p>
+          {{ candidato.idade }} Anos
+        </p>
+      </ion-card-content>
+    </div>
+  </ion-card>
+
   <div padding>
     <button block ion-button (click)="editInfo()">Editar informações</button>
   </div>
@@ -12,6 +25,9 @@
   </div>
 
   <div padding>
-    <button block ion-button (click)="logout()">Logout</button>
+    <button block ion-button (click)="logout()">Sair</button>
   </div>
+
+  <img src="assets/imgs/logo_sem_fundo.png" class="imageCenter" class="bottom-image" style="height:150px; padding:10px;">
+  <div class="center-text">Versão 1.0.0</div>
 </ion-content>

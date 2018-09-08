@@ -24,13 +24,14 @@ export class RegisterFuncionarioPage {
     idade: '',
     celular: '',
     email: '',
-    titulo: '',
+    formacao: '',
     idioma: '',
     nivelAcademico: '',
     nivelIngles: ''
   }
   arquivo;
   referencia;
+  curriculoName = '';
 
   nivelAcademicoArray: Array<Object> = [
     {
@@ -79,7 +80,7 @@ export class RegisterFuncionarioPage {
 
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, private app: App, public navParams: NavParams, public db: AngularFireDatabase, private formBuilder: FormBuilder, private provider: UsersProvider, private toast: ToastController) {
     this.referencia = firebase.storage().ref();
-    this.funcionario.email = afAuth.auth.currentUser.email;
+    // this.funcionario.email = afAuth.auth.currentUser.email;
     this.userId = afAuth.auth.currentUser.uid;
     console.log("userId: ", afAuth.auth.currentUser.uid);
 
@@ -102,7 +103,7 @@ export class RegisterFuncionarioPage {
             parent.funcionario.idade = element.idade;
             parent.funcionario.celular = element.celular;
             parent.funcionario.email = element.email;
-            parent.funcionario.titulo = element.titulo;
+            parent.funcionario.formacao = element.formacao;
             parent.funcionario.idioma = element.idioma;
             parent.funcionario.nivelAcademico = element.nivelAcademico;
             parent.nivelAcademicoSelected = element.nivelAcademico;
@@ -119,14 +120,16 @@ export class RegisterFuncionarioPage {
   createForm() {
     this.form = this.formBuilder.group({
       key: [this.userId],
-      nome: [this.users.nome, Validators.required],
-      idade: [this.users.idade, Validators.required],
-      celular: [this.users.celular, Validators.required],
-      email: [this.users.email, Validators.required],
-      titulo: [this.users.titulo, Validators.required],
-      idioma: [this.users.idioma],
-      nivelAcademico: [this.users.nivelAcademico],
-      nivelIngles: [this.users.nivelIngles],
+      nome: [this.funcionario.nome, Validators.required],
+      idade: [this.funcionario.idade, Validators.required],
+      celular: [this.funcionario.celular, Validators.required],
+      email: [this.funcionario.email, Validators.required],
+      formacao: [this.funcionario.formacao, Validators.required],
+      idioma: [this.funcionario.idioma],
+      nivelAcademico: [this.funcionario.nivelAcademico, Validators.required],
+      nivelIngles: [this.funcionario.nivelIngles, Validators.required],
+      curriculo: [this.curriculoName],
+      tipo: [this.funcionario.tipo]
     })
   }
 
@@ -163,6 +166,10 @@ export class RegisterFuncionarioPage {
     fileName.textContent = event.srcElement.files[0].name;
     console.log("event.srcElement.files[0]");
     console.log(event.srcElement.files[0]);
+    this.curriculoName = this.arquivo.name;
+    console.log("this.curriculoName");
+    console.log(this.curriculoName);
+    this.createForm();
   }
 
   enviarArquivo(dir, arquivo){

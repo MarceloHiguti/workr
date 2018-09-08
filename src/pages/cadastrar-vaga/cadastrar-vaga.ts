@@ -63,6 +63,10 @@ export class CadastrarVagaPage {
 
   atualizaArquivo(event){
     this.arquivo = event.srcElement.files[0];
+    var fileName = document.getElementById('file-name');
+    fileName.textContent = event.srcElement.files[0].name;
+    console.log("event.srcElement.files[0]");
+    console.log(event.srcElement.files[0]);
   }
 
   enviarArquivo(){

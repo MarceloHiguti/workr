@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, ToastController, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { UsersProvider } from '../../providers/users/users';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -15,12 +15,15 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class VagaCandidatoDetailPage {
 
   candidatoId: string;
+  curriculoUrl: string;
   users: any;
   candidato = {
     nome: '',
     idade: '',
     formacao: '',
-    idioma: ''
+    idioma: '',
+    email: '',
+    curriculo: ''
   }
   arquivo;
   referencia;
@@ -30,7 +33,7 @@ export class VagaCandidatoDetailPage {
   feedbackPickerSelected: string;
   feedback: any;
 
-  constructor(private afAuth: AngularFireAuth, private formBuilder: FormBuilder, public navCtrl: NavController, public global: GlobalProvider, private app: App, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController) {
+  constructor(private alertCtrl: AlertController, private afAuth: AngularFireAuth, private formBuilder: FormBuilder, public navCtrl: NavController, public global: GlobalProvider, private app: App, public navParams: NavParams, public db: AngularFireDatabase, private provider: UsersProvider, private toast: ToastController) {
     this.candidatoId = navParams.get('candidatoId');
     this.feedback = this.navParams.data.feedback || {};
     console.log("candidatoId: ", this.candidatoId);
@@ -49,8 +52,11 @@ export class VagaCandidatoDetailPage {
             parent.candidato.idade = element.idade;
             parent.candidato.formacao = element.formacao;
             parent.candidato.idioma = element.idioma;
+            parent.candidato.email = element.email;
+            parent.candidato.curriculo = element.curriculo;
           });
         }
+        parent.baixarArquivo();
     });
   }
 
@@ -60,7 +66,11 @@ export class VagaCandidatoDetailPage {
 
   ionViewDidLeave() {
     console.log('ionViewDidLeave VagaCandidatoDetailPage');
-    this.global._feedbackMotivo = this.feedbackPickerSelected;
+    if (this.feedbackPickerSelected == null) {
+      this.global._feedbackMotivo = 'nenhum';
+    } else {
+      this.global._feedbackMotivo = this.feedbackPickerSelected;
+    }
     this.global._feedbackObservacao = this.form.value.feedbackText;
   }
 
@@ -85,11 +95,23 @@ export class VagaCandidatoDetailPage {
     });
   }
 
-  baixarArquivo(nome: string){
-    let caminho = this.referencia.child('curriculos/'+nome);
+  baixarArquivo(){
+    var parent = this;
+    console.log(parent.candidato.email + '/' + parent.candidato.curriculo);
+    let caminho = this.referencia.child('curriculos/' + parent.candidato.email + '/' + parent.candidato.curriculo);
     caminho.getDownloadURL().then(url => {
         console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
+        parent.curriculoUrl = url;
+    }).catch(function(error) {
+      parent.alert("Nenhum currículo cadastrado");
     });
+  }
+
+  alert (message: string) {
+    this.alertCtrl.create({
+      title: message,
+      buttons: ["OK"]
+    }).present();
   }
 
   pickerChange () {

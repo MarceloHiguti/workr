@@ -27,8 +27,8 @@
 
   <div class="border"></div>
 
+  <div class="title">Feedback</div>
   <ion-item>
-    <div class="title">Feedback</div>
     <ion-select [(ngModel)]="feedbackPicker" (ionChange)="pickerChange();" interface="Action Sheet">
       <ion-option value="exigencia">Não possui as exigências mínimas</ion-option>
       <ion-option value="experiencia">Falta de experiência profissional</ion-option>
@@ -36,7 +36,13 @@
       <ion-option value="linguas">Precisa aprimorar outras línguas</ion-option>
     </ion-select>
   </ion-item>
+
+  <div class="title">Dicas e Observações</div>
   <form [formGroup]="form">
-    <ion-input type="text" formControlName="feedbackText" placeholder="Observações"></ion-input>
+    <ion-input type="text" formControlName="feedbackText" placeholder="Digite aqui..." style="background-color: white;"></ion-input>
   </form>
+
+  <div padding>
+    <a href="{{ curriculoUrl }}" block ion-button>Download Currículo</a>
+  </div>
 </ion-content>

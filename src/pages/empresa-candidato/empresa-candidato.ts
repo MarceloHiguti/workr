@@ -27,6 +27,8 @@ export class EmpresaCandidatoPage {
   candidato = {
     candidatoId: "",
     nome: "",
+    idade: "",
+    formacao: "",
     nivelAcademico: "",
     nivelIngles: ""
   };
@@ -54,6 +56,8 @@ export class EmpresaCandidatoPage {
         // console.log(obj);
         if (obj[0] != null) {
           obj.forEach(element => {
+            // console.log("element");
+            // console.log(element);
             keys = Object.keys(element);
             keys.forEach((value, index) => {
               parent.matchId = value;
@@ -61,6 +65,8 @@ export class EmpresaCandidatoPage {
               parent.vaga.vagaId = element[value].vaga.vagaId;
               parent.status = element[value].status;
               parent.candidato.nome = element[value].candidato.nome;
+              parent.candidato.idade = element[value].candidato.idade;
+              parent.candidato.formacao = element[value].candidato.formacao;
               parent.candidato.nivelAcademico = element[value].candidato.nivelAcademico;
               parent.candidato.nivelIngles = element[value].candidato.nivelIngles;
               parent.vaga.vagaTitle = element[value].vaga.vagaTitle;
@@ -69,7 +75,7 @@ export class EmpresaCandidatoPage {
 
               if (parent.status != 'Y' && parent.status != 'N') {
                 parent.allMatches.push({matchId: parent.matchId, candidatoId: parent.candidato.candidatoId, vagaId: parent.vaga.vagaId, status: parent.status,
-                  candidatoNome: parent.candidato.nome, candidatoNivel: parent.candidato.nivelAcademico, candidadtoIngles: parent.candidato.nivelIngles, 
+                  candidatoNome: parent.candidato.nome, candidatoIdade: parent.candidato.idade, candidatoFormacao: parent.candidato.formacao, candidatoNivel: parent.candidato.nivelAcademico, candidadtoIngles: parent.candidato.nivelIngles, 
                   vagaTitle: parent.vaga.vagaTitle, vagaCargo: parent.vaga.vagaCargo});
               }
             })

@@ -51,10 +51,10 @@
 
     <ion-item>
       <ion-label stacked>Título Profissional</ion-label>
-      <ion-input type="text" placeholder="Ex: Engenheiro da computação" formControlName="titulo" value="{{ funcionario.titulo }}"></ion-input>
+      <ion-input type="text" placeholder="Ex: Engenheiro da computação" formControlName="formacao" value="{{ funcionario.formacao }}"></ion-input>
     </ion-item>
-    <ion-item *ngIf="!form.controls.titulo.valid && (form.controls.titulo.dirty || form.controls.titulo.touch)" color="danger">
-      <div [hidden]="!form.controls.titulo.errors.required">
+    <ion-item *ngIf="!form.controls.formacao.valid && (form.controls.formacao.dirty || form.controls.formacao.touch)" color="danger">
+      <div [hidden]="!form.controls.formacao.errors.required">
         O campo é obrigatório
       </div>
     </ion-item>

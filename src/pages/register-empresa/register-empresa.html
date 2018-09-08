@@ -11,7 +11,7 @@
   <form [formGroup]="form">
     <ion-item>
       <ion-label stacked>Nome</ion-label>
-      <ion-input type="text" formControlName="nome"></ion-input>
+      <ion-input type="text" formControlName="nome" value="{{ empresa.nome }}"></ion-input>
     </ion-item>
     <ion-item *ngIf="!form.controls.nome.valid && (form.controls.nome.dirty || form.controls.nome.touch)" color="danger">
       <div [hidden]="!form.controls.nome.errors.required">
@@ -21,13 +21,41 @@
 
     <ion-item>
       <ion-label stacked>Email</ion-label>
-      <ion-input type="text" formControlName="email" value="{{ funcionario.email }}"></ion-input>
+      <ion-input type="text" formControlName="email" value="{{ empresa.email }}"></ion-input>
     </ion-item>
     <ion-item *ngIf="!form.controls.email.valid && (form.controls.email.dirty || form.controls.email.touch)" color="danger">
       <div [hidden]="!form.controls.email.errors.required">
         O campo é obrigatório
       </div>
     </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Endereço</ion-label>
+      <ion-input type="text" formControlName="endereco" value="{{ empresa.endereco }}"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.endereco.valid && (form.controls.endereco.dirty || form.controls.endereco.touch)" color="danger">
+      <div [hidden]="!form.controls.endereco.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Descrição</ion-label>
+      <ion-input type="text" formControlName="desc" value="{{ empresa.desc }}"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.desc.valid && (form.controls.desc.dirty || form.controls.desc.touch)" color="danger">
+      <div [hidden]="!form.controls.desc.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+    
+    <div class='input-wrapper'>
+      <label for='input-file'>
+        Escolha uma foto
+      </label>
+      <input id='input-file' type='file' value='' (change)="atualizaArquivo($event)" />
+      <span id='file-name'></span>
+    </div>
 
     <div padding>
       <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>

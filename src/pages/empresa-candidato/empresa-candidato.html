@@ -18,12 +18,19 @@
 
     <ion-card id="card-candidate-{{ i }}" class="td_card" (click)="candidatoDetail(match.candidatoId)">
       <ion-card-header>
-        {{ match.candidatoNome }}
+        <!-- {{ match.candidatoNome }} -->
       </ion-card-header>
       <div class="card_desc">
         <ion-card-content class="card_desc">
-          <ion-card-title>
+          <ion-card-title style="font-weight: bold;">
+            {{ match.candidatoFormacao }}
           </ion-card-title>
+          <p>
+            {{ match.candidatoNome }}
+          </p>
+          <p>
+            {{ match.candidatoIdade }} Anos
+          </p>
         </ion-card-content>
       </div>
     </ion-card>

@@ -85,8 +85,7 @@ import { VagaDetailPage } from '../pages/vaga-detail/vaga-detail';
     }),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFireStorageModule,
-    BrowserAnimationsModule
+    AngularFireStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
