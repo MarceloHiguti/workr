@@ -7,6 +7,7 @@ import { FormGroup } from '@angular/forms';
 import { GlobalProvider } from "../../providers/global/global";
 import firebase from 'firebase';
 import { VagaDetailPage } from '../vaga-detail/vaga-detail';
+import anime from 'animejs'
 
 @IonicPage()
 @Component({
@@ -26,7 +27,6 @@ export class FuncVagasPage {
   imagem =  "assets/imgs/vaga_default.png";
   allJobs: Array<Object> = [];
   jobs: Array<Object> = [];
-  showCard: Boolean = true;
   arquivo;
   referencia;
   imagemPath;
@@ -128,17 +128,30 @@ export class FuncVagasPage {
 
   no_click () {
     console.log("no_click fired");
+    var parent = this;
+    var index = parent.jobs.length-1;
     // var target = event.target || event.srcElement || event.currentTarget;
     // var idAttr = target.attributes.id;
     // var value = idAttr.nodeValue;
+    var finishedPromise = anime({
+      targets: '#card-' + index,
+      translateX: -550,
+      rotate: '-1turn',
+      easing: 'easeInOutQuad'
+    });
+    
+    var promise = finishedPromise.finished.then(logFinished);
     // console.log(value);
-    this.jobs.pop();
-    console.log("jobs",this.jobs[this.jobs.length-1]);
-    console.log("jobs",this.jobs);
+    function logFinished() {
+      parent.jobs.pop();
+      console.log("jobs",parent.jobs[parent.jobs.length-1]);
+      console.log("jobs",parent.jobs);
+    } 
   }
 
   yes_click () {
     console.log("yes_click fired");
+    var parent = this;
     if (this.jobs.length > 0) {
       this.userId = this.afAuth.auth.currentUser.uid;
       this.match.vaga.vagaId = this.jobs[this.jobs.length-1]["vagaId"];
@@ -163,12 +176,32 @@ export class FuncVagasPage {
         console.error(e);
       })
 
-      this.jobs.pop();
+      var index = parent.jobs.length-1;
+      var finishedPromise = anime({
+        targets: '#card-' + index,
+        translateX: 550,
+        rotate: '1turn',
+        easing: 'easeInOutQuad'
+      });
+      
+      var animateFinished = function() {
+        parent.jobs.pop();
+        console.log("jobs",parent.jobs[parent.jobs.length-1]);
+        console.log("jobs",parent.jobs);
+      } 
+      var promise = finishedPromise.finished.then(animateFinished);
+      // console.log(value);
     }
   }
-  
-  animateMe(i) {
-    // this.state = (this.state === 'small' ? 'large' : 'small');
+
+  mouseClickDown(e) {
+    console.log(e);
+  }
+
+  mouseClickUp(e) {
+    // console.log(e);
+    // console.log(e.movementX);
+    this.no_click();
   }
 
   vagaDetail(vagaId) {
