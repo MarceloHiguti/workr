@@ -7,7 +7,9 @@ import { FormGroup } from '@angular/forms';
 import { GlobalProvider } from "../../providers/global/global";
 import firebase from 'firebase';
 import { VagaDetailPage } from '../vaga-detail/vaga-detail';
-import anime from 'animejs'
+import anime from 'animejs';
+import 'hammerjs';
+import 'hammer-timejs';
 
 @IonicPage()
 @Component({
@@ -194,13 +196,13 @@ export class FuncVagasPage {
     }
   }
 
-  mouseClickDown(e) {
+  myswiperight(e) {
     console.log(e);
+    this.yes_click();
   }
 
-  mouseClickUp(e) {
-    // console.log(e);
-    // console.log(e.movementX);
+  myswipeleft(e) {
+    console.log(e);
     this.no_click();
   }
 

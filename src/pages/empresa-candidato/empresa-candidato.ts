@@ -5,6 +5,9 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { UsersProvider } from '../../providers/users/users';
 import { VagaCandidatoDetailPage } from '../vaga-candidato-detail/vaga-candidato-detail';
 import { GlobalProvider } from "../../providers/global/global";
+import anime from 'animejs';
+import 'hammerjs';
+import 'hammer-timejs';
 
 @IonicPage()
 @Component({
@@ -89,6 +92,7 @@ export class EmpresaCandidatoPage {
 
   no_click () {
     console.log("no_click fired");
+    var parent = this;
     if (this.matches.length > 0) {
       this.match["key"] = this.matches[this.matches.length-1]["matchId"];
       this.match["status"] = "N";
@@ -110,11 +114,26 @@ export class EmpresaCandidatoPage {
       })
     }
 
-    this.matches.pop();
+    var index = parent.matches.length-1;
+    var finishedPromise = anime({
+      targets: '#card-candidate-' + index,
+      translateX: -550,
+      rotate: '-1turn',
+      easing: 'easeInOutQuad'
+    });
+    
+    var promise = finishedPromise.finished.then(logFinished);
+    // console.log(value);
+    function logFinished() {
+      parent.matches.pop();
+      console.log("matches",parent.matches[parent.matches.length-1]);
+      console.log("matches",parent.matches);
+    } 
   }
 
   yes_click () {
     console.log("yes_click fired");
+    var parent = this;
     if (this.matches.length > 0) {
       this.match["key"] = this.matches[this.matches.length-1]["matchId"];
       this.match["status"] = "Y";
@@ -135,8 +154,31 @@ export class EmpresaCandidatoPage {
         this.global._feedbackObservacao = '';
       })
 
-      this.matches.pop();
+      var index = parent.matches.length-1;
+      var finishedPromise = anime({
+        targets: '#card-candidate-' + index,
+        translateX: 550,
+        rotate: '1turn',
+        easing: 'easeInOutQuad'
+      });
+      
+      var animateFinished = function() {
+        parent.matches.pop();
+        console.log("matches",parent.matches[parent.matches.length-1]);
+        console.log("matches",parent.matches);
+      } 
+      var promise = finishedPromise.finished.then(animateFinished);
     }
+  }
+
+  myswiperight(e) {
+    console.log(e);
+    this.yes_click();
+  }
+
+  myswipeleft(e) {
+    console.log(e);
+    this.no_click();
   }
 
   ionViewDidEnter() {

@@ -8,7 +8,7 @@
   <div *ngFor="let job of jobs; let i = index">
   <!-- <ion-card *ngFor="let job of jobs" class="td_card"> -->
   <!-- <ion-card class="td_card"  *ngIf="showCard" [@flyInOut]> -->
-    <ion-card id="card-{{ i }}" class="td_card" (click)="vagaDetail(job.vagaId)" (mouseenter)="mouseClickDown($event)" (mouseleave)="mouseClickUp($event)">
+    <ion-card id="card-{{ i }}" class="td_card" (click)="vagaDetail(job.vagaId)" (swiperight)="myswiperight($event)" (swipeleft)="myswipeleft($event)">
       <ion-card-header>
         <img src="{{ job.image }}" style="height:150px; padding:10px;">
       </ion-card-header>

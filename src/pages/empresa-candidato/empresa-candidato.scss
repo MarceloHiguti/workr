@@ -55,7 +55,7 @@ page-empresa-candidato {
     .td_button {
         position: relative;
         background-color: rgb(255, 255, 255);
-        margin-top: 135%;
+        margin-top: 155%;
         // left: 50%;
         // display: block;
         // margin-bottom: 40px;
@@ -75,5 +75,9 @@ page-empresa-candidato {
     .card-md p {
         margin-top: 5px;
         font-size: 18px;
+    }
+
+    .cargo-icon {
+        color: #56595A
     }
 }
