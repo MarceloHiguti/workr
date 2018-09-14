@@ -6,6 +6,7 @@ import { UsersProvider } from '../../providers/users/users';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import firebase from 'firebase';
+import { GlobalProvider } from '../../providers/global/global';
 
 @IonicPage()
 @Component({
@@ -14,21 +15,23 @@ import firebase from 'firebase';
 })
 export class CadastrarVagaPage {
 
+  areasArray: string[];
   empresaName: string;
   form: FormGroup;
   users: any;
   id: string;
-  arquivo = {
-    name: ''
-  };
+  arquivo;
   referencia;
+  arquivoNome = '';
 
-  constructor(private afStorage: AngularFireStorageModule, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private provider: UsersProvider, private alertCtrl: AlertController, private toast: ToastController) {
+  constructor(private afStorage: AngularFireStorageModule, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private provider: UsersProvider, private alertCtrl: AlertController, private toast: ToastController, public global: GlobalProvider) {
     this.referencia = firebase.storage().ref();
     var user = this.afAuth.auth.currentUser;
     this.empresaName = user.displayName;
     this.users = this.navParams.data.users || {};
+    this.areasArray = this.global._areasArray;
     this.id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 16);
+    console.log("this.id: ", this.id);
     console.log("users: ", this.users);
     this.createForm();
   }
@@ -42,15 +45,18 @@ export class CadastrarVagaPage {
       area: [this.users.area, Validators.required],
       salario: [this.users.salario, Validators.required],
       description: [this.users.description, Validators.required],
-      imagem: this.arquivo.name
+      imagem: [this.arquivoNome]
     })
   }
 
   onSubmit () {
+    var parent = this;
     if (this.form.valid) {
       this.provider.saveVaga(this.form.value)
         .then(() => {
-          this.enviarArquivo();
+          if (parent.arquivo != undefined) {
+            parent.enviarArquivo();
+          }
           this.toast.create({ message: 'Vaga adicionada com sucesso.', duration: 3000}).present();
           this.navCtrl.pop();
         })
@@ -67,6 +73,8 @@ export class CadastrarVagaPage {
     fileName.textContent = event.srcElement.files[0].name;
     console.log("event.srcElement.files[0]");
     console.log(event.srcElement.files[0]);
+    this.arquivoNome = this.arquivo.name;
+    this.createForm();
   }
 
   enviarArquivo(){
@@ -88,7 +96,7 @@ export class CadastrarVagaPage {
         console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
     });
   }
-  
+
   alert (message: string) {
     this.alertCtrl.create({
       title: message,
@@ -99,7 +107,4 @@ export class CadastrarVagaPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastrarVagaPage');
   }
-
-
-
 }

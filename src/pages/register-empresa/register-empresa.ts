@@ -27,10 +27,9 @@ export class RegisterEmpresaPage {
     desc: '',
     imagem: ''
   }
-  arquivo = {
-    name: ''
-  };
+  arquivo;
   referencia;
+  arquivoNome = '';
 
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, private app: App, public navParams: NavParams, public db: AngularFireDatabase, private formBuilder: FormBuilder, private provider: UsersProvider, private toast: ToastController) {
     this.referencia = firebase.storage().ref();
@@ -69,7 +68,7 @@ export class RegisterEmpresaPage {
       endereco: [this.empresa.endereco, Validators.required],
       desc: [this.empresa.desc],
       tipo: [this.empresa.tipo],
-      imagem: this.arquivo.name
+      imagem: [this.arquivoNome]
     })
   }
   
@@ -79,6 +78,7 @@ export class RegisterEmpresaPage {
     fileName.textContent = event.srcElement.files[0].name;
     console.log("event.srcElement.files[0]");
     console.log(event.srcElement.files[0]);
+    this.arquivoNome = this.arquivo.name;
     this.createForm();
   }
 
@@ -97,10 +97,13 @@ export class RegisterEmpresaPage {
 
   onSubmit () {
     console.log(this.form.value);
+    var parent = this;
     if (this.form.valid) {
       this.provider.saveEmpresa(this.form.value)
         .then(() => {
-          this.enviarArquivo();
+          if (parent.arquivo != undefined) {
+            parent.enviarArquivo();
+          }
           this.toast.create({ message: 'Usuário salvo com sucesso.', duration: 3000}).present();
           this.app.getRootNav().setRoot(EmpresaTabPage);
         })

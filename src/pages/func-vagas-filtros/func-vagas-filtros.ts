@@ -9,12 +9,12 @@ import { GlobalProvider } from '../../providers/global/global';
 })
 export class FuncVagasFiltrosPage {
 
-  filtrosArray: string[] = ["Todos", "Tecnologia", "Engenharia", "Educação", "Gastronomia", "Vendas",
-  "Administração", "Saúde", "Finanças", "Manutenção", "Limpeza"];
+  filtrosArray: string[];
   filtroSelected;
   filtroPicker: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider) {
+    this.filtrosArray = this.global._filtrosArray;
   }
 
   ionViewDidLoad() {

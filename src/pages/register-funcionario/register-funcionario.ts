@@ -60,7 +60,7 @@ export class RegisterFuncionarioPage {
   nivelInglesArray: Array<Object> = [
     {
       value: "0",
-      name: "nenhum"
+      name: "Nenhum"
     },{
       value: "1",
       name: "Básico"

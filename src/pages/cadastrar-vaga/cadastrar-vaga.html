@@ -29,7 +29,7 @@
       </div>
     </ion-item>
 
-    <ion-item>
+    <!-- <ion-item>
       <ion-label stacked>Área Profissional</ion-label>
       <ion-input type="text" placeholder="Ex: Tecnologia" formControlName="area"></ion-input>
     </ion-item>
@@ -37,7 +37,7 @@
       <div [hidden]="!form.controls.area.errors.required">
         O campo é obrigatório
       </div>
-    </ion-item>
+    </ion-item> -->
 
     <ion-item>
       <ion-label stacked>Salário</ion-label>
@@ -59,6 +59,13 @@
       </div>
     </ion-item>
 
+    <ion-item>
+      <ion-label stacked>Área Profissional</ion-label>
+      <ion-select  formControlName="area" interface="popover">
+        <ion-option *ngFor="let area of areasArray" value="{{ area }}">{{ area }}</ion-option>
+      </ion-select>
+    </ion-item>
+
     <div class='input-wrapper'>
       <label for='input-file'>
         Escolha uma foto
@@ -66,10 +73,9 @@
       <input id='input-file' type='file' value='' (change)="atualizaArquivo($event)" />
       <span id='file-name'></span>
     </div>
-    
+
     <div padding>
       <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
     </div>
-
   </form>
 </ion-content>

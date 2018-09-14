@@ -8,6 +8,8 @@ export class GlobalProvider {
   public _feedbackObservacao: string;
   public _candidatoNivel: string;
   public _candidatoIngles: string;
+  public _filtrosArray: string[];
+  public _areasArray: string[];
 
   constructor() {
     console.log('Hello GlobalProvider Provider');
@@ -17,6 +19,10 @@ export class GlobalProvider {
     this._vagaFiltro = '';
     this._feedbackMotivo = 'nenhum';
     this._feedbackObservacao = '';
+    this._filtrosArray = ["Todos", "Tecnologia", "Engenharia", "Educação", "Gastronomia", "Vendas",
+      "Administração", "Saúde", "Finanças", "Manutenção", "Limpeza", "Outros"];
+    this._areasArray = ["Tecnologia", "Engenharia", "Educação", "Gastronomia", "Vendas",
+      "Administração", "Saúde", "Finanças", "Manutenção", "Limpeza", "Outros"];
   }
 
 }
