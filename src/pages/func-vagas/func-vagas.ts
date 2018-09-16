@@ -25,6 +25,7 @@ export class FuncVagasPage {
   cargo: String;
   salario: String;
   desc: String;
+  bairro: String;
   area: String;
   imagem =  "assets/imgs/vaga_default.png";
   allJobs: Array<Object> = [];
@@ -95,6 +96,7 @@ export class FuncVagasPage {
               parent.cargo = element[value].cargo;
               parent.salario = element[value].salario;
               parent.desc = element[value].description;
+              parent.bairro = element[value].bairro;
               parent.area = element[value].area;
 
               if (element[value].imagem != '') {
@@ -112,7 +114,8 @@ export class FuncVagasPage {
                 });
               }
 
-              parent.allJobs.push({vagaId: value, title: parent.title, empresa: parent.empresa, 
+              parent.allJobs.push({
+                vagaId: value, title: parent.title, empresa: parent.empresa, bairro: parent.bairro, 
                 candidatoNome: parent.funcionario.nome, candidatoIdade: parent.funcionario.idade, candidatoFormacao: parent.funcionario.formacao, candidatoNivelAcademico: parent.funcionario.nivelAcademico, candidatoNivelIngles: parent.funcionario.nivelIngles,
                 cargo: parent.cargo, salario: parent.salario, desc: parent.desc, area: parent.area, image: parent.imagem});
             })

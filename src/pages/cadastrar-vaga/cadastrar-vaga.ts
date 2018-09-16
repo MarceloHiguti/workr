@@ -45,6 +45,7 @@ export class CadastrarVagaPage {
       area: [this.users.area, Validators.required],
       salario: [this.users.salario, Validators.required],
       description: [this.users.description, Validators.required],
+      bairro: [this.users.bairro, Validators.required],
       imagem: [this.arquivoNome]
     })
   }

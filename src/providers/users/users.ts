@@ -95,12 +95,12 @@ export class UsersProvider {
     return new Promise((resolve, reject) => {
       if (user.key) {
         this.db.list(this.pathVagas)
-          .update(user.key, { title: user.title, empresa: user.empresa, cargo: user.cargo, area: user.area, salario: user.salario, description: user.description, imagem: user.imagem })
+          .update(user.key, { title: user.title, empresa: user.empresa, cargo: user.cargo, area: user.area, salario: user.salario, description: user.description, imagem: user.imagem, bairro: user.bairro })
           .then(() => resolve())
           .catch((e) => reject(e));
       } else {
         this.db.list(this.pathVagas)
-          .push({ title: user.title, empresa: user.empresa, cargo: user.cargo, area: user.area, salario: user.salario, description: user.description, imagem: user.imagem })
+          .push({ title: user.title, empresa: user.empresa, cargo: user.cargo, area: user.area, salario: user.salario, description: user.description, imagem: user.imagem, bairro: user.bairro })
           .then(() => resolve());
       }
     })
