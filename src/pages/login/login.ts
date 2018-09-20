@@ -49,7 +49,7 @@ export class LoginPage {
 
   signInUser () {
     // console.log("senha", this.password.value)
-    this.userEmail = this.username.value + "@teste.com";
+    this.userEmail = this.username.value;
     var name = this.userEmail;
     var dName = name.split("@");
     this.afAuth.auth.signInWithEmailAndPassword(this.userEmail, this.password.value)
