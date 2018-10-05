@@ -67,7 +67,7 @@ export class FuncLikesPage {
               keys = Object.keys(element);
               keys.forEach((value, index) => {
                 parent.title = element[value].title;
-                parent.empresa = element[value].empresa;
+                parent.empresa = element[value].empresaName;
                 parent.jobStatus = match["status"];
                 parent.matchId = match["matchId"];
                 parent.jobs.push({title: parent.title, empresa: parent.empresa, status: parent.jobStatus, matchId: parent.matchId});

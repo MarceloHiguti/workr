@@ -42,8 +42,13 @@
     <ion-input type="text" formControlName="feedbackText" placeholder="Digite aqui..." style="background-color: white;"></ion-input>
   </form>
 
-  <div padding>
+  <!-- <div padding>
     <a href="{{ curriculoUrl }}" block ion-button>Download Currículo</a>
+  </div> -->
+
+  <div padding [ngSwitch]="curriculoOk">
+    <a *ngSwitchCase="'Y'"  href="{{ curriculoUrl }}" block ion-button>Download Currículo</a>
+    <button *ngSwitchCase="'N'" (click)="curriculoError()" block ion-button>Download Currículo</button>
   </div>
 
   <div padding>

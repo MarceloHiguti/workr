@@ -64,8 +64,9 @@ export class LoginPage {
             var obj = [];
             obj.push(snapshot.val());
             if (snapshot.exists()) {//verificar se possui a key do auth no banco de dados
+              console.log("(obj[0]", (obj[0]));
               if (obj[0]["type"] == 'empresa') {
-                this.global._empresaName = obj[0]["name"];
+                parent.global._empresaName = obj[0]["name"];
                 parent.empresaTabs();
               } else {
                 parent.funcionarioTabs();

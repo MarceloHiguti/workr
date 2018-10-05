@@ -45,9 +45,9 @@
 
   <div class="border"></div>
   
-  <div *ngIf="feedback != 'nenhum'">
+  <div *ngIf="feedback != 'nenhum' || feedbackObs != undefined">
     <div class="title">Feedback</div>
-    <p>
+    <p *ngIf="feedback != 'nenhum'">
       {{ feedback }}
     </p>
     <p>

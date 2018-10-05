@@ -100,7 +100,7 @@ export class UsersProvider {
           .catch((e) => reject(e));
       } else {
         this.db.list(this.pathVagas)
-          .push({ title: user.title, empresa: user.empresa, cargo: user.cargo, area: user.area, salario: user.salario, description: user.description, imagem: user.imagem, bairro: user.bairro })
+          .push({ title: user.title, empresa: user.empresa, empresaName: user.empresaName, cargo: user.cargo, area: user.area, salario: user.salario, description: user.description, imagem: user.imagem, bairro: user.bairro })
           .then(() => resolve());
       }
     })
@@ -124,6 +124,7 @@ export class UsersProvider {
               nivelIngles: match.candidato.nivelIngles
           },
           empresa: match.empresa, 
+          empresaName: match.empresaName, 
           status: match.status 
       })
         .then(() => resolve());

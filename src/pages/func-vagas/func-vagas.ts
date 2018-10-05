@@ -18,10 +18,12 @@ import 'hammer-timejs';
 })
 export class FuncVagasPage {
 
+  disabled: boolean = false;
   userId: string;
   userNome: string;
   title: String;
   empresa: String;
+  empresaName: String;
   cargo: String;
   salario: String;
   desc: String;
@@ -49,6 +51,7 @@ export class FuncVagasPage {
       nivelIngles: '',
     },
     empresa: '',
+    empresaName: '',
     status: ''
   }
 
@@ -92,7 +95,8 @@ export class FuncVagasPage {
             keys = Object.keys(element);
             keys.forEach((value, index) => {
               parent.title = element[value].title;
-              parent.empresa = element[value].empresaName;
+              parent.empresa = element[value].empresa;
+              parent.empresaName = element[value].empresaName;
               parent.cargo = element[value].cargo;
               parent.salario = element[value].salario;
               parent.desc = element[value].description;
@@ -115,7 +119,7 @@ export class FuncVagasPage {
               }
 
               parent.allJobs.push({
-                vagaId: value, title: parent.title, empresa: parent.empresa, bairro: parent.bairro, 
+                vagaId: value, title: parent.title, empresa: parent.empresa, empresaName: parent.empresaName, bairro: parent.bairro, 
                 candidatoNome: parent.funcionario.nome, candidatoIdade: parent.funcionario.idade, candidatoFormacao: parent.funcionario.formacao, candidatoNivelAcademico: parent.funcionario.nivelAcademico, candidatoNivelIngles: parent.funcionario.nivelIngles,
                 cargo: parent.cargo, salario: parent.salario, desc: parent.desc, area: parent.area, image: parent.imagem});
             })
@@ -134,6 +138,7 @@ export class FuncVagasPage {
   no_click () {
     console.log("no_click fired");
     var parent = this;
+    parent.disabled = true;
     var index = parent.jobs.length-1;
     // var target = event.target || event.srcElement || event.currentTarget;
     // var idAttr = target.attributes.id;
@@ -149,6 +154,7 @@ export class FuncVagasPage {
     // console.log(value);
     function logFinished() {
       parent.jobs.pop();
+      parent.disabled = false;
       console.log("jobs",parent.jobs[parent.jobs.length-1]);
       console.log("jobs",parent.jobs);
     } 
@@ -157,6 +163,7 @@ export class FuncVagasPage {
   yes_click () {
     console.log("yes_click fired");
     var parent = this;
+    parent.disabled = true;
     if (this.jobs.length > 0) {
       this.userId = this.afAuth.auth.currentUser.uid;
       this.match.vaga.vagaId = this.jobs[this.jobs.length-1]["vagaId"];
@@ -170,6 +177,7 @@ export class FuncVagasPage {
       this.match.candidato.nivelAcademico = this.jobs[this.jobs.length-1]["candidatoNivelAcademico"];
       this.match.candidato.nivelIngles = this.jobs[this.jobs.length-1]["candidatoNivelIngles"];
       this.match.empresa = this.jobs[this.jobs.length-1]["empresa"];
+      this.match.empresaName = this.jobs[this.jobs.length-1]["empresaName"];
       this.match.status = "H";
       // console.log(this.match);
 
@@ -191,6 +199,7 @@ export class FuncVagasPage {
       
       var animateFinished = function() {
         parent.jobs.pop();
+        parent.disabled = false;
         console.log("jobs",parent.jobs[parent.jobs.length-1]);
         console.log("jobs",parent.jobs);
       } 

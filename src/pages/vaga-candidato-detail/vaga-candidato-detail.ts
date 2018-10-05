@@ -14,6 +14,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class VagaCandidatoDetailPage {
 
+  curriculoOk: string = 'N';
   candidatoId: string;
   curriculoUrl: string;
   users: any;
@@ -62,6 +63,7 @@ export class VagaCandidatoDetailPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VagaCandidatoDetailPage');
+    this.baixarArquivo();
   }
 
   ionViewDidLeave() {
@@ -101,10 +103,16 @@ export class VagaCandidatoDetailPage {
     let caminho = this.referencia.child('curriculos/' + parent.candidato.email + '/' + parent.candidato.curriculo);
     caminho.getDownloadURL().then(url => {
         console.log(url); // AQUI VOCÊ JÁ TEM O ARQUIVO
+        parent.curriculoOk = 'Y';
         parent.curriculoUrl = url;
     }).catch(function(error) {
-      parent.alert("Nenhum currículo cadastrado");
+      parent.curriculoOk = 'N';
+      // parent.alert("Nenhum currículo cadastrado");
     });
+  }
+
+  curriculoError() {
+    this.alert("Nenhum currículo cadastrado");
   }
 
   alert (message: string) {
