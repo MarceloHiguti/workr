@@ -125,4 +125,8 @@ export class VagaCandidatoDetailPage {
       feedbackText: this.feedback.feedbackText
     })
   }
+
+  backPage() {
+      this.navCtrl.pop();
+  }
 }

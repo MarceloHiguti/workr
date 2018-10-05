@@ -30,10 +30,10 @@
   <div class="title">Feedback</div>
   <ion-item>
     <ion-select [(ngModel)]="feedbackPicker" (ionChange)="pickerChange();" interface="Action Sheet">
-      <ion-option value="exigencia">Não possui as exigências mínimas</ion-option>
-      <ion-option value="experiencia">Falta de experiência profissional</ion-option>
-      <ion-option value="formacao">Formação acadêmica insuficiente</ion-option>
-      <ion-option value="linguas">Precisa aprimorar outras línguas</ion-option>
+      <ion-option value="Não possui as exigências mínimas">Não possui as exigências mínimas</ion-option>
+      <ion-option value="Falta de experiência profissional">Falta de experiência profissional</ion-option>
+      <ion-option value="Formação acadêmica insuficiente">Formação acadêmica insuficiente</ion-option>
+      <ion-option value="Precisa aprimorar outras línguas">Precisa aprimorar outras línguas</ion-option>
     </ion-select>
   </ion-item>
 
@@ -44,5 +44,9 @@
 
   <div padding>
     <a href="{{ curriculoUrl }}" block ion-button>Download Currículo</a>
+  </div>
+
+  <div padding>
+    <button block ion-button (click)="backPage()">Confirmar feedback</button>
   </div>
 </ion-content>

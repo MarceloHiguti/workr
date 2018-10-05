@@ -12,4 +12,8 @@
         <ion-option *ngFor="let filtro of filtrosArray" value="{{ filtro }}" [selected]="filtroSelected == filtro">{{ filtro }}</ion-option>
     </ion-select>
   </ion-item>
+
+  <div padding>
+    <button block ion-button (click)="onBack()">Filtrar</button>
+  </div>
 </ion-content>

@@ -26,4 +26,8 @@ export class FuncVagasFiltrosPage {
     console.log(this.filtroPicker);
     this.global._vagaFiltro = this.filtroPicker;
   }
+  
+  onBack() {
+    this.navCtrl.pop();
+  }
 }

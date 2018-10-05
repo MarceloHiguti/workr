@@ -49,8 +49,8 @@ export class VagaCandidatosPage {
               parent.candidato.formacao = element[value].candidato.formacao;
               parent.status = element[value].status;
               if (parent.status == 'Y'){
-                parent.matchId = value;
-                parent.candidatos.push({ id: parent.candidato.id, nome: parent.candidato.nome, formacao: parent.candidato.formacao});
+                // parent.matchId = value;
+                parent.candidatos.push({ id: parent.candidato.id, nome: parent.candidato.nome, formacao: parent.candidato.formacao, matchId: value});
               }
             })
           });
@@ -62,10 +62,10 @@ export class VagaCandidatosPage {
     console.log('ionViewDidLoad VagaCandidatosPage');
   }
 
-  candidatoAceitoDetail(candidatoId) {
+  candidatoAceitoDetail(candidato) {
     this.navCtrl.push(CandidatoAceitoDetailPage, {
-      candidatoId: candidatoId,
-      matchId: this.matchId
+      candidatoId: candidato.id,
+      matchId: candidato.matchId
     });
   }
 

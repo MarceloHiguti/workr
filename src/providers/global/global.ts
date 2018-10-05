@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GlobalProvider {
 
+  public _empresaName: string;
   public _vagaFiltro: string;
   public _feedbackMotivo: string;
   public _feedbackObservacao: string;
@@ -13,6 +14,7 @@ export class GlobalProvider {
 
   constructor() {
     console.log('Hello GlobalProvider Provider');
+    this._empresaName = '';
     this._vagaFiltro = '';
     this._candidatoNivel = '0';
     this._candidatoIngles = '0';

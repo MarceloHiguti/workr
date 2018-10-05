@@ -9,6 +9,7 @@ import { CardDetailPage } from '../card-detail/card-detail';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { EmpresaTabPage } from '../empresa-tab/empresa-tab';
 import { FuncionarioTabPage } from '../funcionario-tab/funcionario-tab';
+import { GlobalProvider } from '../../providers/global/global';
 
 @IonicPage()
 @Component({
@@ -21,7 +22,7 @@ export class LoginPage {
   @ViewChild('password') password;
   userEmail: string;
 
-  constructor(private alertCtrl: AlertController, private db: AngularFireDatabase, private afAuth:AngularFireAuth, public navCtrl: NavController, private provider: UsersProvider, public navParams: NavParams) {
+  constructor(private alertCtrl: AlertController, private db: AngularFireDatabase, public global: GlobalProvider, private afAuth:AngularFireAuth, public navCtrl: NavController, private provider: UsersProvider, public navParams: NavParams) {
     
   }
 
@@ -44,7 +45,8 @@ export class LoginPage {
 
   cadastro() {
     console.log("não tem cadastro");
-    this.navCtrl.setRoot(LoggedInPage);
+    this.alert("Crie uma conta com um novo email");
+    // this.navCtrl.setRoot(LoggedInPage);
   }
 
   signInUser () {
@@ -63,6 +65,7 @@ export class LoginPage {
             obj.push(snapshot.val());
             if (snapshot.exists()) {//verificar se possui a key do auth no banco de dados
               if (obj[0]["type"] == 'empresa') {
+                this.global._empresaName = obj[0]["name"];
                 parent.empresaTabs();
               } else {
                 parent.funcionarioTabs();
@@ -118,7 +121,7 @@ export class LoginPage {
           });
 
         user.updateProfile({
-          displayName: "Marcelo",
+          displayName: "marcelohiguti96",
           photoURL: ""
         }).then(function() {
           // console.log("uid:", user.uid);
@@ -148,7 +151,7 @@ export class LoginPage {
           });
 
         user.updateProfile({
-          displayName: "Pedro",
+          displayName: "peemelo7",
           photoURL: ""
         }).then(function() {
           // console.log("uid:", user.uid);
@@ -206,7 +209,7 @@ export class LoginPage {
           });
 
         user.updateProfile({
-          displayName: "Google",
+          displayName: "google",
           photoURL: ""
         }).then(function() {
           console.log("uid:", user.uid);
@@ -234,7 +237,7 @@ export class LoginPage {
           });
 
         user.updateProfile({
-          displayName: "Maua",
+          displayName: "maua",
           photoURL: ""
         }).then(function() {
           console.log("uid:", user.uid);

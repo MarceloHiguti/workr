@@ -21,4 +21,8 @@
         <ion-option *ngFor="let ingles of nivelInglesArray" value="{{ ingles.value }}" [selected]="nivelInglesSelected == ingles.value">{{ ingles.name }}</ion-option>
       </ion-select>
   </ion-item>
+
+  <div padding>
+    <button block ion-button (click)="onBack()">Filtrar</button>
+  </div>
 </ion-content>

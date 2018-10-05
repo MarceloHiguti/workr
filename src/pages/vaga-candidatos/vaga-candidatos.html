@@ -8,7 +8,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let candidato of candidatos" class="candidatos_item" (click)="candidatoAceitoDetail(candidato.id)">
+    <ion-item *ngFor="let candidato of candidatos" class="candidatos_item" (click)="candidatoAceitoDetail(candidato)">
       <ion-item>
         <div class="div-list-title">
           <h1 class="list-title">{{ candidato.nome }}</h1>

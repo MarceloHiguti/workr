@@ -75,4 +75,8 @@ export class EmpresaFiltrosPage {
     this.global._candidatoIngles = this.inglesPicker;
   }
 
+  onBack() {
+    this.navCtrl.pop();
+  }
+
 }

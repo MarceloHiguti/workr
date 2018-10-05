@@ -92,7 +92,7 @@ export class FuncVagasPage {
             keys = Object.keys(element);
             keys.forEach((value, index) => {
               parent.title = element[value].title;
-              parent.empresa = element[value].empresa;
+              parent.empresa = element[value].empresaName;
               parent.cargo = element[value].cargo;
               parent.salario = element[value].salario;
               parent.desc = element[value].description;

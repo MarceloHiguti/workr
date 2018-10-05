@@ -41,6 +41,7 @@ export class CadastrarVagaPage {
       key: this.id,
       title: [this.users.title, Validators.required],
       empresa: this.empresaName,
+      empresaName: this.global._empresaName,
       cargo: [this.users.cargo, Validators.required],
       area: [this.users.area, Validators.required],
       salario: [this.users.salario, Validators.required],
