@@ -9,6 +9,15 @@
 
 <ion-content padding>
   <form [formGroup]="form">
+    
+    <div class='input-wrapper'>
+      <label for='input-file'>
+        Escolha uma foto
+      </label>
+      <input id='input-file' type='file' value='' (change)="atualizaArquivo($event)" />
+      <span id='file-name'></span>
+    </div>
+    
     <ion-item>
       <ion-label stacked>Nome</ion-label>
       <ion-input type="text" formControlName="nome" value="{{ empresa.nome }}"></ion-input>
@@ -48,14 +57,6 @@
         O campo é obrigatório
       </div>
     </ion-item>
-    
-    <div class='input-wrapper'>
-      <label for='input-file'>
-        Escolha uma foto
-      </label>
-      <input id='input-file' type='file' value='' (change)="atualizaArquivo($event)" />
-      <span id='file-name'></span>
-    </div>
 
     <div padding>
       <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>

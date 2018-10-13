@@ -54,6 +54,8 @@ export class LoginPage {
     this.userEmail = this.username.value;
     var name = this.userEmail;
     var dName = name.split("@");
+    this.global._displayName = dName[0].toLowerCase();
+    console.log("this.global._displayName", this.global._displayName);
     this.afAuth.auth.signInWithEmailAndPassword(this.userEmail, this.password.value)
       .then(data => {
         console.log("got some data", data);
@@ -198,6 +200,7 @@ export class LoginPage {
     this.afAuth.auth.signInWithEmailAndPassword("google@teste.com", "123@mudar")
       .then(data => {
         console.log("got some data", data);
+        this.global._displayName = 'google';
         var parent = this; // variavel criada para poder acessar o navCtrl na próxima função
         var user = this.afAuth.auth.currentUser;
         var ref = this.db.database.ref("users/" + user.uid).once("value")
@@ -223,9 +226,10 @@ export class LoginPage {
   }
 
   signInEmpresaMaua () {
-    this.afAuth.auth.signInWithEmailAndPassword("maua@teste.com", "123@mudar")
+    this.afAuth.auth.signInWithEmailAndPassword("maua@workr.com", "123456")
       .then(data => {
         console.log("got some data", data);
+        this.global._displayName = 'maua';
         var parent = this; // variavel criada para poder acessar o navCtrl na próxima função
         var user = this.afAuth.auth.currentUser;
         var ref = this.db.database.ref("users/" + user.uid).once("value")

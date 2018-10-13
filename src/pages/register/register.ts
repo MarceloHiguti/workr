@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Alert, AlertController } from 'ion
 import { AngularFireAuth } from 'angularfire2/auth';
 import { RegisterEmpresaPage } from '../register-empresa/register-empresa';
 import { RegisterFuncionarioPage } from '../register-funcionario/register-funcionario';
+import { RegisterEurekaPage } from '../register-eureka/register-eureka';
 
 @IonicPage()
 @Component({
@@ -30,6 +31,10 @@ export class RegisterPage {
   pickerChange () {
     console.log(this.tipo);
     this.tipoSelected = this.tipo;
+  }
+
+  registerEurekaUser() {
+    this.navCtrl.push(RegisterEurekaPage);
   }
 
   registerUser () {

@@ -38,7 +38,7 @@ export class VagaDetailPage {
         vagaObj.push(snapshot.val());
         console.log(vagaObj);
         if (vagaObj[0] != undefined) {
-          parent.vaga.empresa = vagaObj[0].empresa;
+          parent.vaga.empresa = vagaObj[0].empresaName;
           parent.vaga.title = vagaObj[0].title;
           parent.vaga.description = vagaObj[0].description;
           parent.vaga.area = vagaObj[0].area;

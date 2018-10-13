@@ -7,6 +7,7 @@ export class UsersProvider {
   private pathVagas = 'vagas/';
   private pathMatch = 'matches/';
   private pathChats = 'chats/';
+  private pathEureka = 'eureka/';
 
   constructor(private db: AngularFireDatabase) {
   }
@@ -70,7 +71,24 @@ export class UsersProvider {
           .catch((e) => reject(e));
       } else {
         this.db.list(this.PATH)
-          .push({ name: user.nome, idade: user.idade, celular: user.celular, email: user.email, formacao: user.formacao, idioma: user.idioma, nivelAcademico: user.nivelAcademico, nivelIngles: user.nivelIngles, curriculo: user.curriculo })
+          .push({ type: user.tipo, name: user.nome, idade: user.idade, celular: user.celular, email: user.email, formacao: user.formacao, idioma: user.idioma, nivelAcademico: user.nivelAcademico, nivelIngles: user.nivelIngles, curriculo: user.curriculo })
+          .then(() => resolve());
+      }
+    })
+  }
+
+  saveEurekaUser(user: any) {
+    return new Promise((resolve, reject) => {
+      console.log("user");
+      console.log(user);
+      if (user.key) {
+        this.db.list(this.pathEureka)
+          .update(user.key, { nome: user.nome, idade: user.idade, celular: user.celular, nota: user.nota })
+          .then(() => resolve())
+          .catch((e) => reject(e));
+      } else {
+        this.db.list(this.pathEureka)
+          .push({ nome: user.nome, idade: user.idade, celular: user.celular, nota: user.nota })
           .then(() => resolve());
       }
     })

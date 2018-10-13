@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cadastre-se!</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label stacked>Nome Completo</ion-label>
+      <ion-input type="text" formControlName="nome"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.nome.valid && (form.controls.nome.dirty || form.controls.nome.touch)" color="danger">
+      <div [hidden]="!form.controls.nome.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Idade</ion-label>
+      <ion-input type="text" formControlName="idade"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.idade.valid && (form.controls.idade.dirty || form.controls.idade.touch)" color="danger">
+      <div [hidden]="!form.controls.idade.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Celular</ion-label>
+      <ion-input type="text" formControlName="celular"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.celular.valid && (form.controls.celular.dirty || form.controls.celular.touch)" color="danger">
+      <div [hidden]="!form.controls.celular.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <!-- <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.email.valid && (form.controls.email.dirty || form.controls.email.touch)" color="danger">
+      <div [hidden]="!form.controls.email.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item> -->
+
+    <ion-item>
+      <ion-label stacked>Qual a nota para o aplicativo?</ion-label>
+      <ion-select formControlName="nota" interface="popover">
+        <ion-option *ngFor="let nota of notaArray" value="{{ nota.value }}">{{ nota.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
+    </div>
+  </form>
+</ion-content>

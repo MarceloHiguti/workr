@@ -9,6 +9,15 @@
 
 <ion-content padding>
   <form [formGroup]="form">
+
+    <div class='input-wrapper'>
+      <label for='input-file'>
+        Selecione um currículo
+      </label>
+      <input id='input-file' type='file' value='' (change)="atualizaArquivo($event)" />
+      <span id='file-name'></span>
+    </div>
+    
     <ion-item>
       <ion-label stacked>Nome Completo</ion-label>
       <ion-input type="text" formControlName="nome" value="{{ funcionario.nome }}"></ion-input>
@@ -77,14 +86,6 @@
         <ion-option *ngFor="let ingles of nivelInglesArray" value="{{ ingles.value }}" [selected]="nivelInglesSelected == ingles.value">{{ ingles.name }}</ion-option>
       </ion-select>
     </ion-item>
-
-    <div class='input-wrapper'>
-      <label for='input-file'>
-        Selecione um currículo
-      </label>
-      <input id='input-file' type='file' value='' (change)="atualizaArquivo($event)" />
-      <span id='file-name'></span>
-    </div>
   
     <div padding>
       <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
