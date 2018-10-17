@@ -1,0 +1,846 @@
+{
+  "chats" : {
+    "-LNIXrPGwIDGw-CSKmwD" : {
+      "2018-09-25 22:44:51" : {
+        "message" : "Boa noite Marcelo, você pode comparecer a uma entrevista individual na quarta feira dia 26/09?",
+        "username" : "Google"
+      },
+      "2018-09-25 22:45:58" : {
+        "message" : "Boa noite, estou disponível o dia inteiro",
+        "username" : "Marcelo"
+      },
+      "2018-09-25 22:47:26" : {
+        "message" : "Qual é o horário e endereço da entrevista?",
+        "username" : "Marcelo"
+      },
+      "2018-09-25 22:48:59" : {
+        "message" : "Vai ser as 15:00h na Av. Brigadeiro Faria Lima, 3477",
+        "username" : "Google"
+      },
+      "2018-09-25 22:49:46" : {
+        "message" : "Perfeito,  estarei lá",
+        "username" : "Marcelo"
+      }
+    }
+  },
+  "users" : {
+    "0UtYBKxOvqOw8GOlC8Ip4ubQZDY2" : {
+      "desc" : "Empresa especialista em Recursos Humanos",
+      "email" : "timeconsultoria@workr.com",
+      "endereco" : "R. da Quitanda, 25 - Centro",
+      "imagem" : "TimeConsultoria.PNG",
+      "name" : "Time Consultoria",
+      "type" : "empresa"
+    },
+    "2UtVx1OzX6WoH4vfFDSTia3N1rE3" : {
+      "desc" : "Restaurante tradicional e famoso na região",
+      "email" : "condessabistro@workr.com",
+      "endereco" : "R. Bueno Brandão, 66 - Vila Nova Conceição",
+      "imagem" : "Condessa.PNG",
+      "name" : "Condessa Bistro",
+      "type" : "empresa"
+    },
+    "462TkaswwdXq1I5tS1vp2WJzHMG3" : {
+      "desc" : "Lanchonete tradicional no bairro, famosa pelos hambúrgueres e lanches naturais",
+      "email" : "elianelanches@workr.com",
+      "endereco" : "R. Conselheiro Carrão, 474 - Bela Vista",
+      "imagem" : "ElianeLanches.PNG",
+      "name" : "Eliane Lanches e Café",
+      "type" : "empresa"
+    },
+    "48Ag4y3zSqeXjjScycpxoQEcaU72" : {
+      "desc" : "Empresa do ramo de construção civil. Atua em empreendimentos, área hospitalar, comercial, industrial, e obras públicas.",
+      "email" : "construmagprojetos@workr.com",
+      "endereco" : "R. Aimbores, 30 - Chácara Califórnia",
+      "imagem" : "Construmag.PNG",
+      "name" : "Construmag Projetos e Construções",
+      "type" : "empresa"
+    },
+    "5P3JkfLyqASTNa8Ecu1LXVgPKm53" : {
+      "desc" : "Empresa do grupo Alphabet Inc",
+      "email" : "google@gmail.com",
+      "endereco" : "Av. Brg. Faria Lima, 3477",
+      "imagem" : "google_logo.png",
+      "name" : "Google",
+      "type" : "empresa"
+    },
+    "5QI2RJoX2NayCNwp2sivcBPFQRG3" : {
+      "celular" : "11940159187",
+      "curriculo" : "",
+      "email" : "peemelo7@gmail.com",
+      "formacao" : "Engenheiro da Computação",
+      "idade" : "22",
+      "idioma" : "Português, Inglês, Espanhol ",
+      "name" : "Pedro Melo",
+      "nivelAcademico" : "3",
+      "nivelIngles" : "4",
+      "type" : "funcionario"
+    },
+    "5h5F6685WIc3mOKHKy8HpmKRZpt1" : {
+      "desc" : "Indústria e Comercio de Plásticos ",
+      "email" : "fusionplast@workr.com",
+      "endereco" : "R. João de Paula Franco, 554 - Jardim Maraba",
+      "imagem" : "FusionPlast.PNG",
+      "name" : "Fusion Plast",
+      "type" : "empresa"
+    },
+    "6bKKMmmUpfMnQdhF8ms3q27Ft4b2" : {
+      "celular" : "11923456781",
+      "curriculo" : "",
+      "email" : "Workr2@workr.com",
+      "formacao" : "Economista",
+      "idade" : "30",
+      "idioma" : "Português, inglês, espanhol",
+      "name" : "Workr 2",
+      "nivelAcademico" : "5",
+      "nivelIngles" : "4",
+      "type" : "funcionario"
+    },
+    "9XiUxIcJDFXRMU0ZVpCdHHnLbPl2" : {
+      "desc" : " Holding de gestão imobiliária. Empresa brasileira que integra soluções e serviços com a gestão dos empreendimentos, oferecendo soluções multisserviços completas que atendem às necessidades de qualquer empresa ou empreendimento, independentemente de sua complexidade.",
+      "email" : "fmg@workr.com",
+      "endereco" : "R. Dr. Diogo de Faria, 199 - Vila Clementino",
+      "imagem" : "fmg.PNG",
+      "name" : "FMG - Facilities Management Group",
+      "type" : "empresa"
+    },
+    "A2xZF5CUZ6MjFfltmzZh4dhCHrl2" : {
+      "desc" : "Restaurante tradicional da região",
+      "email" : "manuelacozinha@workr.com",
+      "endereco" : "Rua Monte Serrat, 1460 - Tatuapé",
+      "imagem" : "Manuella.PNG",
+      "name" : "Manuela Cozinha",
+      "type" : "empresa"
+    },
+    "AFow9MiO5WMsK5fzdwkSpUbECEv1" : {
+      "desc" : "Consultoria que presta serviços de recursos humanos às empresas",
+      "email" : "luandreservicos@workr.com",
+      "endereco" : "R. João Gonçalves, 464 - Centro",
+      "imagem" : "Luandre.PNG",
+      "name" : "Luandre Servicos Temporarios",
+      "type" : "empresa"
+    },
+    "AdtspFJ3PMWeLC5pm436YUYo9FS2" : {
+      "desc" : "Uma das empresas de contact center que mais cresceu nos últimos anos.",
+      "email" : "vikstarcontact@workr.com",
+      "endereco" : "R. Alm. Calheiros, 322 - Tatuapé",
+      "imagem" : "Vikstar.PNG",
+      "name" : "Vikstar Contact center",
+      "type" : "empresa"
+    },
+    "ErnMnozsLQW8G3B7vjXncVQdkv13" : {
+      "desc" : "Corretora e casa de câmbio reconhecida no centro da cidade de São Paulo",
+      "email" : "credimoney@workr.com",
+      "endereco" : "R. da Quitanda, 127 - 133 - Centro",
+      "imagem" : "Credimoney.PNG",
+      "name" : "Credimoney",
+      "type" : "empresa"
+    },
+    "Hi9RUDszNyepr8r1A6ZVnUeo8SD3" : {
+      "desc" : "Empresa que atua na construção de creches, escolas, UBS e toda a infra estrutura necessária para o desenvolvimento dos municípios e do país",
+      "email" : "globalengenharia@workr.com",
+      "endereco" : "Rua José Benedetti, 493 - Santo Antônio",
+      "imagem" : "GlobalEngenharia.PNG",
+      "name" : "Global Engenharia",
+      "type" : "empresa"
+    },
+    "KVegAJQUuhSRqo3shdXF1ffjp3A3" : {
+      "desc" : "Empresa especializada em consultoria de pessoas",
+      "email" : "contrataassessoria@workr.com",
+      "endereco" : "Rua Dr. Isaías Salomão, 90 - Saúde",
+      "imagem" : "ContrataSolucoes.PNG",
+      "name" : "Contrata Assessoria",
+      "type" : "empresa"
+    },
+    "LK1JjKa7JbO9Ep4516xLaU9fzkI2" : {
+      "desc" : "Empresa com foco em tecnologia e inovação",
+      "email" : "kanamobi@workr.com",
+      "endereco" : "Av. Marquês de São Vicente, 576 - Várzea da Barra Funda",
+      "imagem" : "Kanamobi.PNG",
+      "name" : "Kanamobi",
+      "type" : "empresa"
+    },
+    "MFgkeYXfEJNk4V9XRJuKwxRqZDb2" : {
+      "desc" : "Empresa que atua em , gerenciamento e execução de obras, e reformas em geral",
+      "email" : "henezainstalacoes@workr.com",
+      "endereco" : "Rua Catanduva, 87 - Baeta Neves",
+      "imagem" : "HenezaConstrucoes.PNG",
+      "name" : "Heneza Instalações e Manutenção elétrica",
+      "type" : "empresa"
+    },
+    "MnBgAsGaJWY6ENMkRthiWaBcDGm1" : {
+      "desc" : "Comércio varejista especializado em equipamentos e suprimentos de informática.",
+      "email" : "infocenter@workr.com",
+      "endereco" : " R. dos Andradas, 254 - Santa Ifigênia",
+      "imagem" : "InfoCenter.PNG",
+      "name" : "Infocenter",
+      "type" : "empresa"
+    },
+    "NC1h9FGUlhcP8jzmSHiLs0lWYX72" : {
+      "desc" : "Empresa de Pintura predial, residencial e comercial",
+      "email" : "adspinturas@workr.com\t",
+      "endereco" : "Av. Paulista, 777 - Bela Vista",
+      "imagem" : "ADSPinturas.PNG",
+      "name" : "ADS Pinturas",
+      "type" : "empresa"
+    },
+    "Oo9lmIwBy9YxnrRLPUKjRxnaIH53" : {
+      "desc" : "Empresa que atua à 14 anos em todo território nacional, com Recrutamento & Seleção, Avaliação e Trade Marketing",
+      "email" : "grupoelithe@workr.com",
+      "endereco" : "Rua Correia Vasques, 54 - Vila Mariana",
+      "imagem" : "ElitePromo.PNG",
+      "name" : "Grupo Elithe",
+      "type" : "empresa"
+    },
+    "TUKna1oXUvMG6rur5I4h8mPyuMO2" : {
+      "desc" : "Empresa que atua na área de tecnologia e inovação.",
+      "email" : "industriastarks@workr.com",
+      "endereco" : "Rua Dona Belica Barbosa Lima, 76 - Vila Paulo Silas",
+      "imagem" : "Stark.PNG",
+      "name" : "Industria Starks",
+      "type" : "empresa"
+    },
+    "V1wXYq2KNSVHYFuftEMeclDWDyE2" : {
+      "desc" : "Empresa da área de tecnologia e inovação",
+      "email" : "uol@workr.com",
+      "endereco" : "Av. Brigadeiro Faria Lima, 1384 - Pinheiros",
+      "imagem" : "Uol.PNG",
+      "name" : "Uol",
+      "type" : "empresa"
+    },
+    "WXLa7eosUhZYnl5HkqeWrFA0yLu2" : {
+      "desc" : "Empresa especializada em chocolate e café",
+      "email" : "dengobrasil@workr.com",
+      "endereco" : "Av. Roque Petroni Júnior, 1089 - Jardim das Acacias",
+      "imagem" : "Dengo.PNG",
+      "name" : "Dengo Brasil",
+      "type" : "empresa"
+    },
+    "YBoTlwbBBrRIIsBmpf52kXTqMts1" : {
+      "celular" : "11984235114",
+      "curriculo" : "Currículo.docx",
+      "email" : "marcelohiguti96@gmail.com",
+      "formacao" : "Engenheiro da Computação",
+      "idade" : "22",
+      "idioma" : "Português, Inglês",
+      "name" : "Marcelo Higuti",
+      "nivelAcademico" : "3",
+      "nivelIngles" : "3",
+      "type" : "funcionario"
+    },
+    "cLFqJoilPMUOZF6ybpXR1ajFqxa2" : {
+      "desc" : "Loja especializada no comércio de aparelhos celulares e acessórios",
+      "email" : "myphonne@workr.com",
+      "endereco" : "Av. dos Imarés, 80 - Indianópolis",
+      "imagem" : "MyPhone.PNG",
+      "name" : "My Phone",
+      "type" : "empresa"
+    },
+    "fCGZd7R1WFYS19lFWspnK8oIOzG3" : {
+      "desc" : "Especializada no corte e comércio de carnes.",
+      "email" : "boiecia@workr.com",
+      "endereco" : " R. Emília Marengo, 23 - Tatuapé",
+      "imagem" : "BoiECIA.PNG",
+      "name" : "Boi & Cia",
+      "type" : "empresa"
+    },
+    "gRLXq1erglUSGqgKR51esPpjfaK2" : {
+      "desc" : "Farmácia tradicional e antiga da região",
+      "email" : "drogaomais@workr.com",
+      "endereco" : "Av. Sapopemba, 2810 - Vila Reg. Feijo",
+      "imagem" : "DrogaoMais.PNG",
+      "name" : "Drogão Mais",
+      "type" : "empresa"
+    },
+    "gogJ6Mm0xYP4u5yCVralESpxiJA3" : {
+      "desc" : "Consultoria especializada em promover Soluções em design, UX/UI.",
+      "email" : "designerservicos@workr.com",
+      "endereco" : " R. Barão de Itapetininga, 46 - República",
+      "imagem" : "DesignerServicos.PNG",
+      "name" : "Designer Serviços",
+      "type" : "empresa"
+    },
+    "kpFjUx8Tv3fc4TLs2iP9m9dFQmY2" : {
+      "desc" : "Faculdade de Engenharia, Administração e Design",
+      "email" : "maua@workr.com",
+      "endereco" : "Praça Mauá, 1 - Mauá",
+      "imagem" : "Maua.PNG",
+      "name" : "Instituto Mauá de Tecnologia",
+      "type" : "empresa"
+    },
+    "mZ6srGSdtKORHr58yTs1cnh3nhz1" : {
+      "desc" : "Empresa de RH ",
+      "email" : "mourafonseca@workr.com",
+      "endereco" : "R. Barão de Itapetininga, 140 - Centro",
+      "imagem" : "MouraFonseca.PNG",
+      "name" : "Moura Fonseca Acessoria",
+      "type" : "empresa"
+    },
+    "msZYhvD1aBXZBJZDnHHvniovRwG2" : {
+      "desc" : "Empresa do ramo de consultoria",
+      "email" : "overmallsassessoria@workr.com",
+      "endereco" : "R. Guajurus, 234 - Jardim Sao Paulo",
+      "imagem" : "OverMalls.PNG",
+      "name" : "Overmalls Assessoria empresarial",
+      "type" : "empresa"
+    },
+    "nypwIBXHVUghNMBCtroqGbvHLN92" : {
+      "desc" : "Confecção e venda de roupas femininas",
+      "email" : "meninamoca@workr.com",
+      "endereco" : "Av. Prof. Francisco Morato, 2367 - Morumbi",
+      "imagem" : "MeninaMoca.PNG",
+      "name" : "Menina Moça",
+      "type" : "empresa"
+    },
+    "ovWq41ssYEadY5R9TAsRbHBMiXC3" : {
+      "desc" : "Comércio atacadista de material de construção",
+      "email" : "aklcomercial@workr.com",
+      "endereco" : "R. Oneda, 205 - Vila Armando Bondioli",
+      "imagem" : "AKL.PNG",
+      "name" : "AKL Comercial Eletrica",
+      "type" : "empresa"
+    },
+    "rEWbMpGowTbL4jI7WVYEmRzHShl2" : {
+      "desc" : "Empresa que atua na área de construção civil, projetos residenciais, comerciais e industriais alem de projetos estruturais, hidráulicos e elétricos.",
+      "email" : "fflengenharia@workr.com",
+      "endereco" : "Av. José Maria Whitaker, 855 - Planalto Paulista",
+      "imagem" : "FFLEngenharia.PNG",
+      "name" : "FFL Engenharia e Construção",
+      "type" : "empresa"
+    },
+    "rIToRXgJ2kfyXHUf7wjHaJnEadt2" : {
+      "desc" : "Corretora de Imóveis tradicional e reconhecida na região",
+      "email" : "viabrasil@workr.com",
+      "endereco" : "R. Nossa Sra. da Boa Viagem, 1170 - Ferrazópolis",
+      "imagem" : "ViaBrasil.PNG",
+      "name" : "Via Brasil",
+      "type" : "empresa"
+    },
+    "tJAztRSEBvb5SImJZjFop1q4I4z2" : {
+      "desc" : "Empresa de Recursos humanos localizada no centro da cidade de São Paulo",
+      "email" : "rhada@workr.com",
+      "endereco" : "Rua Dom José de Barros, 264 - República",
+      "imagem" : "RHADA.PNG",
+      "name" : "Rhada - RHS",
+      "type" : "empresa"
+    },
+    "tLic1u3nkGdSIbJNtaP2QLCkOuK2" : {
+      "desc" : "Empresa voltada para a área de tecnologia e inovação",
+      "email" : "uol@workr.com.br",
+      "endereco" : "Av. Brg. Faria Lima, 1384 - Pinheiros,",
+      "imagem" : "Uol.PNG",
+      "name" : "Uol",
+      "type" : "empresa"
+    },
+    "wPnFcbWNaCY3LBSxHcuM60jx7Ng1" : {
+      "desc" : "Franquia famosa de cafés e lanches",
+      "email" : "starbucks@workr.com",
+      "endereco" : "R. Cap. Pacheco e Chaves, 313 - Mooca",
+      "imagem" : "Starbucks.PNG",
+      "name" : "Starbucks",
+      "type" : "empresa"
+    },
+    "xjPmrnbKUAQ6kJDN3Nf73gKWhYQ2" : {
+      "desc" : "Clínica de odontologia, especialista. Atende convênio",
+      "email" : "odontoclinic@workr.com",
+      "endereco" : "R. Coelho Lisboa, 187 - Vila Gomes Cardim",
+      "imagem" : "Odontoclinic.PNG",
+      "name" : "Odontoclinic",
+      "type" : "empresa"
+    },
+    "ysaPSjrqLdQRiSWaW4ayo6HhkT83" : {
+      "desc" : "Empresa referencia em importação e exportação",
+      "email" : "gvw@workr.com",
+      "endereco" : "Av. Santa Catarina, 493 - Vila Santa Catarina",
+      "imagem" : "GVW.PNG",
+      "name" : "GVW - Brasil Logistica e agenciamento de cargas",
+      "type" : "empresa"
+    }
+  },
+  "vagas" : {
+    "-LD4OndgtuLF42YQ4A-J" : {
+      "area" : "Tecnologia",
+      "bairro" : "Pinheiros",
+      "cargo" : "Júnior",
+      "description" : "Desenvolver e prestar manutenção no site da empresa",
+      "empresa" : "uol",
+      "empresaName" : "Uol",
+      "imagem" : "Uol.PNG",
+      "salario" : "5.000,00",
+      "title" : "Desenvolvedor Web"
+    },
+    "-LDYY7he9NWW0lZ7appd" : {
+      "area" : "Educação",
+      "bairro" : "Mauá",
+      "cargo" : "Professor",
+      "description" : "Ministrar aulas nos cursos de engenharia da computalção, elétrica, eletrônica, controle e automação",
+      "empresa" : "maua",
+      "empresaName" : "Instituo Mauá de Tecnologia",
+      "imagem" : "Maua.PNG",
+      "salario" : "A definir",
+      "title" : "Engenheiro"
+    },
+    "-LDYY_SbgZy4WWEEN4j7" : {
+      "area" : "Educação",
+      "bairro" : "Mauá",
+      "cargo" : "Professor",
+      "description" : "Ministrar aulas nos cursos de Design e Engenharia",
+      "empresa" : "maua",
+      "empresaName" : "Instituo Mauá de Tecnologia",
+      "imagem" : "Maua.PNG",
+      "salario" : "A definir",
+      "title" : "Design"
+    },
+    "-LDYZVMZJOPdkMmcJgMM" : {
+      "area" : "Educação",
+      "bairro" : "Mauá",
+      "cargo" : "Professor",
+      "description" : "Ministrar aulas nos cursos de administração e engenharia",
+      "empresa" : "maua",
+      "empresaName" : "Instituo Mauá de Tecnologia",
+      "imagem" : "Maua.PNG",
+      "salario" : "A definir",
+      "title" : "Administração"
+    },
+    "3Dypu84KBJmhfMfkqhVj" : {
+      "area" : "Manutenção",
+      "bairro" : "Bela Vista",
+      "cargo" : "Pintor Predial",
+      "description" : "Executar serviços de pintura de paredes, esquadrias, macas, leitos, mesas de apoio, placas de sinalização, visando à conservação do imóvel e mobiliários do Hospital, conforme procedimentos definidos e de acordo com orientações recebidas.",
+      "empresa" : "adspinturas",
+      "empresaName" : "ADS Pinturas",
+      "imagem" : "ADSPinturas.PNG",
+      "salario" : "R$ 1.800,00",
+      "title" : "Pintor"
+    },
+    "BMDpE2bgPYuxZ8JsYcas" : {
+      "area" : "Engenharia",
+      "bairro" : "Planalto Paulista",
+      "cargo" : "Estagiário",
+      "description" : "Analisar e responder as solicitações de inspeções e reclamações dos clientes, efetuar a interface entre o time de campo e os desenvolvedores dos sistemas internos, efetuar elaboração de relatórios consolidados diários.",
+      "empresa" : "fflengenharia",
+      "empresaName" : "FFL Engenharia e Construção",
+      "imagem" : "FFLEngenharia.PNG",
+      "salario" : "A definir",
+      "title" : "Estágio Engenharia Eletrica / Eletronica"
+    },
+    "FxXa82h8z6BRSskaj5U8" : {
+      "area" : "Gastronomia",
+      "bairro" : "Bela Vista",
+      "cargo" : "Padeiro",
+      "description" : "Acompanhar as atividades desenvolvidas na cozinha, passo a passo, orientando e corrigindo os colaboradores durante a execução das atividades;Experiência no preparo de pães doces e salgados",
+      "empresa" : "elianelanches",
+      "empresaName" : "Eliane Lanches e Café",
+      "imagem" : "ElianeLanches.PNG",
+      "salario" : "A combinar",
+      "title" : "Padeiro"
+    },
+    "Jvbc7bQZbPUAv4QSKztV" : {
+      "area" : "Manutenção",
+      "bairro" : "Baeta Neves ",
+      "cargo" : "Eletricista",
+      "description" : "Empresa Nacional , voltada a Construção Civil , prestadora de Serviços de Manutenção e Prevenção contra Incêndios atuando em Âmbito Nacional .",
+      "empresa" : "henezainstalacoes",
+      "empresaName" : "Heneza Instalações e Manutenção Eletrica Eireli",
+      "imagem" : "HenezaConstrucoes.PNG",
+      "salario" : "R$ 1.500,00",
+      "title" : "Eletricista"
+    },
+    "KATmx4vmgWskKYs3frKM" : {
+      "area" : "Vendas",
+      "bairro" : "Ferrazópolis",
+      "cargo" : "Agente Comercial Imobiliário",
+      "description" : "Atendimento ao clientes; Consultoria para a intermediação de imóveis; Apresentação e visita aos imóveis;Intermediação da negociação.",
+      "empresa" : "viabrasil",
+      "empresaName" : "Viabrasil imovel",
+      "imagem" : "ViaBrasil.PNG",
+      "salario" : "A combinar",
+      "title" : "Corretor"
+    },
+    "LByz5crcRLJs8YTbEH89" : {
+      "area" : "Saúde",
+      "bairro" : "Vila Gomes Cardim",
+      "cargo" : "Gerente Clínica Odontologica",
+      "description" : "Instrumentação de procedimentos cirúrgicos, realiza atividades de higiene bucal, prepara modelos em gesso e participa de programas de saúde bucal;Habilidades contábil/ financeira/comercial;Rotina administrativa",
+      "empresa" : "odontoclinic",
+      "empresaName" : "Odontoclinic",
+      "imagem" : "Odontoclinic.PNG",
+      "salario" : "R$ 3.000,00",
+      "title" : "Odontologista"
+    },
+    "MUT4fvzXm8TTWdhWxnkM" : {
+      "area" : "Finanças",
+      "bairro" : "Vila Mariana",
+      "cargo" : "Assistente Contabil",
+      "description" : "Conciliação bancária; Conciliação de contas ativas e passivas;Planilhas e acompanhamentos excel",
+      "empresa" : "grupoelithe",
+      "empresaName" : "Elithe Promo",
+      "imagem" : "ElitePromo.PNG",
+      "salario" : "R$ 2.400,00",
+      "title" : "Assistente"
+    },
+    "NG2VtzzDrTQ374HrAk8b" : {
+      "area" : "Administração",
+      "bairro" : "Vila Clementino",
+      "cargo" : "Subgerente de Atendimento",
+      "description" : "Responsável por prestar atendimento ao cliente, identificando suas necessidades e propondo soluções;Solucionar problemas levantados pelos clientes ou detectados pelas pesquisas de satisfação;Atender solicitações do Corpo Diretivo, condôminos, clientes externos e internos.",
+      "empresa" : "fmg",
+      "empresaName" : "Grupo FMG",
+      "imagem" : "fmg.PNG",
+      "salario" : "R$ 5.500,00",
+      "title" : "Atendimento à Condomínios"
+    },
+    "P5864yw4T5kpbMNz7ZW2" : {
+      "area" : "Limpeza",
+      "bairro" : "Vila Santa Catarina",
+      "cargo" : "Empregada Doméstica",
+      "description" : "Experiência em toda rotina de uma casa de família saber cozinhar comida trivial , lavar , passar.",
+      "empresa" : "gvw",
+      "empresaName" : "GVW - Brasil Logistica e agenciamento de cargas",
+      "imagem" : "GVW.PNG",
+      "salario" : "A combinar",
+      "title" : "Empregada"
+    },
+    "PdyRBn6PCf6PXgngdV2R" : {
+      "area" : "Saúde",
+      "bairro" : "Vila Reg. Feijo",
+      "cargo" : "Farmacêutico Corresponsável",
+      "description" : "Fará conferência do armário de psicotrópico;Conferência e guarda de mercadoria;Checagem de temperatura da geladeira de medicamentos;Supervisão do balcão de medicamento;Atendimento aos pacientes.",
+      "empresa" : "drogaomais",
+      "empresaName" : "Drogão Mais",
+      "imagem" : "DrogaoMais.PNG",
+      "salario" : "A combinar",
+      "title" : "Farmacêutico"
+    },
+    "RLrsRfG2gUwdQCjPBsUu" : {
+      "area" : "Administração",
+      "bairro" : "Jardim Maraba",
+      "cargo" : "Assistente Administrativo",
+      "description" : "Profissional prestará assistência na área administrativa de uma empresa, auxiliando o administrador em suas atividades rotineiras e no controle de gestão financeira, administração, organização de arquivos, gerência de informações, revisão de documentos entre outras atividades.",
+      "empresa" : "fusionplast",
+      "empresaName" : "Fusion Plast",
+      "imagem" : "FusionPlast.PNG",
+      "salario" : "A combinar",
+      "title" : "Assistente Administrativo"
+    },
+    "RzMFqKNaPjxbSndLY2sr" : {
+      "area" : "Vendas",
+      "bairro" : "Tatuapé",
+      "cargo" : "Atendente de Telemarketing",
+      "description" : "Atuar em vendas por telemarketing, através de metas pré definidas. Produtos bancários ou telefônicos.",
+      "empresa" : "vikstarcontact",
+      "empresaName" : "VIKSTAR CONTACT CENTER",
+      "imagem" : "Vikstar.PNG",
+      "salario" : "R$ 1.000,00",
+      "title" : "Atendente de Telemarketing"
+    },
+    "U5ZvCPvFX9UUpE2RJE57" : {
+      "area" : "Finanças",
+      "bairro" : "Centro",
+      "cargo" : "Analista Financeiro Sênior",
+      "description" : "Executar rotinas administrativas e financeira, controle de tarifas bancárias, comando de instruções bancárias, lançamentos contábeis, conciliação bancária, realizar controles diários dos extratos bancários, conferindo pagamentos e recebimentos. Elaborar o fluxo de caixa por meio das provisões de recebimentos e pagamentos)",
+      "empresa" : "mourafonseca",
+      "empresaName" : "Moura Fonseca Acessoria em Recursos Humanos",
+      "imagem" : "MouraFonseca.PNG",
+      "salario" : "A combinar",
+      "title" : "Analista Financeiro"
+    },
+    "Uebc9pYm8cZ4ngqyVnhg" : {
+      "area" : "Engenharia",
+      "bairro" : "Chácara Califórnia",
+      "cargo" : "Coordenador",
+      "description" : "Planejar, organizar, gerenciar, desenvolver, acompanhar, controlar e executar os projetos de construções e reformas. Acompanhar o cronograma físico e financeiro da obra. Elaborar orçamentos e realizar levantamento quantitativo de equipamentos, materiais e serviços. Chefiar as equipes de trabalho, supervisionar os prazos, custos, padrões de qualidade e segurança.",
+      "empresa" : "construmagprojetos",
+      "empresaName" : "Construmag Projetos e Construções",
+      "imagem" : "Construmag.PNG",
+      "salario" : "R$ 9.000,00",
+      "title" : "Engenheiro Civil"
+    },
+    "X6zCjEgDJ7BEa2ftgPjt" : {
+      "area" : "Vendas",
+      "bairro" : "Centro",
+      "cargo" : "Atendente de Telemarketing",
+      "description" : "Atuar em vendas por telemarketing, através de metas pré definidas. Produto crédito consignado para aposentados e pensionistas do inss.",
+      "empresa" : "credimoney",
+      "empresaName" : "Credimoney",
+      "imagem" : "Credimoney.PNG",
+      "salario" : "A combinar",
+      "title" : "Atendente de Telemarketing"
+    },
+    "Zf8XPX9nN62ct8JyZdcS" : {
+      "area" : "Gastronomia",
+      "bairro" : "Mooca",
+      "cargo" : "Atendente - Barista",
+      "description" : "Preparar bebidas a base de café e chá;Manipulação de alimentos;Prestar atendimento aos clientes;",
+      "empresa" : "starbucks",
+      "empresaName" : "Starbucks",
+      "imagem" : "Starbucks.PNG",
+      "salario" : "R$ 1.200,00",
+      "title" : "Barista"
+    },
+    "amigiuyjr614tew4j4usfzuej0p" : {
+      "area" : "Tecnologia",
+      "bairro" : "Vila Madalena",
+      "cargo" : "Junior",
+      "description" : "Python,JAVA,C#",
+      "empresa" : "uol",
+      "empresaName" : "Uol",
+      "imagem" : "",
+      "salario" : "2000",
+      "title" : "Progamador"
+    },
+    "dpvNf3CEsGwsZ4aNCB6M" : {
+      "area" : "Tecnologia",
+      "bairro" : "Várzea da Barra Funda",
+      "cargo" : "Designer Ux/Ui",
+      "description" : "Responsável pelo processo de criação de interface mobile, desde a pesquisa, identidade visual, wireframes e layout. Conhecimentos em UI/UX, design responsivo, prototipação, interface mobile/web e boa direção de arte.",
+      "empresa" : "kanamobi",
+      "empresaName" : "Kanamobi",
+      "imagem" : "Kanamobi.PNG",
+      "salario" : "A combinar",
+      "title" : "Especialista"
+    },
+    "en2dxhy89t8x5mv1zh3yacsaif6" : {
+      "area" : "Tecnologia",
+      "bairro" : "Vila madalena",
+      "cargo" : "Senior",
+      "description" : "Capacidade programar em qualquer linguagem e capacidade de trabalhar em grupo",
+      "empresa" : "uol",
+      "empresaName" : "Uol",
+      "imagem" : "",
+      "salario" : "A combinar",
+      "title" : "Programador"
+    },
+    "fqvtzrkcr84uuznu60hmb" : {
+      "area" : "Tecnologia",
+      "bairro" : "Saúde",
+      "cargo" : "Pleno",
+      "description" : "Pensar em inovações tecnológicas",
+      "empresa" : "google",
+      "empresaName" : "Google",
+      "imagem" : "",
+      "salario" : "6000",
+      "title" : "Inovação"
+    },
+    "gb5dTa8nYKzZexrtsj5z" : {
+      "area" : "Saúde",
+      "bairro" : "Centro",
+      "cargo" : "Técnico de Enfermagem",
+      "description" : "Técnico de enfermagem, para se trabalhar no Hospital. Conhecimentos de técnicas de enfermagem e como lidar com pacientes.",
+      "empresa" : "timeconsultoria",
+      "empresaName" : "Time Consultoria",
+      "imagem" : "TimeConsultoria.PNG",
+      "salario" : "R$ 1.400,00",
+      "title" : "Técnico de Enfermagem"
+    },
+    "h8fbd3k7dtiz05tha4hl" : {
+      "area" : "Tecnologia",
+      "bairro" : "Itaim Bibi",
+      "cargo" : "Sênior",
+      "description" : "Trabalhar na área de inovação tecnológica",
+      "empresa" : "google",
+      "empresaName" : "Google",
+      "imagem" : "google_logo.png",
+      "salario" : "30000",
+      "title" : "Engenheiro de software"
+    },
+    "hnegvaB5ydbnm5vKHG7j" : {
+      "area" : "Tecnologia",
+      "bairro" : "Vila Armando Bondioli",
+      "cargo" : "Analista de Sistemas e Banco de Dados",
+      "description" : "Análise e desenvolvimento de aplicações em Delphi, Visual basic 6, Desenvolvimento de relatórios em Reportbuilder. Linguagem SQL, Stored Procedure, Banco de Dados Oracle e DBF. ",
+      "empresa" : "aklcomercial",
+      "empresaName" : "AKL COMERCIAL ELETRICA",
+      "imagem" : "AKL.PNG",
+      "salario" : "A combinar",
+      "title" : "Analista"
+    },
+    "j8y8AqZ9kJr6FjWKB7r7" : {
+      "area" : "Vendas",
+      "bairro" : "Morumbi",
+      "cargo" : "Vendedor",
+      "description" : "Responsável por vendas internas na loja. Apresentar o produto, cativar o cliente, passar a venda no caixa e manter a loja organizada, desempenhando todas as atividades necessárias para o bom andamento da loja e manter o padrão.",
+      "empresa" : "meninamoca",
+      "empresaName" : "Menina Moça",
+      "imagem" : "MeninaMoca.PNG",
+      "salario" : "A combinar",
+      "title" : "Vendedor"
+    },
+    "jBjJ9HRCDMegY7wSDvmU" : {
+      "area" : "Administração",
+      "bairro" : "Santa Ifigênia",
+      "cargo" : "Auxiliar de Produção",
+      "description" : "Acompanha os pedidos de vendas, presta apoio no desenvolvimento de propostas comerciais e elabora relatórios sobre tendências de mercado, demanda e concorrentes.",
+      "empresa" : "infocenter",
+      "empresaName" : "Infocenter",
+      "imagem" : "InfoCenter.PNG",
+      "salario" : "R$ 1.200,00",
+      "title" : "Auxiliar de Produção"
+    },
+    "k3pSyD9WuH4tVPRDvAGf" : {
+      "area" : "Engenharia",
+      "bairro" : "Santo Antônio",
+      "cargo" : "Operacional",
+      "description" : "Empresa de Engenharia e Arquitetura busca Engenheiros recém formados, para acompanhamentos de obra e outras atividades relacionadas a função.",
+      "empresa" : "globalengenharia",
+      "empresaName" : "Global Engenharia",
+      "imagem" : "GlobalEngenharia.PNG",
+      "salario" : "R$ 3.000,00",
+      "title" : "Engenheiro Civil"
+    },
+    "koo6oikfz2ztct37mvdp7ijc92j" : {
+      "area" : "Finanças",
+      "bairro" : "Praça maua",
+      "cargo" : "Analista",
+      "description" : "Trabalhará na tesouraria da faculdade",
+      "empresa" : "maua",
+      "empresaName" : "Instituo Mauá de Tecnologia",
+      "imagem" : "",
+      "salario" : "A combinar",
+      "title" : "Financeiro"
+    },
+    "kr6hdtfhzdxobj6m5eez" : {
+      "area" : "Engenharia",
+      "bairro" : "Vila Paulo Silas",
+      "cargo" : "Sênior",
+      "description" : "Projetar novos circuitos eletrônicos para a armadura do senhor Stark",
+      "empresa" : "industriastarks",
+      "empresaName" : "Indústrias Stark",
+      "imagem" : "stark_logo.jpg",
+      "salario" : "25.000,00",
+      "title" : "Engenheiro Eletrônico"
+    },
+    "kvfEGkGqReq7JCSbWagh" : {
+      "area" : "Gastronomia",
+      "bairro" : "Tatuapé",
+      "cargo" : "Açougueiro",
+      "description" : "Solicitar as matérias primas para realizar o pré-preparo;Monitorar o descongelamento dos produtos;Proceder o corte da matéria prima, de acordo com o cardápio e conforme a preparação , obedecendo os per-captas e padrões estabelecidos.",
+      "empresa" : "boiecia",
+      "empresaName" : "Boi E CIA",
+      "imagem" : "BoiECIA.PNG",
+      "salario" : "R$ 1.500,00",
+      "title" : "Açougueiro"
+    },
+    "m4bQkCRcfyCVV36bRLRz" : {
+      "area" : "Saúde",
+      "bairro" : "Centro",
+      "cargo" : "Auxiliar de Enfermagem",
+      "description" : "Grupo Multinacional na área da Saúde, com diversos Hospitais em São Paulo, contrata para atuar como Auxiliar de Enfermagem . O Profissional realizará todas atividades assistenciais do pronto socorro obstétrico.",
+      "empresa" : "luandreservicos",
+      "empresaName" : "Luandre Servicos Temporarios",
+      "imagem" : "Luandre.PNG",
+      "salario" : "R$ 1.300,00",
+      "title" : "Auxiliar de Enfermagem"
+    },
+    "ny0jqq9svemj71kj30w01n" : {
+      "area" : "Tecnologia",
+      "bairro" : "Itaim Bibi",
+      "cargo" : "Estagiário",
+      "description" : "Aprender como funcionam as principais ferramentas da Google para aplicar melhorias ",
+      "empresa" : "google",
+      "empresaName" : "Google",
+      "imagem" : "google_logo.png",
+      "salario" : "3.000,00",
+      "title" : "Aprendiz na Google"
+    },
+    "qGUWbCXMWD9qkrMtYvGh" : {
+      "area" : "Manutenção",
+      "bairro" : "República",
+      "cargo" : "Mecânico Automotivo",
+      "description" : "Prática com alinhamento, balanceamento, freio, suspensão, correia dentada, embreagem, injeção eletrônica,troca de pneus.",
+      "empresa" : "rhada",
+      "empresaName" : "Rhada - RHS",
+      "imagem" : "RHADA.PNG",
+      "salario" : "A combinar",
+      "title" : "Mecânico"
+    },
+    "qKkmcbdqLnZ3PQust5bU" : {
+      "area" : "Administração",
+      "bairro" : "Jardim Sao Paulo",
+      "cargo" : "Gerente de Operações",
+      "description" : "Gerenciar equipe de operação/manutenção do shopping;Gerenciar a execução de manutenções preventivas e corretivas;Avaliar e aprovar projetos;Analise e acompanhamento do budget e fechamento das prestações de contas;Elaboração do plano de ação para orçamentos.",
+      "empresa" : "overmallsassessoria",
+      "empresaName" : "Overmalls Acessoria Empresarial",
+      "imagem" : "OverMalls.PNG",
+      "salario" : "A combinar",
+      "title" : "Gerente de Operações Sr"
+    },
+    "u28UraJqQ3wGAsFz2mbP" : {
+      "area" : "Saúde",
+      "bairro" : "Centro",
+      "cargo" : "Nutricionista Clínico/Hospitalar",
+      "description" : "Empresa norte-americana do setor de saúde e bem-estar contrata Nutricionista Clínico/Hospitalar com experiência nas funções Lactário / Produção e Líder. Irá atuar em hospital com acompanhamento de dieta, acompanhamento de terceiros; auditoria em dietas de diversos areas de pacientes.",
+      "empresa" : "luandreservicos",
+      "empresaName" : "Luandre Servicos Temporarios",
+      "imagem" : "Luandre.PNG",
+      "salario" : "R$ 3.600,00",
+      "title" : "Nutricionista"
+    },
+    "uW3WUyJ62RGYNgFM3hah" : {
+      "area" : "Tecnologia",
+      "bairro" : "Saúde",
+      "cargo" : "Programador Android",
+      "description" : "Atuar com foco principal na criação de novas funções para um aplicativo Android publicado na Google Play Store. Durante o desenvolvimento poderão surgir tarefas para correção de problemas no aplicativo em produção. O profissional deverá ser fluente em Java para Android, ter sólidos conhecimentos no consumo de APIs REST, bom entendimento de arquitetura e boa comunicação com os demais recursos da equipe.",
+      "empresa" : "contrataassessoria",
+      "empresaName" : "Contrata Assessoria Empresarial RS Treinamentos",
+      "imagem" : "ContrataSolucoes.PNG",
+      "salario" : "A combinar",
+      "title" : "Desenvolvedor Mobile"
+    },
+    "xkSzk65RMn2ZpNqXJSZ6" : {
+      "area" : "Gastronomia",
+      "bairro" : "Vila Nova Conceição",
+      "cargo" : "Auxiliar de Confeitaria",
+      "description" : "Ajudar na fabricação de bolos, doces, biscoitos e outras guloseimas. Preparar e misturar os ingredientes em doses adequadas, conforme a receita, utilizando aparelhos manuais e/ou elétricos, para atender a pedidos e/ou colocar à venda os produtos confeccionados",
+      "empresa" : "condessabistro",
+      "empresaName" : "Condessa Bistro",
+      "imagem" : "Condessa.PNG",
+      "salario" : "A combinar",
+      "title" : "Auxiliar Confeiteiro"
+    },
+    "yGAtFuyCaNsUqjb7phQs" : {
+      "area" : "Gastronomia",
+      "bairro" : "Tatuapé",
+      "cargo" : "Cozinheiro industrial",
+      "description" : "Acompanhar as atividades desenvolvidas na cozinha, passo a passo, orientando e corrigindo os colaboradores durante a execução das atividades;Executar e/ou orientar tarefas de pré-preparo e preparo em todas as áreas, inclusive açougue;Executar atividades de cocção das preparações estabelecidas nos serviços, inclusive da cozinha dietética;",
+      "empresa" : "manuelacozinha",
+      "empresaName" : "Manuela Cozinha",
+      "imagem" : "Manuella.PNG",
+      "salario" : "R$ 2.000,00",
+      "title" : "Cozinheiro"
+    },
+    "yVnWE8YZ6aEKMxQfhG9G" : {
+      "area" : "Vendas",
+      "bairro" : "Indianópolis",
+      "cargo" : "Vendedor",
+      "description" : "Realizar vendas de acessórios para celular explicando os benefícios dos produtos aos clientes de forma clara e cordial. Objetivo é aumentar as vendas de acessórios para celular.",
+      "empresa" : "myphonne",
+      "empresaName" : "My Phonne",
+      "imagem" : "MyPhone.PNG",
+      "salario" : "R$ 1.300,00",
+      "title" : "Vendedor"
+    },
+    "yzWmF8xVpuj9A22xHNPx" : {
+      "area" : "Limpeza",
+      "bairro" : "Jardim das Acacias",
+      "cargo" : "Auxiliar de Limpeza",
+      "description" : "Responsável por toda limpeza em estabelecimento comercial, escritório e fábrica",
+      "empresa" : "dengobrasil",
+      "empresaName" : "Dengo Brasil",
+      "imagem" : "Dengo.PNG",
+      "salario" : "A combinar",
+      "title" : "Auxiliar de Limpeza"
+    },
+    "zBVje2AZwVJ4M5qyp8Na" : {
+      "area" : "Engenharia",
+      "bairro" : "República",
+      "cargo" : "Efetivo - CLT",
+      "description" : "Trabalha no setor de desenvolvimento de produtos, de acordo com normas determinadas pela empresa; atua no desenvolvimento de trabalhos relativos a pesquisa e padronização de materiais e componentes, bem como, respectiva viabilidade quanto ao seu uso no projeto",
+      "empresa" : "designerservicos",
+      "empresaName" : "Designer Serviços",
+      "imagem" : "DesignerServicos.PNG",
+      "salario" : "A definir",
+      "title" : "Engenharia de Produção"
+    }
+  }
+}

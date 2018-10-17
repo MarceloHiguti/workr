@@ -201,6 +201,7 @@ export class LoginPage {
       .then(data => {
         console.log("got some data", data);
         this.global._displayName = 'google';
+        this.global._empresaName = 'Google';
         var parent = this; // variavel criada para poder acessar o navCtrl na próxima função
         var user = this.afAuth.auth.currentUser;
         var ref = this.db.database.ref("users/" + user.uid).once("value")
@@ -230,6 +231,7 @@ export class LoginPage {
       .then(data => {
         console.log("got some data", data);
         this.global._displayName = 'maua';
+        this.global._empresaName = 'Instituo Mauá de Tecnologia';
         var parent = this; // variavel criada para poder acessar o navCtrl na próxima função
         var user = this.afAuth.auth.currentUser;
         var ref = this.db.database.ref("users/" + user.uid).once("value")
