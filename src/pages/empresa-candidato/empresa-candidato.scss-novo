@@ -1,0 +1,94 @@
+page-empresa-candidato {
+    img {
+        border-radius: 10%;
+    }
+
+    .body_page {
+        // background-color: #E3F2FD;
+        background-color: rgb(245, 245, 245);
+    }
+
+    .card_desc {
+        border-top: 1px solid rgb(214, 214, 214);
+        // box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+        // border-radius: 6px;
+    }
+
+    .mensagem {
+        display: block;
+        position: absolute;
+        top: 40%;
+        left: 17%;
+    }
+    
+    .td_card {
+        // background-color: rgb(245, 245, 245);
+        display: block;
+        position: absolute;
+
+
+        // left: 50%;
+        // margin-bottom: 5%;
+        margin-left: 25%;
+        margin-top: 20%;
+        width: 45vw;
+        // height: 40vh;
+
+
+        // width: 85%;
+        // height: 40%;
+        
+        border: 1px solid #999;
+        box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+        border-radius: 6px;
+    }
+    
+    .td_card_vaga {
+        display: block;
+        position: absolute;
+        // margin-top: 5%;
+
+
+        // left: 50%;
+        // margin-bottom: 5%;
+        margin-left: 25%;
+        width: 45vw;
+        // height: 20vh;
+        
+        // width: 85%;
+        // height: 20%;
+        border: 1px solid #999;
+        box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+        border-radius: 6px;
+    }
+    
+    .td_button {
+        position: relative;
+        background-color: rgb(255, 255, 255);
+        // margin-top: 155%;
+        margin-top: 60vh;
+        // left: 50%;
+        // display: block;
+        // margin-bottom: 40px;
+        // margin-left: -150px;
+        // width: 300px;
+        // height: 300px;
+    }
+    
+    .close_icon {
+        color: rgb(228, 34, 34);
+    }
+    
+    .check_icon {
+        color: rgb(28, 114, 49);
+    }
+    
+    .card-md p {
+        margin-top: 5px;
+        font-size: 12px;
+    }
+
+    .cargo-icon {
+        color: #56595A
+    }
+}

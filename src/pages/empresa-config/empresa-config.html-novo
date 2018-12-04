@@ -1,0 +1,38 @@
+<ion-header>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card class="td_card">
+    <ion-card-header>
+      <img src="{{ empresa.imagem }}" class="image-style">
+    </ion-card-header>
+    <div class="card_desc">
+      <ion-card-content class="card_desc">
+        <ion-card-title style="font-weight: bold; font-size: 14px;">
+          {{ empresa.nome }}
+        </ion-card-title>
+        <p>
+          <ion-icon name="pin" class="pin-icon"></ion-icon>
+          {{ empresa.endereco }}
+        </p>
+      </ion-card-content>
+    </div>
+
+  </ion-card>
+
+  <div padding>
+    <button block ion-button (click)="editInfo()">Editar informações</button>
+  </div>
+
+  <div padding>
+    <button block ion-button (click)="filtro()">Escolher Filtros</button>
+  </div>
+
+  <div padding>
+    <button block ion-button (click)="logout()">Sair</button>
+  </div>
+
+  <img src="assets/imgs/logo_sem_fundo.png" class="imageCenter" class="bottom-image" style="height:150px; margin-left: 30%;">
+  <div class="center-text">Versão 1.0.0</div>
+</ion-content>

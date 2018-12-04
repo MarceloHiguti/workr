@@ -1,0 +1,12 @@
+
+<ion-content class="body_page">
+  <img src="assets/imgs/background_01.png" class="content_background">
+  <div class="content_page">
+    <img src="assets/imgs/logo_workr.png" style="height:100px; margin-left: 30%;">
+
+    <div class="topButtons">
+      <button ion-button (click)="signIn()" item-left>Entrar</button>
+      <button ion-button (click)="register()" item-left>Registrar</button>
+    </div>
+  </div>
+</ion-content>
